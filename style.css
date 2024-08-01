@@ -25,3 +25,56 @@
 .spin-btn-text {
   text-shadow: 0 9px 9px #000;
 }
+
+.number {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: bottom right;
+  transform: rotate(calc(22.5deg * var(--i)));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.number div {
+  transform: rotate(-135deg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.number div p {
+  font-family: 'Coiny';
+  font-size: 38px;
+  color: #fff;
+  line-height: 76%;
+  text-shadow: -6px 0px 8px #000;
+}
+
+.number div p {
+  position: relative;
+  bottom: -4px;
+}
+
+@media (max-width: 1650px) {
+  .number div img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .number div p {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 650px) {
+  .number div img {
+    width: 17px;
+    height: 17px;
+  }
+
+  .number div p {
+    font-size: 17px;
+  }
+}
