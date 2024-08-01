@@ -160,8 +160,6 @@ const spinBtn = document.querySelector(".spin-btn");
 const spinBtnText = document.querySelector(".spin-btn-text");
 const spinBtnLoader = document.querySelector(".spin-btn-loader");
 
-winSound.preload = "auto";
-
 spinBtn.addEventListener("click", () => {
   spinBtn.style.pointerEvents = "none";
   firstClick.play();
@@ -189,6 +187,9 @@ spinBtn.addEventListener("click", () => {
   setTimeout(() => {
     proccessSound.play();
   }, 500);
+  setTimeout(() => {
+    winSound.play();
+  }, 7800);
   buttonTl.pause();
   if (spinAmount === 2) return;
   let randomIndex = Math.floor(Math.random() * nums.length);
@@ -221,17 +222,7 @@ spinBtn.addEventListener("click", () => {
       gsap.set(".main-wheel", { rotate: currentRotation % 360 }); // Normalize the rotation to keep it within 0-360 degrees
       spinAmount++;
       buttonTl.play();
-      winSound
-        .play()
-        .then(() => {
-          // Audio played successfully
-          alert("Win sound played");
-        })
-        .catch((error) => {
-          // Handle the error, possibly due to autoplay restrictions
-          alert("Win sound failed to play:", error);
-          // Fallback: Provide some visual feedback or alternative sound
-        });
+
       if (spinAmount === 2) {
         buttonTl.kill();
         spinBtn.style.pointerEvents = "none";
@@ -243,11 +234,3 @@ spinBtn.addEventListener("click", () => {
     firstRotateTl.kill();
   }
 });
-
-winSound.addEventListener(
-  "canplaythrough",
-  () => {
-    console.log("Win sound is loaded and ready to play");
-  },
-  false,
-);
