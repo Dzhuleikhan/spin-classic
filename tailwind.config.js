@@ -6,6 +6,10 @@ module.exports = {
       extralg: { max: "1750px" },
       xl: { max: "1200px" },
       lg: { max: "992px" },
+      tbl: { max: "767px" },
+      medium: { max: "650px" },
+      mobile: { max: "576px" },
+      sm: { max: "480px" },
     },
     extend: {
       fontFamily: {

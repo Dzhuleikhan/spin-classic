@@ -20,7 +20,7 @@
       </header>
       <main>
         <div
-          class="relative flex h-screen min-h-[1080px] w-full items-center bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat extralg:min-h-[700px] lg:items-start lg:pt-[150px]"
+          class="medium:min-h-[800px] mobile:bg-[url(../img/page-bg-sm.png)] relative flex h-screen min-h-[1080px] w-full items-center bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat extralg:min-h-[700px] lg:items-start lg:pt-[150px]"
         >
           <img
             class="confetti absolute left-0 top-0 will-change-transform lg:hidden"
@@ -28,10 +28,10 @@
             alt="Confetti"
           />
           <div
-            class="mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center"
+            class="medium:px-3 mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center"
           >
             <img
-              class="player absolute bottom-0 left-[190px] z-[100] max-w-[838px] will-change-transform extralg:left-[80px] extralg:max-w-[600px] xl:-left-[50px] xl:max-w-[750px] lg:-bottom-[40%] lg:left-1/2 lg:z-[100] lg:min-w-[110%] lg:-translate-x-1/2 xl:landscape:max-w-[570px]"
+              class="player mobile:min-w-[80%] mobile:max-w-[580px] mobile:-bottom-[30%] tbl:left-1/2 absolute bottom-0 left-[190px] z-[100] max-w-[838px] will-change-transform extralg:left-[80px] extralg:max-w-[600px] xl:-left-[50px] xl:max-w-[750px] lg:-bottom-[40%] lg:left-0 lg:z-[100] lg:min-w-[110%] lg:-translate-x-1/2 xl:landscape:max-w-[570px]"
               src="./img/player.webp"
               alt="Football player"
             />
@@ -47,7 +47,7 @@
                 />
                 <!-- money portal -->
                 <div
-                  class="money-portal absolute bottom-0 left-1/2 z-[1] h-[1000px] w-1/2 -translate-x-1/2 overflow-hidden"
+                  class="money-portal medium:h-[500px] absolute bottom-0 left-1/2 z-[1] h-[1000px] w-1/2 -translate-x-1/2 overflow-hidden"
                 >
                   <div class="moneys">
                     <img
@@ -154,7 +154,7 @@
                   />
                   <!-- wheel inner -->
                   <div
-                    class="main-wheel absolute left-1/2 top-1/2 w-[91%] -translate-x-1/2 -translate-y-1/2 will-change-transform"
+                    class="main-wheel absolute w-[91%] will-change-transform"
                   >
                     <img
                       width="667"
@@ -171,18 +171,18 @@
                       class="spin-btn-text font-coiny uppercase will-change-transform"
                     >
                       <span
-                        class="block font-coiny text-[75px] leading-[97%] text-[#FFD84E] extralg:text-[55px]"
+                        class="medium:text-[39px] block font-coiny text-[75px] leading-[97%] text-[#FFD84E] extralg:text-[55px]"
                       >
                         tap
                       </span>
                       <span
-                        class="block font-coiny text-[35px] leading-[97%] text-white extralg:text-[24px]"
+                        class="medium:text-[18px] block font-coiny text-[35px] leading-[97%] text-white extralg:text-[24px]"
                       >
                         to spin
                       </span>
                     </p>
                     <img
-                      class="spin-btn-loader invisible absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0"
+                      class="spin-btn-loader medium:w-[50px] medium:h-[50px] invisible absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0"
                       width="80"
                       height="80"
                       src="./img/btn-loader-white.svg"
@@ -200,7 +200,7 @@
                 </div>
                 <!-- Podium -->
                 <img
-                  class="absolute -bottom-[90px] left-1/2 z-40 w-full -translate-x-1/2 drop-shadow-podiumShadow"
+                  class="mobile:-bottom-[50px] absolute -bottom-[90px] left-1/2 z-40 w-full -translate-x-1/2 drop-shadow-podiumShadow"
                   width="676"
                   height="157"
                   src="./img/podium.svg"
@@ -211,7 +211,7 @@
           </div>
           <!-- ball -->
           <img
-            class="ball pointer-events-none absolute -bottom-[300px] -left-[30px] z-[120] will-change-transform extralg:-bottom-[220px] extralg:max-w-[450px] lg:-bottom-[300px] lg:-left-[200px]"
+            class="ball mobile:max-w-[320px] mobile:-left-[100px] mobile:-bottom-[200px] pointer-events-none absolute -bottom-[300px] -left-[30px] z-[120] will-change-transform extralg:-bottom-[220px] extralg:max-w-[450px] lg:-bottom-[300px] lg:-left-[200px]"
             width="645"
             height="645"
             src="./img/ball.webp"

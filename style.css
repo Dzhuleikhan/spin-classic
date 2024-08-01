@@ -6,7 +6,7 @@
 
 @layer components {
   .dot {
-    @apply w-6 h-6 rounded-full bg-white absolute opacity-55
+    @apply w-6 h-6 rounded-full bg-white absolute opacity-55 mobile:w-3 mobile:h-3
   }
 }
 

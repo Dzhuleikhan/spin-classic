@@ -117,6 +117,14 @@ gsap.to(".dot-even", {
 });
 
 const firstRotateTl = gsap.timeline();
+
+gsap.set(".main-wheel", {
+  left: "50%",
+  top: "50%",
+  xPercent: -50,
+  yPercent: -50,
+});
+
 firstRotateTl.fromTo(
   ".main-wheel",
   { rotate: -3 },
