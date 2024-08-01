@@ -201,7 +201,16 @@ spinBtn.addEventListener("click", () => {
     delay: 0.5,
     duration: 7,
     onComplete: () => {
-      winSound.play();
+      winSound
+        .play()
+        .then(() => {
+          // Audio played successfully
+          alert("Win sound played");
+        })
+        .catch((error) => {
+          // Handle the error, possibly due to autoplay restrictions
+          alert("Win sound failed to play:", error);
+        });
       spinBtn.style.pointerEvents = "auto";
       gsap.to(spinBtnText, {
         scale: 1,
