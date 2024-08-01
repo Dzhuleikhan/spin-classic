@@ -3,6 +3,7 @@ import { CustomEase } from "gsap/all";
 gsap.registerPlugin(CustomEase);
 
 const moneyTl = gsap.timeline();
+let mm = gsap.matchMedia();
 
 moneyTl
   .fromTo(
@@ -82,6 +83,11 @@ gsap.fromTo(
   { x: -10 },
   { x: 10, ease: "none", yoyo: true, duration: 2, yoyo: true, repeat: -1 },
 );
+mm.add("(max-width: 576px)", () => {
+  // this setup code only runs when viewport is at least 800px wide
+  gsap.set(".player", { left: "50%", xPercent: -50 });
+});
+
 gsap.fromTo(
   ".ball",
   { x: 20 },
