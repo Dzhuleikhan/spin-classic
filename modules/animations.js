@@ -83,7 +83,7 @@ gsap.fromTo(
   { x: -10 },
   { x: 10, ease: "none", yoyo: true, duration: 2, yoyo: true, repeat: -1 },
 );
-mm.add("(max-width: 576px)", () => {
+mm.add("(max-width: 992px)", () => {
   // this setup code only runs when viewport is at least 800px wide
   gsap.set(".player", { left: "50%", xPercent: -50 });
 });
@@ -145,7 +145,7 @@ firstRotateTl.fromTo(
 );
 
 const nums = [
-  0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5,
+  22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5,
   315, 337.5, 360,
 ];
 
@@ -160,6 +160,7 @@ const spinBtnText = document.querySelector(".spin-btn-text");
 const spinBtnLoader = document.querySelector(".spin-btn-loader");
 
 spinBtn.addEventListener("click", () => {
+  if (spinAmount === 2) return;
   spinBtn.style.pointerEvents = "none";
   firstClick.play();
   gsap.to(spinBtnText, {
@@ -187,7 +188,6 @@ spinBtn.addEventListener("click", () => {
     proccessAndWin.play();
   }, 500);
   buttonTl.pause();
-  if (spinAmount === 2) return;
   let randomIndex = Math.floor(Math.random() * nums.length);
   let randomRotation = nums[randomIndex];
 
