@@ -15,6 +15,7 @@ module.exports = {
     extend: {
       fontFamily: {
         coiny: "Coiny",
+        roboto: "Roboto",
       },
       boxShadow: {},
       dropShadow: {

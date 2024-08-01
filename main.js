@@ -4,3 +4,5 @@ import "./modules/getLocation";
 import "./modules/setGeo";
 import "./modules/animations";
 import "./modules/settingData";
+import "./modules/spinning";
+import "./modules/modal";

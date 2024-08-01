@@ -1,9 +1,25 @@
-import { Power4, Circ, gsap, Power1, Power2 } from "gsap";
+import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 gsap.registerPlugin(CustomEase);
 
 const moneyTl = gsap.timeline();
 let mm = gsap.matchMedia();
+
+gsap.set(".star-odd", { opacity: 0.5 });
+gsap.to(".star-odd", {
+  opacity: 1,
+  duration: 0.5,
+  ease: "none",
+  repeat: -1,
+  yoyo: true,
+});
+gsap.to(".star-even", {
+  opacity: 0.5,
+  duration: 0.5,
+  ease: "none",
+  repeat: -1,
+  yoyo: true,
+});
 
 moneyTl
   .fromTo(
@@ -94,16 +110,6 @@ gsap.fromTo(
   { x: -20, ease: "none", yoyo: true, duration: 2, yoyo: true, repeat: -1 },
 );
 
-const buttonTl = gsap.timeline({ paused: false });
-buttonTl.to(".spin-btn-text", {
-  scale: 1.2,
-  rotate: 5,
-  ease: "none",
-  repeat: -1,
-  yoyo: true,
-  duration: 1,
-});
-
 gsap.to(".dot-odd", {
   opacity: 1,
   boxShadow: "0 0 10px 0 #fff",
@@ -120,113 +126,4 @@ gsap.to(".dot-even", {
   repeat: -1,
   yoyo: true,
   delay: 0.5,
-});
-
-const firstRotateTl = gsap.timeline();
-
-gsap.set(".main-wheel", {
-  left: "50%",
-  top: "50%",
-  xPercent: -50,
-  yPercent: -50,
-});
-
-firstRotateTl.fromTo(
-  ".main-wheel",
-  { rotate: -3 },
-  {
-    rotate: 3,
-    transformOrigin: "center center",
-    repeat: -1,
-    duration: 1.5,
-    yoyo: true,
-    ease: "none",
-  },
-);
-
-const nums = [
-  22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5,
-  315, 337.5, 360,
-];
-
-let currentRotation = 0;
-let spinAmount = 0;
-
-const firstClick = new Audio("./audio/first-click.mp3");
-const proccessAndWin = new Audio("./audio/proccess-and-win.mp3");
-
-const spinBtn = document.querySelector(".spin-btn");
-const spinBtnText = document.querySelector(".spin-btn-text");
-const spinBtnLoader = document.querySelector(".spin-btn-loader");
-
-spinBtn.addEventListener("click", () => {
-  if (spinAmount === 2) return;
-  spinBtn.style.pointerEvents = "none";
-  firstClick.play();
-  gsap.to(spinBtnText, {
-    scale: 0.2,
-    opacity: 0,
-    ease: "none",
-    duration: 0.5,
-  });
-  gsap.fromTo(
-    spinBtnLoader,
-    {
-      opacity: 0,
-      scale: 0,
-      visibility: "hidden",
-    },
-    {
-      opacity: 1,
-      scale: 1,
-      visibility: "visible",
-      duration: 0.5,
-      ease: "none",
-    },
-  );
-  setTimeout(() => {
-    proccessAndWin.play();
-  }, 500);
-  buttonTl.pause();
-  let randomIndex = Math.floor(Math.random() * nums.length);
-  let randomRotation = nums[randomIndex];
-
-  gsap.to(".main-wheel", {
-    rotate: currentRotation + 360 * 15 - randomRotation,
-    ease: CustomEase.create(
-      "custom",
-      "M0,0 C0.126,0.382 0.138,0.424 0.266,0.624 0.406,0.845 0.818,1.001 1,1 ",
-    ),
-    delay: 0.5,
-    duration: 7,
-    onComplete: () => {
-      spinBtn.style.pointerEvents = "auto";
-      gsap.to(spinBtnText, {
-        scale: 1,
-        opacity: 1,
-        ease: "none",
-        duration: 0.5,
-      });
-      gsap.to(spinBtnLoader, {
-        opacity: 0,
-        scale: 0,
-        visibility: "hidden",
-        duration: 0.5,
-        ease: "none",
-      });
-      currentRotation = currentRotation + 360 * 15 - randomRotation; // Update the current rotation position
-      gsap.set(".main-wheel", { rotate: currentRotation % 360 }); // Normalize the rotation to keep it within 0-360 degrees
-      spinAmount++;
-      buttonTl.play();
-
-      if (spinAmount === 2) {
-        buttonTl.kill();
-        spinBtn.style.pointerEvents = "none";
-      }
-    },
-  });
-
-  if (typeof firstRotateTl !== "undefined") {
-    firstRotateTl.kill();
-  }
 });

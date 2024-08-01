@@ -10,12 +10,12 @@
     <div
       class="wrapper h-full min-h-screen w-full min-w-[320px] overflow-hidden"
     >
-      <header class="xs:top-5 absolute top-[56px] z-50 w-full lg:top-8">
+      <header class="absolute top-[56px] z-50 w-full lg:top-8 xs:top-5">
         <div class="mx-auto max-w-[960px]">
           <div class="flex items-center gap-2 lg:justify-center">
             <img class="xs:max-w-[120px]" src="./img/logo.svg" alt="Goldbet" />
             <img
-              class="xs:w-6 xs:h-6 country-flag hidden"
+              class="country-flag hidden xs:h-6 xs:w-6"
               src="./img/bg.svg"
               alt="Belgium"
             />
@@ -24,66 +24,156 @@
       </header>
       <main>
         <div
-          class="medium:min-h-[800px] mobile:bg-[url(../img/page-bg-sm.png)] sm:pt-[120px] xs:pt-[100px] relative flex h-screen min-h-[1080px] w-full items-center bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat extralg:min-h-[700px] lg:items-start lg:pt-[150px] extralg:landscape:min-h-[800px] xl:landscape:min-h-[800px]"
+          class="relative flex h-screen min-h-[1080px] w-full items-center bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat extralg:min-h-[700px] lg:items-start lg:pt-[150px] medium:min-h-[800px] mobile:bg-[url(../img/page-bg-sm.webp)] sm:pt-[120px] xs:pt-[100px] extralg:landscape:min-h-[800px] xl:landscape:min-h-[800px]"
         >
           <img
-            class="confetti pointer-events-none absolute left-0 top-0 will-change-transform lg:hidden"
+            class="confetti absolute left-0 top-0 will-change-transform lg:hidden"
             src="./img/confetti.webp"
             alt="Confetti"
           />
           <div
-            class="medium:px-3 pointer-events-none mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center"
+            class="mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center medium:px-3"
           >
             <img
-              class="player xs:max-w-[450px] xs:-bottom-[0px] mobile:max-w-[500px] mobile:-bottom-[120px] tbl:left-1/2 mobile:left-1/2 absolute bottom-0 left-[190px] z-[100] max-w-[838px] will-change-transform extralg:left-[80px] extralg:max-w-[600px] xl:-left-[50px] xl:max-w-[750px] lg:-bottom-[40%] lg:left-0 lg:z-[100] lg:-translate-x-1/2 xl:landscape:max-w-[570px] lg:landscape:left-1/2"
+              class="player absolute bottom-0 left-[190px] z-[100] max-w-[838px] will-change-transform extralg:left-[80px] extralg:max-w-[600px] xl:-left-[50px] xl:max-w-[750px] lg:-bottom-[40%] lg:left-0 lg:z-[100] lg:-translate-x-1/2 tbl:left-1/2 mobile:-bottom-[120px] mobile:left-1/2 mobile:max-w-[500px] xs:-bottom-[0px] xs:max-w-[450px] xl:landscape:max-w-[570px] lg:landscape:left-1/2"
               src="./img/player.webp"
               alt="Football player"
             />
             <!-- spin big wrapper -->
             <div>
               <div class="relative flex max-w-[705px] items-center">
+                <!-- STARS -->
+                <!-- top left -->
+                <img
+                  class="star star-odd absolute left-[30px] top-[60px] h-[30px] w-[30px] -rotate-6 sm:left-0 sm:h-4 sm:w-4"
+                  width="30"
+                  height="30"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <img
+                  class="star star-even absolute -top-[25px] left-[30px] h-[55px] w-[55px] -rotate-[30deg] sm:left-2 sm:top-0 sm:h-7 sm:w-7"
+                  width="55"
+                  height="55"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <img
+                  class="star star-odd absolute -top-[35px] left-[100px] h-[55px] w-[55px] -rotate-[30deg] sm:left-[50px] sm:top-2 sm:h-7 sm:w-7"
+                  width="55"
+                  height="55"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <!-- top right -->
+                <img
+                  class="star star-even absolute -top-[40px] right-[50px] h-[30px] w-[30px] rotate-[15deg] sm:right-0 sm:top-0 sm:h-4 sm:w-4"
+                  width="30"
+                  height="30"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <img
+                  class="star star-odd absolute right-[20px] top-[20px] h-[55px] w-[55px] -rotate-3 sm:right-0 sm:top-8 sm:h-7 sm:w-7"
+                  width="55"
+                  height="55"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <img
+                  class="star star-even absolute -top-[20px] right-[100px] h-[55px] w-[55px] rotate-6 sm:right-[30px] sm:top-0 sm:h-7 sm:w-7"
+                  width="55"
+                  height="55"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <!-- bottom left -->
+                <img
+                  class="star star-odd absolute bottom-[60px] left-[30px] h-[30px] w-[30px] rotate-6 sm:left-0 sm:h-4 sm:w-4"
+                  width="30"
+                  height="30"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <img
+                  class="star star-even absolute -bottom-[25px] left-[50px] z-50 h-[55px] w-[55px] rotate-[30deg] sm:bottom-0 sm:left-5 sm:h-7 sm:w-7"
+                  width="55"
+                  height="55"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <img
+                  class="star star-odd absolute -bottom-[25px] left-[110px] z-[70] h-[74px] w-[74px] rotate-[30deg] sm:bottom-0 sm:left-12 sm:h-[38px] sm:w-[38px]"
+                  width="74"
+                  height="74"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <!-- bottom right -->
+                <img
+                  class="star star-even absolute bottom-[40px] right-0 z-[70] h-[55px] w-[55px] -rotate-12 sm:h-7 sm:w-7"
+                  width="55"
+                  height="55"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <img
+                  class="star star-odd absolute bottom-0 right-[50px] z-[70] h-[30px] w-[30px] -rotate-12 sm:right-5 sm:h-4 sm:w-4"
+                  width="30"
+                  height="30"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <img
+                  class="star star-even absolute -bottom-[40px] right-[100px] z-[70] h-[55px] w-[55px] -rotate-12 sm:-bottom-5 sm:right-[60px] sm:h-7 sm:w-7"
+                  width="55"
+                  height="55"
+                  src="./img/star.webp"
+                  alt="Star"
+                />
+                <!-- STARS END -->
                 <img
                   width="1526"
                   height="1526"
-                  class="rays pointer-events-none absolute left-1/2 z-[0] min-h-[200%] min-w-[200%] -translate-x-1/2 will-change-transform"
+                  class="rays absolute left-1/2 z-[0] min-h-[200%] min-w-[200%] -translate-x-1/2 will-change-transform"
                   src="./img/rays.webp"
                   alt="Rays"
                 />
                 <!-- money portal -->
                 <div
-                  class="money-portal medium:h-[700px] absolute bottom-0 left-1/2 z-[1] h-[1000px] w-1/2 -translate-x-1/2 overflow-hidden"
+                  class="money-portal absolute bottom-0 left-1/2 z-[1] h-[1000px] w-1/2 -translate-x-1/2 overflow-hidden medium:h-[700px]"
                 >
                   <div class="moneys">
                     <img
-                      class="dollar-pack pointer-events-none absolute right-0 top-0 z-[1] max-w-[54%] will-change-transform"
+                      class="dollar-pack absolute right-0 top-0 z-[1] max-w-[54%] will-change-transform"
                       width="193"
                       height="193"
                       src="./img/dollar-pack.webp"
                       alt="Dollar"
                     />
                     <img
-                      class="pound-pack pointer-events-none absolute left-0 top-[150px] z-[1] max-w-[46%] will-change-transform"
+                      class="pound-pack absolute left-0 top-[150px] z-[1] max-w-[46%] will-change-transform"
                       width="165"
                       height="165"
                       src="./img/pound-pack.webp"
                       alt="Pound"
                     />
                     <img
-                      class="earl-coin pointer-events-none absolute right-0 top-[250px] z-[2] max-w-[49%] will-change-transform"
+                      class="earl-coin absolute right-0 top-[250px] z-[2] max-w-[49%] will-change-transform"
                       width="176"
                       height="176"
                       src="./img/coin.webp"
                       alt="coin"
                     />
                     <img
-                      class="euro-pack pointer-events-none absolute left-1/2 top-[355px] z-[1] max-w-[56%] -translate-x-1/2 will-change-transform"
+                      class="euro-pack absolute left-1/2 top-[355px] z-[1] max-w-[56%] -translate-x-1/2 will-change-transform"
                       width="197"
                       height="197"
                       src="./img/euro-pack.webp"
                       alt="Euro"
                     />
                     <img
-                      class="yuan-pack pointer-events-none absolute left-0 top-[480px] z-[1] max-w-[54%] will-change-transform"
+                      class="yuan-pack absolute left-0 top-[480px] z-[1] max-w-[54%] will-change-transform"
                       width="192"
                       height="192"
                       src="./img/yuan-pack.webp"
@@ -369,7 +459,6 @@
                       </div>
                     </div>
                     <img
-                      class="pointer-events-none"
                       width="667"
                       height="667"
                       src="./img/wheel.webp"
@@ -384,18 +473,18 @@
                       class="spin-btn-text font-coiny uppercase will-change-transform"
                     >
                       <span
-                        class="medium:text-[39px] xs:text-[36px] block font-coiny text-[75px] leading-[97%] text-[#FFD84E] extralg:text-[55px]"
+                        class="block font-coiny text-[75px] leading-[97%] text-[#FFD84E] extralg:text-[55px] medium:text-[39px] xs:text-[36px]"
                       >
                         tap
                       </span>
                       <span
-                        class="medium:text-[18px] xs:text-base block font-coiny text-[35px] leading-[97%] text-white extralg:text-[24px]"
+                        class="block font-coiny text-[35px] leading-[97%] text-white extralg:text-[24px] medium:text-[18px] xs:text-base"
                       >
                         to spin
                       </span>
                     </p>
                     <img
-                      class="spin-btn-loader medium:w-[50px] medium:h-[50px] pointer-events-none invisible absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0"
+                      class="spin-btn-loader invisible absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 medium:h-[50px] medium:w-[50px]"
                       width="80"
                       height="80"
                       src="./img/btn-loader-white.svg"
@@ -404,7 +493,7 @@
                   </button>
                   <!-- mirror -->
                   <img
-                    class="pointer-events-none absolute right-[3%] top-[5%] z-20 w-[45%]"
+                    class="absolute right-[3%] top-[5%] z-20 w-[45%]"
                     width="304"
                     height="292"
                     src="./img/prize-mirror.webp"
@@ -413,7 +502,7 @@
                 </div>
                 <!-- Podium -->
                 <img
-                  class="mobile:-bottom-[50px] pointer-events-none absolute -bottom-[90px] left-1/2 z-40 w-full -translate-x-1/2 drop-shadow-podiumShadow"
+                  class="absolute -bottom-[90px] left-1/2 z-40 w-full -translate-x-1/2 drop-shadow-podiumShadow mobile:-bottom-[50px]"
                   width="676"
                   height="157"
                   src="./img/podium.svg"
@@ -424,7 +513,7 @@
           </div>
           <!-- ball -->
           <img
-            class="ball mobile:max-w-[320px] xs:-left-[150px] xs:bottom-0 mobile:-left-[100px] mobile:-bottom-[200px] pointer-events-none absolute -bottom-[300px] -left-[30px] z-[120] will-change-transform extralg:-bottom-[220px] extralg:max-w-[450px] lg:-bottom-[300px] lg:-left-[200px]"
+            class="ball absolute -bottom-[300px] -left-[30px] z-[120] will-change-transform extralg:-bottom-[220px] extralg:max-w-[450px] lg:-bottom-[300px] lg:-left-[200px] mobile:-bottom-[200px] mobile:-left-[100px] mobile:max-w-[320px] xs:-left-[150px] xs:bottom-0"
             width="645"
             height="645"
             src="./img/ball.webp"
@@ -432,6 +521,74 @@
           />
         </div>
       </main>
+    </div>
+    <div
+      class="overlay fixed left-0 top-0 z-[400] hidden h-full w-full place-items-center bg-black/30 p-5 backdrop-blur-[5px] xs:p-3"
+    >
+      <div
+        class="modal relative z-20 flex flex-col items-center gap-5 rounded-[29px] px-[27px] py-[29px] xs:w-full xs:px-4"
+      >
+        <div class="modal-head space-y-[10px] text-center sm:space-y-2">
+          <p
+            class="text-[29px] font-bold leading-[133%] text-white sm:text-[24px]"
+          >
+            Congratulations!
+          </p>
+          <span class="font-roboto text-[24px] text-white sm:text-xl"
+            >Your prize is:</span
+          >
+        </div>
+        <div
+          class="modal-prize flex w-full items-center justify-center gap-4 rounded-[17px] bg-[#21371b] p-6 sm:gap-3"
+        >
+          <span
+            class="relative -bottom-[10px] font-coiny text-[78px] leading-none sm:text-[64px] xs:-bottom-1 xs:text-[48px]"
+            >12.50</span
+          >
+          <img
+            class="modal-currency shrink-0 sm:h-[64px] sm:w-[64px] xs:h-12 xs:w-12"
+            width="78"
+            height="78"
+            src="./img/usd.svg"
+            alt="USD"
+          />
+        </div>
+        <button
+          class="modal-btn font-roboto rounded-[13px] border-[3.65px] border-[#380808] p-3 px-[38px] text-center text-[31px] font-bold uppercase text-white sm:px-8 sm:py-[13px] sm:text-[26px]"
+        >
+          Claim Prize
+        </button>
+        <!-- coins -->
+        <img
+          class="pointer-events-none absolute -bottom-[88px] -left-[57px] sm:-bottom-[65px] sm:-left-[45px] sm:max-w-[300px]"
+          width="367"
+          height="367"
+          src="./img/modal-coins-left.webp"
+          alt="Coins"
+        />
+        <img
+          class="pointer-events-none absolute -right-6 -top-5 sm:-top-3 sm:max-w-[75px]"
+          width="89"
+          height="229"
+          src="./img/modal-coins-right.webp"
+          alt="Coins"
+        />
+        <img
+          class="pointer-events-none absolute -top-[210px] left-1/2 -translate-x-1/2 sm:-top-[170px] sm:max-w-[292px] xs:-top-[120px] xs:max-w-[220px]"
+          width="355"
+          height="266"
+          src="./img/modal-cup.webp"
+          alt="Cup"
+        />
+      </div>
+      <!-- rays -->
+      <img
+        width="788"
+        height="788"
+        class="modal-rays pointer-events-none absolute z-10 will-change-transform medium:h-[620px] medium:w-[620px]"
+        src="./img/rays.webp"
+        alt="Rays"
+      />
     </div>
     <script type="module" src="/main.js"></script>
   </body>

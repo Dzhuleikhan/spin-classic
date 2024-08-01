@@ -4,8 +4,8 @@ import { settingGeoLocation } from "./setGeo";
 
 const wheelCurrency = document.querySelectorAll(".wheel-currency");
 
-function setCurrency(icon) {
-  const currency = wheelCurrency;
+function setCurrency(icon, className) {
+  const currency = document.querySelectorAll(`.${className}`);
   currency.forEach((cur) => {
     let currencyImg = cur;
     currencyImg.setAttribute("src", icon);
@@ -26,7 +26,8 @@ async function settingWheelCurrency() {
     const countryInput = locationData.country;
     const currencyIcon = getCountryCurrencyIcon(countryInput);
 
-    setCurrency(currencyIcon);
+    setCurrency(currencyIcon, "wheel-currency");
+    setCurrency(currencyIcon, "modal-currency");
     showCurrencyImage(currencyIcon);
 
     // Setting geo
