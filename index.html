@@ -10,17 +10,17 @@
     <div
       class="wrapper h-full min-h-screen w-full min-w-[320px] overflow-hidden"
     >
-      <header class="absolute top-[56px] z-50 w-full lg:top-8">
+      <header class="xs:top-5 absolute top-[56px] z-50 w-full lg:top-8">
         <div class="mx-auto max-w-[960px]">
           <div class="flex items-center gap-2 lg:justify-center">
-            <img src="./img/logo.svg" alt="Goldbet" />
-            <img src="./img/bg.svg" alt="Belgium" />
+            <img class="xs:max-w-[120px]" src="./img/logo.svg" alt="Goldbet" />
+            <img class="xs:w-6 xs:h-6" src="./img/bg.svg" alt="Belgium" />
           </div>
         </div>
       </header>
       <main>
         <div
-          class="medium:min-h-[800px] mobile:bg-[url(../img/page-bg-sm.png)] relative flex h-screen min-h-[1080px] w-full items-center bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat extralg:min-h-[700px] lg:items-start lg:pt-[150px]"
+          class="medium:min-h-[800px] mobile:bg-[url(../img/page-bg-sm.png)] xs:pt-[100px] relative flex h-screen min-h-[1080px] w-full items-center bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat extralg:min-h-[700px] lg:items-start lg:pt-[150px] extralg:landscape:min-h-[800px] xl:landscape:min-h-[1080px]"
         >
           <img
             class="confetti absolute left-0 top-0 will-change-transform lg:hidden"
@@ -31,7 +31,7 @@
             class="medium:px-3 mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center"
           >
             <img
-              class="player mobile:min-w-[80%] mobile:max-w-[580px] mobile:-bottom-[30%] tbl:left-1/2 absolute bottom-0 left-[190px] z-[100] max-w-[838px] will-change-transform extralg:left-[80px] extralg:max-w-[600px] xl:-left-[50px] xl:max-w-[750px] lg:-bottom-[40%] lg:left-0 lg:z-[100] lg:min-w-[110%] lg:-translate-x-1/2 xl:landscape:max-w-[570px]"
+              class="player mobile:min-w-[80%] xs:max-w-[500px] xs:-bottom-[6%] mobile:max-w-[580px] mobile:-bottom-[30%] tbl:left-1/2 absolute bottom-0 left-[190px] z-[100] max-w-[838px] will-change-transform extralg:left-[80px] extralg:max-w-[600px] xl:-left-[50px] xl:max-w-[750px] lg:-bottom-[40%] lg:left-0 lg:z-[100] lg:min-w-[110%] lg:-translate-x-1/2 xl:landscape:max-w-[570px] lg:landscape:left-1/2"
               src="./img/player.webp"
               alt="Football player"
             />
@@ -47,7 +47,7 @@
                 />
                 <!-- money portal -->
                 <div
-                  class="money-portal medium:h-[500px] absolute bottom-0 left-1/2 z-[1] h-[1000px] w-1/2 -translate-x-1/2 overflow-hidden"
+                  class="money-portal medium:h-[700px] absolute bottom-0 left-1/2 z-[1] h-[1000px] w-1/2 -translate-x-1/2 overflow-hidden"
                 >
                   <div class="moneys">
                     <img
@@ -171,12 +171,12 @@
                       class="spin-btn-text font-coiny uppercase will-change-transform"
                     >
                       <span
-                        class="medium:text-[39px] block font-coiny text-[75px] leading-[97%] text-[#FFD84E] extralg:text-[55px]"
+                        class="medium:text-[39px] xs:text-[36px] block font-coiny text-[75px] leading-[97%] text-[#FFD84E] extralg:text-[55px]"
                       >
                         tap
                       </span>
                       <span
-                        class="medium:text-[18px] block font-coiny text-[35px] leading-[97%] text-white extralg:text-[24px]"
+                        class="medium:text-[18px] xs:text-base block font-coiny text-[35px] leading-[97%] text-white extralg:text-[24px]"
                       >
                         to spin
                       </span>
@@ -211,7 +211,7 @@
           </div>
           <!-- ball -->
           <img
-            class="ball mobile:max-w-[320px] mobile:-left-[100px] mobile:-bottom-[200px] pointer-events-none absolute -bottom-[300px] -left-[30px] z-[120] will-change-transform extralg:-bottom-[220px] extralg:max-w-[450px] lg:-bottom-[300px] lg:-left-[200px]"
+            class="ball mobile:max-w-[320px] xs:-left-[150px] xs:bottom-0 mobile:-left-[100px] mobile:-bottom-[200px] pointer-events-none absolute -bottom-[300px] -left-[30px] z-[120] will-change-transform extralg:-bottom-[220px] extralg:max-w-[450px] lg:-bottom-[300px] lg:-left-[200px]"
             width="645"
             height="645"
             src="./img/ball.webp"

@@ -10,6 +10,7 @@ module.exports = {
       medium: { max: "650px" },
       mobile: { max: "576px" },
       sm: { max: "480px" },
+      xs: { max: "360px" },
     },
     extend: {
       fontFamily: {
