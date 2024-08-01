@@ -50,11 +50,12 @@
   color: #fff;
   line-height: 76%;
   text-shadow: -6px 0px 8px #000;
-}
-
-.number div p {
   position: relative;
   bottom: -4px;
+}
+
+.number div img {
+  opacity: 0;
 }
 
 @media (max-width: 1650px) {
