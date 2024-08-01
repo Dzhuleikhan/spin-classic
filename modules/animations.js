@@ -201,16 +201,6 @@ spinBtn.addEventListener("click", () => {
     delay: 0.5,
     duration: 7,
     onComplete: () => {
-      winSound
-        .play()
-        .then(() => {
-          // Audio played successfully
-          alert("Win sound played");
-        })
-        .catch((error) => {
-          // Handle the error, possibly due to autoplay restrictions
-          alert("Win sound failed to play:", error);
-        });
       spinBtn.style.pointerEvents = "auto";
       gsap.to(spinBtnText, {
         scale: 1,
@@ -229,6 +219,7 @@ spinBtn.addEventListener("click", () => {
       gsap.set(".main-wheel", { rotate: currentRotation % 360 }); // Normalize the rotation to keep it within 0-360 degrees
       spinAmount++;
       buttonTl.play();
+      winSound.play();
       if (spinAmount === 2) {
         buttonTl.kill();
         spinBtn.style.pointerEvents = "none";
