@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body class="overscroll-none">
+    <div
+      class="wrapper h-full min-h-screen w-full min-w-[320px] overflow-hidden"
+    >
+      <header class="absolute top-[56px] z-50 w-full lg:top-8">
+        <div class="mx-auto max-w-[960px]">
+          <div class="flex items-center gap-2 lg:justify-center">
+            <img src="./img/logo.svg" alt="Goldbet" />
+            <img src="./img/bg.svg" alt="Belgium" />
+          </div>
+        </div>
+      </header>
+      <main>
+        <div
+          class="relative flex h-screen min-h-[1080px] w-full items-center bg-[url('../img/page-bg.png')] bg-cover bg-center bg-no-repeat extralg:min-h-[700px] lg:items-start lg:pt-[150px]"
+        >
+          <img
+            class="confetti absolute left-0 top-0 will-change-transform lg:hidden"
+            src="./img/confetti.png"
+            alt="Confetti"
+          />
+          <div
+            class="mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center"
+          >
+            <img
+              class="player absolute bottom-0 left-[190px] z-[100] max-w-[838px] will-change-transform extralg:left-[80px] extralg:max-w-[600px] xl:-left-[50px] xl:max-w-[750px] lg:-bottom-[40%] lg:left-1/2 lg:z-[100] lg:min-w-[110%] lg:-translate-x-1/2"
+              src="./img/player.png"
+              alt="Football player"
+            />
+            <!-- spin big wrapper -->
+            <div>
+              <div class="relative flex max-w-[705px] items-center">
+                <img
+                  width="1526"
+                  height="1526"
+                  class="rays absolute left-1/2 z-[0] min-h-[200%] min-w-[200%] -translate-x-1/2 will-change-transform"
+                  src="./img/rays.png"
+                  alt="Rays"
+                />
+                <!-- money portal -->
+                <div
+                  class="money-portal absolute bottom-0 left-1/2 z-[1] h-[1000px] w-1/2 -translate-x-1/2 overflow-hidden"
+                >
+                  <div class="moneys">
+                    <img
+                      class="dollar-pack absolute right-0 top-0 z-[1] max-w-[54%] will-change-transform"
+                      width="193"
+                      height="193"
+                      src="./img/dollar-pack.png"
+                      alt="Dollar"
+                    />
+                    <img
+                      class="pound-pack absolute left-0 top-[150px] z-[1] max-w-[46%] will-change-transform"
+                      width="165"
+                      height="165"
+                      src="./img/pound-pack.png"
+                      alt="Pound"
+                    />
+                    <img
+                      class="earl-coin absolute right-0 top-[250px] z-[2] max-w-[49%] will-change-transform"
+                      width="176"
+                      height="176"
+                      src="./img/coin.png"
+                      alt="coin"
+                    />
+                    <img
+                      class="euro-pack absolute left-1/2 top-[355px] z-[1] max-w-[56%] -translate-x-1/2 will-change-transform"
+                      width="197"
+                      height="197"
+                      src="./img/euro-pack.png"
+                      alt="Euro"
+                    />
+                    <img
+                      class="yuan-pack absolute left-0 top-[480px] z-[1] max-w-[54%] will-change-transform"
+                      width="192"
+                      height="192"
+                      src="./img/yuan-pack.png"
+                      alt="yuan"
+                    />
+                  </div>
+                </div>
+                <!-- Wheel -->
+                <div
+                  class="relative z-50 h-full w-full max-w-[705px] rounded-full extralg:max-w-[550px]"
+                >
+                  <!-- dots -->
+                  <div class="absolute z-[3] h-full w-full">
+                    <!-- top right -->
+                    <div
+                      class="dot dot-odd absolute left-1/2 top-[0] -translate-x-1/2"
+                    ></div>
+                    <div
+                      class="dot dot-even absolute right-[29.5%] top-[4%]"
+                    ></div>
+                    <div
+                      class="dot dot-odd absolute right-[14.5%] top-[14.5%]"
+                    ></div>
+                    <div
+                      class="dot dot-even absolute right-[4%] top-[29.5%]"
+                    ></div>
+                    <div
+                      class="dot dot-odd absolute right-0 top-1/2 -translate-y-1/2"
+                    ></div>
+                    <!-- right bottom -->
+                    <div
+                      class="dot dot-even absolute bottom-[29.5%] right-[4%]"
+                    ></div>
+                    <div
+                      class="dot dot-odd absolute bottom-[14.5%] right-[14.5%]"
+                    ></div>
+                    <div
+                      class="dot dot-even absolute bottom-[4%] right-[29.5%]"
+                    ></div>
+                    <div
+                      class="dot dot-odd absolute bottom-[0] left-1/2 -translate-x-1/2"
+                    ></div>
+                    <!-- left bottom -->
+                    <div
+                      class="dot dot-even absolute bottom-[29.5%] left-[4%]"
+                    ></div>
+                    <div
+                      class="dot dot-odd absolute bottom-[14.5%] left-[14.5%]"
+                    ></div>
+                    <div
+                      class="dot dot-even absolute bottom-[4%] left-[29.5%]"
+                    ></div>
+                    <div
+                      class="dot dot-odd absolute left-0 top-1/2 -translate-y-1/2"
+                    ></div>
+                    <!-- top left -->
+                    <div
+                      class="dot dot-even absolute left-[29.5%] top-[4%]"
+                    ></div>
+                    <div
+                      class="dot dot-odd absolute left-[14.5%] top-[14.5%]"
+                    ></div>
+                    <div
+                      class="dot dot-even absolute left-[4%] top-[29.5%]"
+                    ></div>
+                  </div>
+                  <img
+                    width="705"
+                    height="705"
+                    src="./img/wheel-round.png"
+                    alt="Wheel wrapper"
+                  />
+                  <!-- wheel inner -->
+                  <div
+                    class="main-wheel absolute left-1/2 top-1/2 w-[91%] -translate-x-1/2 -translate-y-1/2 will-change-transform"
+                  >
+                    <img
+                      width="667"
+                      height="667"
+                      src="./img/wheel.png"
+                      alt="Wheel"
+                    />
+                  </div>
+                  <!-- Spin button -->
+                  <button
+                    class="spin-btn absolute left-1/2 top-1/2 z-[25] h-[31%] w-[31%] -translate-x-1/2 -translate-y-1/2 bg-[url('../img/spin-btn-bg.png')] bg-contain bg-center bg-no-repeat"
+                  >
+                    <p
+                      class="spin-btn-text font-coiny uppercase will-change-transform"
+                    >
+                      <span
+                        class="block font-coiny text-[75px] leading-[97%] text-[#FFD84E] extralg:text-[55px]"
+                      >
+                        tap
+                      </span>
+                      <span
+                        class="block font-coiny text-[35px] leading-[97%] text-white extralg:text-[24px]"
+                      >
+                        to spin
+                      </span>
+                    </p>
+                  </button>
+                  <!-- mirror -->
+                  <img
+                    class="absolute right-[3%] top-[5%] z-20 w-[45%]"
+                    width="304"
+                    height="292"
+                    src="./img/prize-mirror.png"
+                    alt="Mirrow"
+                  />
+                </div>
+                <!-- Podium -->
+                <img
+                  class="absolute -bottom-[90px] left-1/2 z-40 w-full -translate-x-1/2 drop-shadow-podiumShadow"
+                  width="676"
+                  height="157"
+                  src="./img/podium.svg"
+                  alt="Podium"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- ball -->
+          <img
+            class="ball pointer-events-none absolute -bottom-[300px] -left-[30px] z-[120] will-change-transform extralg:-bottom-[220px] extralg:max-w-[450px] lg:-bottom-[300px] lg:-left-[200px]"
+            width="645"
+            height="645"
+            src="./img/ball.png"
+            alt="Ball"
+          />
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
