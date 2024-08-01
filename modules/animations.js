@@ -77,11 +77,16 @@ gsap.to(".rays", {
  * Cursor animation
  */
 
-window.addEventListener("mousemove", (e) => {
-  gsap.to(".player", { x: -e.clientX / 100 });
-  gsap.to(".ball", { x: e.clientX / 50 });
-  gsap.to(".confetti", { x: e.clientX / 200 });
-});
+gsap.fromTo(
+  ".player",
+  { x: -10 },
+  { x: 10, ease: "none", yoyo: true, duration: 2, yoyo: true, repeat: -1 },
+);
+gsap.fromTo(
+  ".ball",
+  { x: 20 },
+  { x: -20, ease: "none", yoyo: true, duration: 2, yoyo: true, repeat: -1 },
+);
 
 const buttonTl = gsap.timeline({ paused: false });
 buttonTl.to(".spin-btn-text", {
@@ -137,10 +142,16 @@ const firstClick = new Audio("./audio/first-click.mp3");
 const proccessSound = new Audio("./audio/proccess.mp3");
 const winSound = new Audio("./audio/win.mp3");
 
-document.querySelector(".spin-btn").addEventListener("click", () => {
+const spinBtn = document.querySelector(".spin-btn");
+const spinBtnText = document.querySelector(".spin-btn-text");
+const spinBtnLoader = document.querySelector(".spin-btn-loader");
+
+spinBtn.addEventListener("click", () => {
   firstClick.play();
   setTimeout(() => {
     proccessSound.play();
+    spinBtnText.classList.add("hidden");
+    spinBtnLoader.classList.remove("hidden");
   }, 500);
   buttonTl.pause();
   if (spinAmount === 2) return;
@@ -156,6 +167,8 @@ document.querySelector(".spin-btn").addEventListener("click", () => {
     delay: 0.5,
     duration: 7,
     onComplete: () => {
+      spinBtnText.classList.remove("hidden");
+      spinBtnLoader.classList.add("hidden");
       winSound.play();
       currentRotation = currentRotation + 360 * 15 - randomRotation; // Update the current rotation position
       gsap.set(".main-wheel", { rotate: currentRotation % 360 }); // Normalize the rotation to keep it within 0-360 degrees
@@ -163,7 +176,7 @@ document.querySelector(".spin-btn").addEventListener("click", () => {
       buttonTl.play();
       if (spinAmount === 2) {
         buttonTl.kill();
-        document.querySelector(".spin-btn").style.pointerEvents = "none";
+        spinBtn.style.pointerEvents = "none";
       }
     },
   });

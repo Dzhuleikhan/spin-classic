@@ -165,7 +165,7 @@
                   </div>
                   <!-- Spin button -->
                   <button
-                    class="spin-btn absolute left-1/2 top-1/2 z-[25] h-[31%] w-[31%] -translate-x-1/2 -translate-y-1/2 bg-[url('../img/spin-btn-bg.webp')] bg-contain bg-center bg-no-repeat"
+                    class="spin-btn absolute left-1/2 top-1/2 z-[25] flex h-[31%] w-[31%] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[url('../img/spin-btn-bg.webp')] bg-contain bg-center bg-no-repeat"
                   >
                     <p
                       class="spin-btn-text font-coiny uppercase will-change-transform"
@@ -181,6 +181,13 @@
                         to spin
                       </span>
                     </p>
+                    <img
+                      class="spin-btn-loader hidden"
+                      width="80"
+                      height="80"
+                      src="./img/btn-loader-white.svg"
+                      alt="Loader"
+                    />
                   </button>
                   <!-- mirror -->
                   <img
