@@ -147,11 +147,31 @@ const spinBtnText = document.querySelector(".spin-btn-text");
 const spinBtnLoader = document.querySelector(".spin-btn-loader");
 
 spinBtn.addEventListener("click", () => {
+  spinBtn.style.pointerEvents = "none";
   firstClick.play();
+  gsap.to(spinBtnText, {
+    scale: 0.2,
+    opacity: 0,
+    ease: "none",
+    duration: 0.5,
+  });
+  gsap.fromTo(
+    spinBtnLoader,
+    {
+      opacity: 0,
+      scale: 0,
+      visibility: "hidden",
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      visibility: "visible",
+      duration: 0.5,
+      ease: "none",
+    },
+  );
   setTimeout(() => {
     proccessSound.play();
-    spinBtnText.classList.add("hidden");
-    spinBtnLoader.classList.remove("hidden");
   }, 500);
   buttonTl.pause();
   if (spinAmount === 2) return;
@@ -167,8 +187,20 @@ spinBtn.addEventListener("click", () => {
     delay: 0.5,
     duration: 7,
     onComplete: () => {
-      spinBtnText.classList.remove("hidden");
-      spinBtnLoader.classList.add("hidden");
+      spinBtn.style.pointerEvents = "auto";
+      gsap.to(spinBtnText, {
+        scale: 1,
+        opacity: 1,
+        ease: "none",
+        duration: 0.5,
+      });
+      gsap.to(spinBtnLoader, {
+        opacity: 0,
+        scale: 0,
+        visibility: "hidden",
+        duration: 0.5,
+        ease: "none",
+      });
       winSound.play();
       currentRotation = currentRotation + 360 * 15 - randomRotation; // Update the current rotation position
       gsap.set(".main-wheel", { rotate: currentRotation % 360 }); // Normalize the rotation to keep it within 0-360 degrees
