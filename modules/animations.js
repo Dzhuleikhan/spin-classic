@@ -163,7 +163,6 @@ const spinBtnLoader = document.querySelector(".spin-btn-loader");
 spinBtn.addEventListener("click", () => {
   spinBtn.style.pointerEvents = "none";
   firstClick.play();
-  proccessSound.play();
   gsap.to(spinBtnText, {
     scale: 0.2,
     opacity: 0,
@@ -186,8 +185,8 @@ spinBtn.addEventListener("click", () => {
     },
   );
   setTimeout(() => {
-    winSound.play();
-  }, 8000);
+    proccessSound.play();
+  }, 500);
   buttonTl.pause();
   if (spinAmount === 2) return;
   let randomIndex = Math.floor(Math.random() * nums.length);
