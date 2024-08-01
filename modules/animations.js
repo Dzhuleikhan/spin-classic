@@ -201,6 +201,7 @@ spinBtn.addEventListener("click", () => {
     delay: 0.5,
     duration: 7,
     onComplete: () => {
+      winSound.play();
       spinBtn.style.pointerEvents = "auto";
       gsap.to(spinBtnText, {
         scale: 1,
@@ -215,7 +216,6 @@ spinBtn.addEventListener("click", () => {
         duration: 0.5,
         ease: "none",
       });
-      winSound.play();
       currentRotation = currentRotation + 360 * 15 - randomRotation; // Update the current rotation position
       gsap.set(".main-wheel", { rotate: currentRotation % 360 }); // Normalize the rotation to keep it within 0-360 degrees
       spinAmount++;
