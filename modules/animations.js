@@ -153,8 +153,7 @@ let currentRotation = 0;
 let spinAmount = 0;
 
 const firstClick = new Audio("./audio/first-click.mp3");
-const proccessSound = new Audio("./audio/proccess.mp3");
-const winSound = new Audio("./audio/win.mp3");
+const proccessAndWin = new Audio("./audio/proccess-and-win.mp3");
 
 const spinBtn = document.querySelector(".spin-btn");
 const spinBtnText = document.querySelector(".spin-btn-text");
@@ -185,7 +184,7 @@ spinBtn.addEventListener("click", () => {
     },
   );
   setTimeout(() => {
-    proccessSound.play();
+    proccessAndWin.play();
   }, 500);
   buttonTl.pause();
   if (spinAmount === 2) return;
