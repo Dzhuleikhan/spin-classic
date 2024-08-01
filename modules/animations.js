@@ -163,6 +163,7 @@ document.querySelector(".spin-btn").addEventListener("click", () => {
       buttonTl.play();
       if (spinAmount === 2) {
         buttonTl.kill();
+        document.querySelector(".spin-btn").style.pointerEvents = "none";
       }
     },
   });
