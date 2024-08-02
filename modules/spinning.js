@@ -41,6 +41,7 @@ firstRotateTl.fromTo(
 
 const firstClick = new Audio("./audio/first-click.mp3");
 const proccessAndWin = new Audio("./audio/proccess-and-win.mp3");
+const proccessAndLose = new Audio("./audio/proccess-and-lose.mp3");
 
 const spinBtn = document.querySelector(".spin-btn");
 const spinBtnText = document.querySelector(".spin-btn-text");
@@ -73,7 +74,7 @@ spinBtn.addEventListener("click", () => {
     },
   );
   setTimeout(() => {
-    proccessAndWin.play();
+    proccessAndLose.play();
   }, 500);
   buttonTl.pause();
   gsap.to(".main-wheel", {
