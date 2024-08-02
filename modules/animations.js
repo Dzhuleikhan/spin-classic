@@ -127,3 +127,43 @@ gsap.to(".dot-even", {
   yoyo: true,
   delay: 0.5,
 });
+
+gsap.fromTo(
+  ".modal-coin-odd",
+  { rotate: -7 },
+  {
+    rotate: 7,
+    ease: "none",
+    yoyo: true,
+    repeat: -1,
+    duration: 1,
+    transformOrigin: "center center",
+  },
+);
+
+gsap.fromTo(
+  ".modal-coin-even",
+  { rotate: 7 },
+  {
+    rotate: -7,
+    ease: "none",
+    yoyo: true,
+    repeat: -1,
+    duration: 1,
+    transformOrigin: "center center",
+  },
+);
+gsap.set(".modal-cup", { left: "50%", xPercent: -50 });
+gsap.fromTo(
+  ".modal-cup",
+  { scale: 1, rotate: -2 },
+  {
+    rotate: 2,
+    scale: 1.05,
+    ease: "none",
+    yoyo: true,
+    repeat: -1,
+    duration: 1,
+    transformOrigin: "center center",
+  },
+);
