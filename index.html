@@ -252,14 +252,14 @@
                   >
                     <div style="--i: 1" class="number">
                       <div>
-                        <p>2.50</p>
+                        <p></p>
                         <span
                           ><img
+                            class="wheel-lose"
                             width="38"
                             height="38"
-                            class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/lose-icon.svg"
+                            alt="Lose"
                         /></span>
                       </div>
                     </div>
@@ -278,14 +278,14 @@
                     </div>
                     <div style="--i: 3" class="number">
                       <div>
-                        <p>250</p>
+                        <p></p>
                         <span
                           ><img
+                            class="wheel-lose"
                             width="38"
                             height="38"
-                            class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/lose-icon.svg"
+                            alt="Lose"
                         /></span>
                       </div>
                     </div>
@@ -304,14 +304,14 @@
                     </div>
                     <div style="--i: 5" class="number">
                       <div>
-                        <p>1,000</p>
+                        <p></p>
                         <span
                           ><img
+                            class="wheel-lose"
                             width="38"
                             height="38"
-                            class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/lose-icon.svg"
+                            alt="Lose"
                         /></span>
                       </div>
                     </div>
@@ -330,14 +330,14 @@
                     </div>
                     <div style="--i: 7" class="number">
                       <div>
-                        <p>5.00</p>
+                        <p></p>
                         <span
                           ><img
+                            class="wheel-lose"
                             width="38"
                             height="38"
-                            class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/lose-icon.svg"
+                            alt="Lose"
                         /></span>
                       </div>
                     </div>
@@ -356,14 +356,14 @@
                     </div>
                     <div style="--i: 9" class="number">
                       <div>
-                        <p>1.00</p>
+                        <p></p>
                         <span
                           ><img
+                            class="wheel-lose"
                             width="38"
                             height="38"
-                            class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/lose-icon.svg"
+                            alt="Lose"
                         /></span>
                       </div>
                     </div>
@@ -382,14 +382,14 @@
                     </div>
                     <div style="--i: 11" class="number">
                       <div>
-                        <p>10.00</p>
+                        <p></p>
                         <span
                           ><img
+                            class="wheel-lose"
                             width="38"
                             height="38"
-                            class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/lose-icon.svg"
+                            alt="Lose"
                         /></span>
                       </div>
                     </div>
@@ -408,14 +408,14 @@
                     </div>
                     <div style="--i: 13" class="number">
                       <div>
-                        <p>2,000</p>
+                        <p></p>
                         <span
                           ><img
+                            class="wheel-lose"
                             width="38"
                             height="38"
-                            class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/lose-icon.svg"
+                            alt="Lose"
                         /></span>
                       </div>
                     </div>
@@ -434,14 +434,14 @@
                     </div>
                     <div style="--i: 15" class="number">
                       <div>
-                        <p>15.00</p>
+                        <p></p>
                         <span
                           ><img
+                            class="wheel-lose"
                             width="38"
                             height="38"
-                            class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/lose-icon.svg"
+                            alt="Lose"
                         /></span>
                       </div>
                     </div>
@@ -524,7 +524,7 @@
       class="overlay fixed left-0 top-0 z-[400] hidden h-full w-full place-items-center bg-black/30 p-5 backdrop-blur-[5px] xs:p-3"
     >
       <div
-        class="modal relative z-20 flex flex-col items-center gap-5 rounded-[29px] px-[27px] py-[29px] xs:w-full xs:px-4"
+        class="modal modal-win relative z-20 flex hidden flex-col items-center gap-5 rounded-[29px] px-[27px] py-[29px] xs:w-full xs:px-4"
       >
         <div class="modal-head space-y-[10px] text-center sm:space-y-2">
           <p
@@ -552,7 +552,7 @@
           />
         </div>
         <button
-          class="modal-btn rounded-[13px] border-[3.65px] border-[#380808] p-3 px-[38px] text-center font-dela text-[31px] font-bold uppercase text-white sm:px-8 sm:py-[13px] sm:text-[26px] xs:w-full xs:px-2 xs:text-[22px]"
+          class="modal-btn w-full rounded-[13px] border-[3.65px] border-[#380808] p-3 px-4 text-center font-dela text-[31px] font-bold uppercase text-white sm:px-8 sm:py-[13px] sm:text-[26px] xs:w-full xs:px-2 xs:text-[22px]"
         >
           Claim Prize
         </button>
@@ -577,6 +577,48 @@
           height="266"
           src="./img/modal-cup.webp"
           alt="Cup"
+        />
+      </div>
+      <div
+        class="modal modal-lose relative z-20 flex max-w-[405px] flex-col items-center gap-5 rounded-[29px] px-[27px] py-[29px] xs:w-full xs:px-4"
+      >
+        <div class="modal-head space-y-[10px] text-center sm:space-y-2">
+          <p
+            class="font-dela text-[29px] font-bold capitalize leading-[133%] text-white sm:text-[24px]"
+          >
+            Unfortunately, <br />
+            You didn't win this time.
+          </p>
+          <span class="font-dela text-[24px] text-white sm:text-xl"
+            >But don't worry, you have another chance!</span
+          >
+        </div>
+        <div
+          class="modal-prize flex w-full items-center justify-center gap-4 rounded-[17px] bg-[#6c1919] p-6 sm:gap-3"
+        >
+          <span
+            class="font-dela text-[57px] leading-none sm:text-[54px] xs:-bottom-1 xs:text-[45px]"
+            >0</span
+          >
+          <img
+            class="modal-currency shrink-0 sm:h-[64px] sm:w-[64px] xs:h-12 xs:w-12"
+            width="78"
+            height="78"
+            src="./img/usd.svg"
+            alt="USD"
+          />
+        </div>
+        <button
+          class="modal-btn w-full rounded-[13px] border-[3.65px] border-[#380808] p-3 px-4 text-center font-dela text-[31px] font-bold uppercase text-white sm:px-2 sm:py-[13px] sm:text-[26px] xs:w-full xs:px-2 xs:text-[22px]"
+        >
+          Claim Prize
+        </button>
+        <img
+          class="pointer-events-none absolute -top-[160px] left-0 max-w-[60%] sm:-top-[130px]"
+          width="355"
+          height="266"
+          src="./img/modal-ball.webp"
+          alt="Ball"
         />
       </div>
       <!-- rays -->

@@ -77,7 +77,7 @@ spinBtn.addEventListener("click", () => {
   }, 500);
   buttonTl.pause();
   gsap.to(".main-wheel", {
-    rotate: 360 * 15 - nums[7],
+    rotate: 360 * 15 - nums[8],
     ease: CustomEase.create(
       "custom",
       "M0,0 C0.126,0.382 0.138,0.424 0.266,0.624 0.406,0.845 0.818,1.001 1,1 ",
