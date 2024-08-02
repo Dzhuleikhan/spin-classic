@@ -16,6 +16,30 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Dela Gothic One';
+  src: url('../fonts/DelaGothicOne-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Podkova';
+  src: url('../fonts/Podkova-ExtraBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Podkova';
+  src: url('../fonts/Podkova-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -61,16 +85,14 @@
 }
 
 .number div p {
-  font-family: 'Coiny';
-  font-size: 38px;
+  font-family: 'Dela Gothic One';
+  font-size: 32px;
   color: #fff;
   line-height: 76%;
   text-shadow: -6px 0px 8px #000;
-  position: relative;
-  bottom: -4px;
 }
 
-.number div img {
+.number div .wheel-currency {
   opacity: 0;
 }
 
@@ -81,18 +103,18 @@
   }
 
   .number div p {
-    font-size: 30px;
+    font-size: 20px;
   }
 }
 
 @media (max-width: 650px) {
-  .number div img {
+  .number div .wheel-currency {
     width: 17px;
     height: 17px;
   }
 
   .number div p {
-    font-size: 17px;
+    font-size: 12px;
   }
 }
 
@@ -109,7 +131,7 @@
 }
 
 .modal-head p {
-  text-shadow: 0 5px 0 #380808;
+  text-shadow: 0 5px 0 #1d500c, 0 -2px 0 #1d500c, -2px 0 0 #1d500c, 2px 0 0 #1d500c;
 }
 
 .modal-head span {

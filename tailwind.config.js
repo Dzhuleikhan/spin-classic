@@ -16,6 +16,8 @@ module.exports = {
       fontFamily: {
         coiny: "Coiny",
         roboto: "Roboto",
+        dela: "Dela Gothic One",
+        podkova: "Podkova",
       },
       boxShadow: {},
       dropShadow: {

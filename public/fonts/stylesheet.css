@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Dela Gothic One';
+    src: url('DelaGothicOne-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Podkova';
+    src: url('Podkova-ExtraBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Podkova';
+    src: url('Podkova-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
