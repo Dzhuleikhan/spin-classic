@@ -16,7 +16,7 @@ buttonTl.to(".spin-btn-text", {
   ease: "none",
   repeat: -1,
   yoyo: true,
-  duration: 1,
+  duration: 0.5,
 });
 
 gsap.set(".main-wheel", {
@@ -50,6 +50,9 @@ const spinBtnLoader = document.querySelector(".spin-btn-loader");
 let spinAmount = 0;
 
 spinBtn.addEventListener("click", () => {
+  document.querySelectorAll(".dark-overlay").forEach((el) => {
+    el.classList.add("is-hidden");
+  });
   spinBtn.style.pointerEvents = "none";
   firstClick.play();
   gsap.to(spinBtnText, {

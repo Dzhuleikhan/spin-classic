@@ -4,187 +4,111 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Spin Uzbekistan</title>
   </head>
-  <body class="overscroll-none">
+  <body
+    class="overscroll-none bg-[url('../img/page-bg.png')] bg-cover bg-center bg-no-repeat"
+  >
     <div
       class="wrapper h-full min-h-screen w-full min-w-[320px] overflow-hidden"
     >
-      <header class="absolute top-[56px] z-50 w-full lg:top-8 xs:top-5">
-        <div class="mx-auto max-w-[960px]">
-          <div class="flex items-center gap-2 lg:justify-center">
-            <img class="xs:max-w-[120px]" src="./img/logo.svg" alt="Goldbet" />
-            <img
-              class="country-flag hidden xs:h-6 xs:w-6"
-              src="./img/bg.svg"
-              alt="Belgium"
-            />
-          </div>
-        </div>
-      </header>
-      <main>
+      <main class="relative z-[30]">
+        <!-- money -->
+        <img
+          class="money-img absolute -left-[60px] top-0 max-w-[311px] extralg:max-w-[280px]"
+          src="./img/10grand.png"
+          alt="Money"
+        />
+        <img
+          class="money-img absolute -top-[50px] left-1/2 max-w-[160px] -translate-x-1/2 rotate-45"
+          src="./img/50grand.png"
+          alt="Money"
+        />
+        <!-- Plov -->
+        <img
+          class="pointer-events-none fixed bottom-0 right-0 z-40 max-w-[500px] extralg:max-w-[300px]"
+          src="./img/plov-blurred.png"
+          alt="Food"
+        />
+        <img
+          class="absolute bottom-0 left-[370px] extralg:bottom-[50px] extralg:max-w-[400px]"
+          src="./img/plov-1.png"
+          alt="Food"
+        />
         <div
-          class="relative flex h-screen min-h-[1080px] w-full items-center bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat extralg:min-h-[700px] lg:items-start lg:pt-[150px] medium:min-h-[800px] mobile:bg-[url(../img/page-bg-sm.webp)] sm:pt-[120px] xs:pt-[100px] extralg:landscape:min-h-[800px] xl:landscape:min-h-[800px]"
+          class="relative h-screen min-h-[1080px] w-full items-center pt-[55px] extralg:min-h-[700px] lg:items-start lg:pt-[50px] medium:min-h-[800px] sm:pt-[120px] xs:pt-[100px] extralg:landscape:min-h-[800px] xl:landscape:min-h-[800px]"
         >
-          <img
-            class="confetti absolute left-0 top-0 will-change-transform lg:hidden"
-            src="./img/confetti.webp"
-            alt="Confetti"
-          />
           <div
             class="mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center medium:px-3"
           >
-            <img
-              class="player absolute bottom-0 left-[190px] z-[100] max-w-[838px] will-change-transform extralg:left-[80px] extralg:max-w-[600px] xl:-left-[50px] xl:max-w-[750px] lg:-bottom-[40%] lg:left-0 lg:z-[100] lg:-translate-x-1/2 tbl:left-1/2 mobile:-bottom-[120px] mobile:left-1/2 mobile:max-w-[500px] xs:-bottom-[0px] xs:max-w-[450px] xl:landscape:max-w-[570px] lg:landscape:left-1/2"
-              src="./img/player.webp"
-              alt="Football player"
-            />
             <!-- spin big wrapper -->
             <div>
-              <div class="relative flex max-w-[705px] items-center">
-                <!-- STARS -->
-                <!-- top left -->
+              <!-- Logo -->
+              <div
+                class="mb-[50px] flex items-center justify-center gap-2 lg:justify-center"
+              >
                 <img
-                  class="star star-odd absolute left-[30px] top-[60px] h-[30px] w-[30px] -rotate-6 sm:left-0 sm:h-4 sm:w-4"
-                  width="30"
-                  height="30"
-                  src="./img/star.webp"
-                  alt="Star"
+                  class="xs:max-w-[120px]"
+                  src="./img/logo.svg"
+                  alt="Goldbet"
                 />
                 <img
-                  class="star star-even absolute -top-[25px] left-[30px] h-[55px] w-[55px] -rotate-[30deg] sm:left-2 sm:top-0 sm:h-7 sm:w-7"
-                  width="55"
-                  height="55"
-                  src="./img/star.webp"
-                  alt="Star"
+                  class="country-flag xs:h-6 xs:w-6"
+                  src="./img/uz.svg"
+                  alt="Uzbekistan"
+                />
+              </div>
+              <div class="relative z-[25] flex max-w-[705px] items-center">
+                <img
+                  class="absolute left-1/2 top-1/2 z-[7] h-[105%] min-w-[105%] -translate-x-1/2 -translate-y-1/2"
+                  src="./img/wheel-plate.png"
+                  alt=""
                 />
                 <img
-                  class="star star-odd absolute -top-[35px] left-[100px] h-[55px] w-[55px] -rotate-[30deg] sm:left-[50px] sm:top-2 sm:h-7 sm:w-7"
-                  width="55"
-                  height="55"
-                  src="./img/star.webp"
-                  alt="Star"
-                />
-                <!-- top right -->
-                <img
-                  class="star star-even absolute -top-[40px] right-[50px] h-[30px] w-[30px] rotate-[15deg] sm:right-0 sm:top-0 sm:h-4 sm:w-4"
-                  width="30"
-                  height="30"
-                  src="./img/star.webp"
-                  alt="Star"
+                  class="absolute -top-[15%] left-1/2 z-0 w-full min-w-[184%] -translate-x-1/2"
+                  src="./img/wheel-flags.png"
+                  alt=""
                 />
                 <img
-                  class="star star-odd absolute right-[20px] top-[20px] h-[55px] w-[55px] -rotate-3 sm:right-0 sm:top-8 sm:h-7 sm:w-7"
-                  width="55"
-                  height="55"
-                  src="./img/star.webp"
-                  alt="Star"
+                  class="fixed bottom-0 left-1/2 z-[4] w-full min-w-[1920px] -translate-x-1/2"
+                  src="./img/page-flag-big.png"
+                  alt="Flag"
                 />
                 <img
-                  class="star star-even absolute -top-[20px] right-[100px] h-[55px] w-[55px] rotate-6 sm:right-[30px] sm:top-0 sm:h-7 sm:w-7"
-                  width="55"
-                  height="55"
-                  src="./img/star.webp"
-                  alt="Star"
-                />
-                <!-- bottom left -->
-                <img
-                  class="star star-odd absolute bottom-[60px] left-[30px] h-[30px] w-[30px] rotate-6 sm:left-0 sm:h-4 sm:w-4"
-                  width="30"
-                  height="30"
-                  src="./img/star.webp"
-                  alt="Star"
+                  class="fixed -bottom-[54px] -left-[105px] z-[3] w-full max-w-[54%]"
+                  src="./img/camel.png"
+                  alt=""
                 />
                 <img
-                  class="star star-even absolute -bottom-[25px] left-[50px] z-50 h-[55px] w-[55px] rotate-[30deg] sm:bottom-0 sm:left-5 sm:h-7 sm:w-7"
-                  width="55"
-                  height="55"
-                  src="./img/star.webp"
-                  alt="Star"
+                  class="money-img fixed -bottom-[100px] left-1/2 z-30 max-w-[350px] -translate-x-1/2 rotate-[35deg]"
+                  src="./img/50grand.png"
+                  alt="Money"
+                />
+                <!-- Money -->
+                <img
+                  class="money-img fixed -left-[130px] bottom-[120px] z-[4] max-w-[320px] extralg:max-w-[280px]"
+                  src="./img/50grand.png"
+                  alt="Money"
                 />
                 <img
-                  class="star star-odd absolute -bottom-[25px] left-[110px] z-[70] h-[74px] w-[74px] rotate-[30deg] sm:bottom-0 sm:left-12 sm:h-[38px] sm:w-[38px]"
-                  width="74"
-                  height="74"
-                  src="./img/star.webp"
-                  alt="Star"
-                />
-                <!-- bottom right -->
-                <img
-                  class="star star-even absolute bottom-[40px] right-0 z-[70] h-[55px] w-[55px] -rotate-12 sm:h-7 sm:w-7"
-                  width="55"
-                  height="55"
-                  src="./img/star.webp"
-                  alt="Star"
+                  class="money-img fixed right-0 top-0 max-w-[254px] -rotate-45 extralg:max-w-[160px]"
+                  src="./img/10grand.png"
+                  alt="Money"
                 />
                 <img
-                  class="star star-odd absolute bottom-0 right-[50px] z-[70] h-[30px] w-[30px] -rotate-12 sm:right-5 sm:h-4 sm:w-4"
-                  width="30"
-                  height="30"
-                  src="./img/star.webp"
-                  alt="Star"
+                  class="money-img fixed -right-[40px] top-[330px] max-w-[154px] -rotate-[35deg] extralg:max-w-[120px]"
+                  src="./img/10grand.png"
+                  alt="Money"
                 />
-                <img
-                  class="star star-even absolute -bottom-[40px] right-[100px] z-[70] h-[55px] w-[55px] -rotate-12 sm:-bottom-5 sm:right-[60px] sm:h-7 sm:w-7"
-                  width="55"
-                  height="55"
-                  src="./img/star.webp"
-                  alt="Star"
-                />
-                <!-- STARS END -->
-                <img
-                  width="1526"
-                  height="1526"
-                  class="rays absolute left-1/2 z-[0] min-h-[200%] min-w-[200%] -translate-x-1/2 will-change-transform"
-                  src="./img/rays.webp"
-                  alt="Rays"
-                />
-                <!-- money portal -->
-                <div
-                  class="money-portal absolute bottom-0 left-1/2 z-[1] h-[1000px] w-1/2 -translate-x-1/2 overflow-hidden medium:h-[700px]"
-                >
-                  <div class="moneys">
-                    <img
-                      class="dollar-pack absolute right-0 top-0 z-[1] max-w-[54%] will-change-transform"
-                      width="193"
-                      height="193"
-                      src="./img/dollar-pack.webp"
-                      alt="Dollar"
-                    />
-                    <img
-                      class="pound-pack absolute left-0 top-[150px] z-[1] max-w-[46%] will-change-transform"
-                      width="165"
-                      height="165"
-                      src="./img/pound-pack.webp"
-                      alt="Pound"
-                    />
-                    <img
-                      class="earl-coin absolute right-0 top-[250px] z-[2] max-w-[49%] will-change-transform"
-                      width="176"
-                      height="176"
-                      src="./img/coin.webp"
-                      alt="coin"
-                    />
-                    <img
-                      class="euro-pack absolute left-1/2 top-[355px] z-[1] max-w-[56%] -translate-x-1/2 will-change-transform"
-                      width="197"
-                      height="197"
-                      src="./img/euro-pack.webp"
-                      alt="Euro"
-                    />
-                    <img
-                      class="yuan-pack absolute left-0 top-[480px] z-[1] max-w-[54%] will-change-transform"
-                      width="192"
-                      height="192"
-                      src="./img/yuan-pack.webp"
-                      alt="yuan"
-                    />
-                  </div>
-                </div>
                 <!-- Wheel -->
                 <div
                   class="relative z-50 h-full w-full max-w-[705px] rounded-full extralg:max-w-[550px]"
                 >
+                  <img
+                    class="absolute -top-[5%] left-1/2 z-50 w-[17%] -translate-x-1/2"
+                    src="./img/spin-arrow.png"
+                    alt=""
+                  />
                   <!-- dots -->
                   <div class="absolute z-[3] h-full w-full">
                     <!-- top right -->
@@ -243,13 +167,19 @@
                   <img
                     width="705"
                     height="705"
-                    src="./img/wheel-round.webp"
+                    src="./img/wheel-round.png"
                     alt="Wheel wrapper"
                   />
+                  <div
+                    class="dark-overlay fixed left-0 top-0 z-20 h-screen w-full bg-black/40"
+                  ></div>
                   <!-- wheel inner -->
                   <div
-                    class="main-wheel absolute w-[91%] will-change-transform"
+                    class="main-wheel absolute z-[39] w-[91%] will-change-transform"
                   >
+                    <div
+                      class="dark-overlay absolute left-0 top-0 z-20 h-full w-full rounded-full bg-black/50"
+                    ></div>
                     <div style="--i: 1" class="number">
                       <div>
                         <p></p>
@@ -263,7 +193,7 @@
                         /></span>
                       </div>
                     </div>
-                    <div style="--i: 2" class="number">
+                    <div style="--i: 2" class="number relative z-[30]">
                       <div>
                         <p>125.0</p>
                         <span
@@ -271,8 +201,8 @@
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/currencies/som.svg"
+                            alt="SOM"
                         /></span>
                       </div>
                     </div>
@@ -297,8 +227,8 @@
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/currencies/som.svg"
+                            alt="SOM"
                         /></span>
                       </div>
                     </div>
@@ -323,8 +253,8 @@
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/currencies/som.svg"
+                            alt="SOM"
                         /></span>
                       </div>
                     </div>
@@ -349,8 +279,8 @@
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/currencies/som.svg"
+                            alt="SOM"
                         /></span>
                       </div>
                     </div>
@@ -375,8 +305,8 @@
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/currencies/som.svg"
+                            alt="SOM"
                         /></span>
                       </div>
                     </div>
@@ -401,8 +331,8 @@
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/currencies/som.svg"
+                            alt="SOM"
                         /></span>
                       </div>
                     </div>
@@ -427,8 +357,8 @@
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/currencies/som.svg"
+                            alt="SOM"
                         /></span>
                       </div>
                     </div>
@@ -453,8 +383,8 @@
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/usd.svg"
-                            alt="USD"
+                            src="./img/currencies/som.svg"
+                            alt="SOM"
                         /></span>
                       </div>
                     </div>
@@ -464,21 +394,47 @@
                       src="./img/wheel.webp"
                       alt="Wheel"
                     />
+                    <svg
+                      class="dark-overlay absolute -top-5 left-1/2 w-[19%] -translate-x-1/2"
+                      width="143"
+                      height="33"
+                      viewBox="0 0 143 33"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M67.9924 25.1231C91.7934 25.1231 115.038 27.5059 137.5 32.0459L142.5 8.3133C118.424 3.4354 93.5073 0.875 67.9924 0.875C44.9475 0.875 22.3903 2.9637 0.5 6.96211L5.5 30.703C25.7755 27.0372 46.6604 25.1231 67.9924 25.1231Z"
+                        fill="url(#paint0_radial_1016_14299)"
+                      />
+                      <defs>
+                        <radialGradient
+                          id="paint0_radial_1016_14299"
+                          cx="0"
+                          cy="0"
+                          r="1"
+                          gradientUnits="userSpaceOnUse"
+                          gradientTransform="translate(71 32) rotate(-90) scale(25 113.888)"
+                        >
+                          <stop offset="0.411766" stop-color="#D5362A" />
+                          <stop offset="1" stop-color="#D7FAFF" />
+                        </radialGradient>
+                      </defs>
+                    </svg>
                   </div>
                   <!-- Spin button -->
                   <button
-                    class="spin-btn absolute left-1/2 top-1/2 z-[25] flex h-[31%] w-[31%] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[url('../img/spin-btn-bg.webp')] bg-contain bg-center bg-no-repeat"
+                    class="spin-btn absolute left-1/2 top-1/2 z-[50] flex h-[31%] w-[31%] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[url('../img/spin-btn-bg.webp')] bg-contain bg-center bg-no-repeat"
                   >
-                    <p class="spin-btn-text uppercase will-change-transform">
+                    <p class="spin-btn-text will-change-transform">
                       <span
-                        class="block font-dela text-[73px] leading-[97%] text-[#FFD84E] extralg:text-[55px] medium:text-[34px] xs:text-[28px]"
+                        class="block font-dela text-[60px] uppercase leading-[97%] text-[#FFD84E] extralg:text-[55px] medium:text-[34px] xs:text-[28px]"
                       >
-                        tap
+                        Bos
                       </span>
                       <span
-                        class="block font-dela text-[35px] leading-[97%] text-white extralg:text-[24px] medium:text-[14px] xs:text-xs"
+                        class="block font-dela text-[23px] leading-[97%] text-white medium:text-[14px] xs:text-xs"
                       >
-                        to spin
+                        va Aylantir
                       </span>
                     </p>
                     <img
@@ -489,34 +445,26 @@
                       alt="Loader"
                     />
                   </button>
-                  <!-- mirror -->
-                  <img
-                    class="absolute right-[3%] top-[5%] z-20 w-[45%]"
-                    width="304"
-                    height="292"
-                    src="./img/prize-mirror.webp"
-                    alt="Mirrow"
-                  />
+                  <!-- Action text -->
+                  <div
+                    class="wheel-action-text absolute bottom-10 left-1/2 z-50 w-full -translate-x-1/2 text-center"
+                  >
+                    <p
+                      class="font-dela text-[40px] uppercase leading-[97%] text-[#ffd84e] extralg:text-[30px]"
+                    >
+                      Omadingizni sinang
+                    </p>
+                    <p
+                      class="mt-5 font-dela text-[40px] uppercase leading-[97%] text-[#fff] extralg:text-[30px]"
+                    >
+                      g'ildirakni <br />
+                      aylantiring
+                    </p>
+                  </div>
                 </div>
-                <!-- Podium -->
-                <img
-                  class="absolute -bottom-[90px] left-1/2 z-40 w-full -translate-x-1/2 drop-shadow-podiumShadow mobile:-bottom-[50px]"
-                  width="676"
-                  height="157"
-                  src="./img/podium.svg"
-                  alt="Podium"
-                />
               </div>
             </div>
           </div>
-          <!-- ball -->
-          <img
-            class="ball absolute -bottom-[300px] -left-[30px] z-[120] will-change-transform extralg:-bottom-[220px] extralg:max-w-[450px] lg:-bottom-[300px] lg:-left-[200px] mobile:-bottom-[200px] mobile:-left-[100px] mobile:max-w-[320px] xs:-left-[150px] xs:bottom-0"
-            width="645"
-            height="645"
-            src="./img/ball.webp"
-            alt="Ball"
-          />
         </div>
       </main>
     </div>
@@ -547,8 +495,8 @@
             class="modal-currency shrink-0 sm:h-[64px] sm:w-[64px] xs:h-12 xs:w-12"
             width="78"
             height="78"
-            src="./img/usd.svg"
-            alt="USD"
+            src="./img/som.svg"
+            alt="SOM"
           />
         </div>
         <button
@@ -556,49 +504,6 @@
         >
           Claim Prize
         </button>
-        <!-- coins -->
-        <img
-          class="modal-coin-even pointer-events-none absolute -left-[50px] top-1/2 -translate-y-1/2 will-change-transform sm:-left-10 sm:h-20 sm:w-20"
-          width="100"
-          height="100"
-          src="./img/coin1.png"
-          alt="png"
-        />
-        <img
-          class="modal-coin-odd pointer-events-none absolute -left-[50px] bottom-[35px] will-change-transform sm:-left-10 sm:h-20 sm:w-20"
-          width="100"
-          height="100"
-          src="./img/coin2.png"
-          alt="png"
-        />
-        <img
-          class="modal-coin-even pointer-events-none absolute -bottom-[55px] left-[65px] will-change-transform sm:-bottom-[45px] sm:h-20 sm:w-20"
-          width="100"
-          height="100"
-          src="./img/coin3.png"
-          alt="png"
-        />
-        <img
-          class="modal-coin-odd pointer-events-none absolute -right-10 -top-10 will-change-transform sm:-bottom-[45px] sm:h-20 sm:w-20"
-          width="100"
-          height="100"
-          src="./img/coin4.png"
-          alt="png"
-        />
-        <img
-          class="modal-coin-even pointer-events-none absolute -right-10 bottom-[160px] will-change-transform sm:h-20 sm:w-20"
-          width="100"
-          height="100"
-          src="./img/coin5.png"
-          alt="png"
-        />
-        <img
-          class="modal-cup pointer-events-none absolute -top-[210px] will-change-transform sm:-top-[170px] sm:max-w-[292px] xs:-top-[120px] xs:max-w-[220px]"
-          width="355"
-          height="266"
-          src="./img/modal-cup.webp"
-          alt="Cup"
-        />
       </div>
       <div
         class="modal modal-lose relative z-20 flex max-w-[405px] flex-col items-center gap-5 rounded-[29px] px-[27px] py-[29px] xs:w-full xs:px-4"
@@ -625,8 +530,8 @@
             class="modal-currency shrink-0 sm:h-[64px] sm:w-[64px] xs:h-12 xs:w-12"
             width="78"
             height="78"
-            src="./img/usd.svg"
-            alt="USD"
+            src="./img/som.svg"
+            alt="SOM"
           />
         </div>
         <button
@@ -634,22 +539,7 @@
         >
           Claim Prize
         </button>
-        <img
-          class="modal-ball pointer-events-none absolute -top-[160px] left-0 max-w-[60%] will-change-transform sm:-top-[130px]"
-          width="355"
-          height="266"
-          src="./img/modal-ball.webp"
-          alt="Ball"
-        />
       </div>
-      <!-- rays -->
-      <img
-        width="788"
-        height="788"
-        class="modal-rays pointer-events-none absolute z-10 will-change-transform medium:h-[620px] medium:w-[620px]"
-        src="./img/rays.webp"
-        alt="Rays"
-      />
     </div>
     <script type="module" src="/main.js"></script>
   </body>
