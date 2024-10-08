@@ -45,6 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     document.querySelector(".preloader").style.opacity = 0;
     document.querySelector(".preloader").style.visibility = "hidden";
-    document.querySelector(".wrapper").classList.remove("hidden");
+    document.querySelector(".wrapper").style.opacity = 1;
   }, 1000);
 });
