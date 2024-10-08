@@ -31,27 +31,27 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.fromTo(
       ".spin-flags",
       { scale: 0 },
-      { scale: 1, transformOrigin: "bottom center", duration: 1, delay: 0.2 },
+      { scale: 1, transformOrigin: "bottom center", duration: 1, delay: 1.3 },
     );
     gsap.fromTo(
       ".wheel-action-text",
       { y: 40, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
     gsap.fromTo(
       ".camel-img",
       { x: -100, alpha: 0 },
-      { x: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+      { x: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
     gsap.fromTo(
       ".plov-img",
       { y: 40, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
     gsap.fromTo(
       ".money-img",
       { y: -40, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
   });
 
@@ -59,7 +59,27 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.fromTo(
       ".camel-img",
       { y: 100, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
   });
 });
+
+gsap.to(".money-img", {
+  rotate: Math.random() * 20 - 10,
+  duration: 2,
+  yoyo: true,
+  repeat: -1,
+});
+
+gsap.fromTo(
+  ".spin-flags",
+  { scale: 1 },
+  {
+    scale: 0.95,
+    transformOrigin: "bottom center",
+    duration: 1,
+    delay: 1.3,
+    yoyo: true,
+    repeat: -1,
+  },
+);

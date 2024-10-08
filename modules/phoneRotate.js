@@ -41,9 +41,9 @@ screenWidthMediaQuery.addEventListener("change", (e) => {
   }
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   setTimeout(() => {
-//     document.querySelector(".wrapper").classList.remove("hidden");
-//     document.querySelector(".preloader").classList.add("hidden");
-//   }, 2000);
-// });
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.querySelector(".preloader").style.opacity = 0;
+    document.querySelector(".preloader").style.visibility = "hidden";
+  }, 1000);
+});

@@ -204,3 +204,21 @@
 .wheel-action-text {
   text-shadow: 0 5px 5px #000;
 }
+
+.rotate-phone {
+  animation: rotate 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  50% {
+    transform: rotate(90deg)
+  }
+
+  100% {
+    transform: rotate(90deg)
+  }
+}

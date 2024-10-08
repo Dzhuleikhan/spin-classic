@@ -9,9 +9,9 @@
   <body
     class="overscroll-none bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat"
   >
-    <!-- <div
-      class="preloader fixed left-0 top-0 z-[9999] grid h-screen w-full place-items-center bg-[url(../img/page-bg.webp)] bg-cover bg-center bg-no-repeat"
-    ></div> -->
+    <div
+      class="preloader pointer-events-none fixed left-0 top-0 z-[9999] grid h-screen w-full place-items-center bg-[url(../img/page-bg.webp)] bg-cover bg-center bg-no-repeat transition-all duration-300"
+    ></div>
     <div
       class="wrapper h-full min-h-screen w-full min-w-[320px] overflow-hidden"
     >
@@ -20,7 +20,7 @@
       >
         <div class="flex flex-col items-center gap-5">
           <img
-            class="max-w-[120px]"
+            class="rotate-phone max-w-[100px]"
             src="./img/rotate-phone.webp"
             alt="Phone rotate img"
           />
@@ -73,7 +73,7 @@
           class="relative h-screen min-h-[1080px] w-full items-center pt-[55px] extralg:min-h-screen lg:items-start lg:pt-[50px] medium:min-h-[800px] medium:pt-5 mobile:h-screen mobile:min-h-screen mobile:pt-5"
         >
           <div
-            class="big-laptop:justify-center mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center medium:px-3"
+            class="mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center medium:px-3 big-laptop:justify-center"
           >
             <!-- spin big wrapper -->
             <div>
@@ -104,17 +104,17 @@
                   alt=""
                 />
                 <img
-                  class="big-laptop:min-w-[1200px] fixed bottom-0 left-1/2 z-[4] w-full min-w-[1920px] -translate-x-1/2 lg:min-w-[1100px]"
+                  class="fixed bottom-0 left-1/2 z-[4] w-full min-w-[1920px] -translate-x-1/2 lg:min-w-[1100px] big-laptop:min-w-[1200px]"
                   src="./img/page-flag-big.webp"
                   alt="Flag"
                 />
                 <img
-                  class="big-laptop:max-w-[70%] camel-img big-laptop:z-[7] fixed -bottom-[54px] -left-[105px] z-[3] w-full max-w-[54%] brightness-[0.7] lg:z-[7] lg:max-w-[560px] mobile:z-[51] sm:bottom-0 sm:left-0 sm:max-w-[93%]"
+                  class="camel-img fixed -bottom-[54px] -left-[105px] z-[3] w-full max-w-[54%] brightness-[0.7] lg:z-[7] lg:max-w-[560px] mobile:z-[51] sm:bottom-0 sm:left-0 sm:max-w-[93%] big-laptop:z-[7] big-laptop:max-w-[70%]"
                   src="./img/camel.webp"
                   alt=""
                 />
                 <img
-                  class="money-img big-laptop:left-auto big-laptop:translate-x-0 big-laptop:right-0 big-laptop:bottom-[100px] fixed -bottom-[100px] left-1/2 z-30 max-w-[350px] -translate-x-1/2 rotate-[35deg] lg:hidden"
+                  class="money-img fixed -bottom-[100px] left-1/2 z-30 max-w-[350px] -translate-x-1/2 rotate-[35deg] lg:hidden big-laptop:bottom-[100px] big-laptop:left-auto big-laptop:right-0 big-laptop:translate-x-0"
                   src="./img/50grand.webp"
                   alt="Money"
                 />
