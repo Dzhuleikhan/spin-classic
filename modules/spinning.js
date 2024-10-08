@@ -3,9 +3,12 @@ import { CustomEase } from "gsap/all";
 import { mm } from "./animations";
 
 const overlay = document.querySelector(".overlay");
-const modal = document.querySelector(".modal");
 
-gsap.set(modal, { scale: 0, opacity: 0, visibility: "hidden" });
+const modal = gsap.utils.toArray(".modal");
+
+modal.forEach((modal) => {
+  gsap.set(modal, { scale: 0, opacity: 0, visibility: "hidden" });
+});
 
 const nums = [
   22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5,
@@ -52,34 +55,35 @@ const spinBtn = document.querySelector(".spin-btn");
 const spinBtnText = document.querySelector(".spin-btn-text");
 const spinBtnLoader = document.querySelector(".spin-btn-loader");
 
-function showModal(modal) {
+function showModal(mod) {
   document.body.style.overflow = "hidden";
   overlay.classList.add("is-open");
   document.querySelectorAll(".modal").forEach((m) => {
     m.classList.add("hidden");
   });
-  document.querySelector(`.${modal}`).classList.remove("hidden");
-  gsap.to(`.${modal}`, {
-    scale: 1,
-    opacity: 1,
-    visibility: "visible",
-    duration: 0.3,
-    ease: "none",
+  document.querySelector(`.${mod}`).classList.remove("hidden");
+  modal.forEach((modal) => {
+    gsap.to(modal, {
+      scale: 1,
+      opacity: 1,
+      visibility: "visible",
+      duration: 0.3,
+      ease: "none",
+    });
   });
 }
 
 function hideModal() {
   document.body.style.overflow = "visible";
   overlay.classList.remove("is-open");
-  document.querySelectorAll(".modal").forEach((m) => {
-    m.classList.add("hidden");
-  });
-  gsap.set(".modal", {
-    scale: 0,
-    opacity: 0,
-    visibility: "hidden",
-    duration: 0.3,
-    ease: "none",
+  modal.forEach((modal) => {
+    gsap.set(modal, {
+      scale: 0,
+      opacity: 0,
+      visibility: "hidden",
+      duration: 0.3,
+      ease: "none",
+    });
   });
 }
 
@@ -93,17 +97,62 @@ if (spinAmount >= 1) {
 
 if (modalMemory === "lose") {
   showModal("modal-lose");
-} else if (modalMemory === "win") {
-  showModal("modal-win");
   buttonTl.pause();
   spinBtn.style.pointerEvents = "none";
+} else if (modalMemory === "win") {
+  showModal("modal-win");
+  setTimeout(() => {
+    hideModal();
+  }, 3000);
 }
 if (currentRotation !== 0) {
   // Restore the wheel rotation if there's a saved state
-  gsap.set(".wheel", { rotate: currentRotation });
+  gsap.set(".main-wheel", { rotate: currentRotation });
 }
 
 const Spinning = () => {
+  document.querySelectorAll(".dark-overlay").forEach((el) => {
+    el.classList.add("is-hidden");
+  });
+  // Desktop
+  mm.add("(min-width: 768px)", () => {
+    gsap.to(".camel-img", {
+      duration: 0.5,
+      filter: "brightness(1)",
+    });
+    gsap.to(".wheel-action-text", {
+      y: 60,
+      alpha: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
+  });
+  // Mobile
+  mm.add("(max-width: 480px) and (max-height: 800px)", () => {
+    gsap.to(".camel-img", {
+      y: 100,
+      duration: 0.5,
+      filter: "brightness(1)",
+    });
+    gsap.to(".wheel-action-text", {
+      y: 60,
+      alpha: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
+  });
+  mm.add("(max-width: 480px) and (min-height: 800px)", () => {
+    gsap.to(".camel-img", {
+      duration: 0.5,
+      filter: "brightness(1)",
+    });
+    gsap.to(".wheel-action-text", {
+      y: 60,
+      alpha: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
+  });
   spinBtn.style.pointerEvents = "none";
   firstClick.play();
   gsap.to(spinBtnText, {
@@ -153,11 +202,14 @@ const Spinning = () => {
         currentRotation = targetRotationLose - nums[0];
         localStorage.setItem("spinAmount", spinAmount);
         localStorage.setItem("currentRotation", currentRotation);
+        buttonTl.pause();
+        spinBtn.style.pointerEvents = "none";
         if (spinAmount > 1) {
           showModal("modal-win");
           localStorage.setItem("modal", "win");
-          buttonTl.pause();
-          spinBtn.style.pointerEvents = "none";
+          setTimeout(() => {
+            hideModal();
+          }, 3000);
         } else {
           showModal("modal-lose");
           localStorage.setItem("modal", "lose");
@@ -183,52 +235,11 @@ const Spinning = () => {
 };
 
 spinBtn.addEventListener("click", () => {
-  document.querySelectorAll(".dark-overlay").forEach((el) => {
-    el.classList.add("is-hidden");
-  });
-  // Desktop
-  mm.add("(min-width: 768px)", () => {
-    gsap.to(".camel-img", {
-      duration: 0.5,
-      filter: "brightness(1)",
-    });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
-  });
-  // Mobile
-  mm.add("(max-width: 480px) and (max-height: 800px)", () => {
-    gsap.to(".camel-img", {
-      y: 100,
-      duration: 0.5,
-      filter: "brightness(1)",
-    });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
-  });
-  mm.add("(max-width: 480px) and (min-height: 800px)", () => {
-    gsap.to(".camel-img", {
-      duration: 0.5,
-      filter: "brightness(1)",
-    });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
-  });
   Spinning();
 });
 
 const firstModalCloseBtn = document.querySelector(".modal-lose-btn");
 firstModalCloseBtn.addEventListener("click", () => {
+  Spinning();
   hideModal();
 });
