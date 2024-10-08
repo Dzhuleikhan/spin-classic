@@ -213,7 +213,7 @@ spinBtn.addEventListener("click", () => {
       delay: 0.2,
     });
   });
-  mm.add("(max-width: 480px) and (min-height: 600px)", () => {
+  mm.add("(max-width: 480px) and (min-height: 700px)", () => {
     gsap.to(".camel-img", {
       duration: 0.5,
       filter: "brightness(1)",
