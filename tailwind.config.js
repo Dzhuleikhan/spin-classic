@@ -11,6 +11,9 @@ module.exports = {
       mobile: { max: "576px" },
       sm: { max: "480px" },
       xs: { max: "360px" },
+      "big-laptop": {
+        raw: "((max-width: 1200px) and (min-height: 1250px))",
+      },
     },
     extend: {
       fontFamily: {

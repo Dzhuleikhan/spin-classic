@@ -6,3 +6,4 @@ import "./modules/animations";
 // import "./modules/settingData";
 import "./modules/spinning";
 import "./modules/modal";
+import "./modules/phoneRotate";

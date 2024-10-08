@@ -12,21 +12,40 @@
     <div
       class="wrapper h-full min-h-screen w-full min-w-[320px] overflow-hidden"
     >
+      <div
+        class="landscape fixed left-0 top-0 z-[1000] grid hidden h-screen w-full place-items-center bg-white"
+      >
+        <div class="flex flex-col items-center gap-5">
+          <img
+            class="max-w-[120px]"
+            src="./img/rotate-phone.webp"
+            alt="Phone rotate img"
+          />
+          <div>
+            <p>Rotate your device</p>
+          </div>
+        </div>
+      </div>
       <main class="relative z-[30]">
         <!-- money -->
         <img
-          class="money-img absolute -left-[60px] top-0 max-w-[311px] extralg:max-w-[280px]"
+          class="money-img absolute -left-[60px] top-0 max-w-[311px] extralg:max-w-[280px] mobile:-left-[200px] mobile:top-[50px] mobile:max-w-[254px] mobile:-rotate-[35deg]"
           src="./img/10grand.png"
           alt="Money"
         />
         <img
-          class="money-img absolute -top-[50px] left-1/2 max-w-[160px] -translate-x-1/2 rotate-45"
+          class="money-img absolute -top-[50px] left-1/2 max-w-[160px] -translate-x-1/2 rotate-45 mobile:hidden"
           src="./img/50grand.png"
           alt="Money"
         />
+        <img
+          class="camel-img fixed bottom-0 left-0 hidden w-full brightness-75 mobile:z-[30] mobile:block sm:max-w-[85%]"
+          src="./img/camel.png"
+          alt=""
+        />
         <!-- Plov -->
         <img
-          class="pointer-events-none fixed bottom-0 right-0 z-40 max-w-[500px] extralg:max-w-[300px]"
+          class="pointer-events-none fixed bottom-0 right-0 z-40 max-w-[500px] extralg:max-w-[300px] medium:hidden"
           src="./img/plov-blurred.png"
           alt="Food"
         />
@@ -35,17 +54,34 @@
           src="./img/plov-1.png"
           alt="Food"
         />
+        <!-- Action text -->
         <div
-          class="relative h-screen min-h-[1080px] w-full items-center pt-[55px] extralg:min-h-[700px] lg:items-start lg:pt-[50px] medium:min-h-[800px] sm:pt-[120px] xs:pt-[100px] extralg:landscape:min-h-[800px] xl:landscape:min-h-[800px]"
+          class="wheel-action-text fixed bottom-[20%] left-1/2 z-50 hidden w-full max-w-[420px] -translate-x-1/2 text-center mobile:block mobile:text-[32px]"
+        >
+          <p
+            class="font-dela text-[40px] uppercase leading-[97%] text-[#ffd84e] extralg:text-[30px] lg:text-[24px] xl:landscape:text-[24px]"
+          >
+            Omadingizni <br />
+            sinang
+          </p>
+          <p
+            class="mt-5 font-dela text-[40px] uppercase leading-[97%] text-[#fff] extralg:text-[30px] lg:text-[24px] xl:landscape:text-[24px]"
+          >
+            g'ildirakni <br />
+            aylantiring
+          </p>
+        </div>
+        <div
+          class="relative h-screen min-h-[1080px] w-full items-center pt-[55px] extralg:min-h-screen lg:items-start lg:pt-[50px] medium:min-h-[800px] medium:pt-5 mobile:h-screen mobile:min-h-screen mobile:pt-5"
         >
           <div
-            class="mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center medium:px-3"
+            class="big-laptop:justify-center mx-auto flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:justify-center medium:px-3"
           >
             <!-- spin big wrapper -->
             <div>
               <!-- Logo -->
               <div
-                class="mb-[50px] flex items-center justify-center gap-2 lg:justify-center"
+                class="mb-[50px] flex items-center justify-center gap-2 lg:justify-center mobile:mb-5 xl:landscape:mb-5"
               >
                 <img
                   class="xs:max-w-[120px]"
@@ -65,22 +101,22 @@
                   alt=""
                 />
                 <img
-                  class="absolute -top-[15%] left-1/2 z-0 w-full min-w-[184%] -translate-x-1/2"
+                  class="absolute -top-[15%] left-1/2 z-0 w-full min-w-[184%] -translate-x-1/2 lg:hidden"
                   src="./img/wheel-flags.png"
                   alt=""
                 />
                 <img
-                  class="fixed bottom-0 left-1/2 z-[4] w-full min-w-[1920px] -translate-x-1/2"
+                  class="big-laptop:min-w-[1200px] fixed bottom-0 left-1/2 z-[4] w-full min-w-[1920px] -translate-x-1/2 lg:min-w-[1100px]"
                   src="./img/page-flag-big.png"
                   alt="Flag"
                 />
                 <img
-                  class="fixed -bottom-[54px] -left-[105px] z-[3] w-full max-w-[54%]"
+                  class="big-laptop:max-w-[70%] camel-img big-laptop:z-[7] fixed -bottom-[54px] -left-[105px] z-[3] w-full max-w-[54%] lg:z-[7] lg:max-w-[560px] mobile:hidden sm:bottom-0 sm:left-0 sm:max-w-[80%]"
                   src="./img/camel.png"
                   alt=""
                 />
                 <img
-                  class="money-img fixed -bottom-[100px] left-1/2 z-30 max-w-[350px] -translate-x-1/2 rotate-[35deg]"
+                  class="money-img big-laptop:left-auto big-laptop:translate-x-0 big-laptop:right-0 big-laptop:bottom-[100px] fixed -bottom-[100px] left-1/2 z-30 max-w-[350px] -translate-x-1/2 rotate-[35deg] lg:hidden"
                   src="./img/50grand.png"
                   alt="Money"
                 />
@@ -91,7 +127,7 @@
                   alt="Money"
                 />
                 <img
-                  class="money-img fixed right-0 top-0 max-w-[254px] -rotate-45 extralg:max-w-[160px]"
+                  class="money-img fixed right-0 top-0 max-w-[254px] -rotate-45 extralg:max-w-[160px] mobile:hidden xl:landscape:hidden"
                   src="./img/10grand.png"
                   alt="Money"
                 />
@@ -102,7 +138,7 @@
                 />
                 <!-- Wheel -->
                 <div
-                  class="relative z-50 h-full w-full max-w-[705px] rounded-full extralg:max-w-[550px]"
+                  class="relative z-50 h-full w-full max-w-[705px] rounded-full extralg:max-w-[550px] lg:max-w-[405px] xl:landscape:max-w-[450px]"
                 >
                   <img
                     class="absolute -top-[5%] left-1/2 z-50 w-[17%] -translate-x-1/2"
@@ -171,7 +207,7 @@
                     alt="Wheel wrapper"
                   />
                   <div
-                    class="dark-overlay fixed left-0 top-0 z-20 h-screen w-full bg-black/40"
+                    class="dark-overlay fixed left-0 top-0 z-30 h-screen w-full bg-black/40"
                   ></div>
                   <!-- wheel inner -->
                   <div
@@ -447,15 +483,15 @@
                   </button>
                   <!-- Action text -->
                   <div
-                    class="wheel-action-text absolute bottom-10 left-1/2 z-50 w-full -translate-x-1/2 text-center"
+                    class="wheel-action-text absolute bottom-10 left-1/2 z-50 w-full -translate-x-1/2 text-center mobile:-bottom-[60px] mobile:hidden mobile:text-[32px]"
                   >
                     <p
-                      class="font-dela text-[40px] uppercase leading-[97%] text-[#ffd84e] extralg:text-[30px]"
+                      class="font-dela text-[40px] uppercase leading-[97%] text-[#ffd84e] extralg:text-[30px] lg:text-[24px] xl:landscape:text-[24px]"
                     >
                       Omadingizni sinang
                     </p>
                     <p
-                      class="mt-5 font-dela text-[40px] uppercase leading-[97%] text-[#fff] extralg:text-[30px]"
+                      class="mt-5 font-dela text-[40px] uppercase leading-[97%] text-[#fff] extralg:text-[30px] lg:text-[24px] xl:landscape:text-[24px]"
                     >
                       g'ildirakni <br />
                       aylantiring
