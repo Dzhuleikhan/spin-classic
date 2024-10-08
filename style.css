@@ -144,9 +144,9 @@
 
 }
 
-.modal-lose {
+.modal-lose-inner {
   box-shadow: inset 0 8px 11px 0 rgba(255, 255, 255, 0.66);
-  background: linear-gradient(180deg, #f54242 0%, #821717 100%);
+  background: linear-gradient(180deg, #f54278 0%, #821717 100%);
 }
 
 .modal-win .modal-head p {

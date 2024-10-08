@@ -1,7 +1,11 @@
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
-import { showModal } from "./modal";
 import { mm } from "./animations";
+
+const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal");
+
+gsap.set(modal, { scale: 0, opacity: 0, visibility: "hidden" });
 
 const nums = [
   22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5,
@@ -41,14 +45,142 @@ firstRotateTl.fromTo(
 );
 
 const firstClick = new Audio("./audio/first-click.mp3");
-const proccessAndWin = new Audio("./audio/proccess-and-win.mp3");
 const proccessAndLose = new Audio("./audio/proccess-and-lose.mp3");
+const proccessAndWin = new Audio("./audio/proccess-and-win.mp3");
 
 const spinBtn = document.querySelector(".spin-btn");
 const spinBtnText = document.querySelector(".spin-btn-text");
 const spinBtnLoader = document.querySelector(".spin-btn-loader");
 
-let spinAmount = 0;
+function showModal(modal) {
+  document.body.style.overflow = "hidden";
+  overlay.classList.add("is-open");
+  document.querySelectorAll(".modal").forEach((m) => {
+    m.classList.add("hidden");
+  });
+  document.querySelector(`.${modal}`).classList.remove("hidden");
+  gsap.to(`.${modal}`, {
+    scale: 1,
+    opacity: 1,
+    visibility: "visible",
+    duration: 0.3,
+    ease: "none",
+  });
+}
+
+function hideModal() {
+  document.body.style.overflow = "visible";
+  overlay.classList.remove("is-open");
+  document.querySelectorAll(".modal").forEach((m) => {
+    m.classList.add("hidden");
+  });
+  gsap.set(".modal", {
+    scale: 0,
+    opacity: 0,
+    visibility: "hidden",
+    duration: 0.3,
+    ease: "none",
+  });
+}
+
+let spinAmount = parseInt(localStorage.getItem("spinAmount")) || 0;
+let currentRotation = parseInt(localStorage.getItem("currentRotation")) || 0;
+let modalMemory = localStorage.getItem("modal");
+
+if (spinAmount >= 1) {
+  gsap.set(".wheel-action-text", { display: "none" });
+}
+
+if (modalMemory === "lose") {
+  showModal("modal-lose");
+} else if (modalMemory === "win") {
+  showModal("modal-win");
+  buttonTl.pause();
+  spinBtn.style.pointerEvents = "none";
+}
+if (currentRotation !== 0) {
+  // Restore the wheel rotation if there's a saved state
+  gsap.set(".wheel", { rotate: currentRotation });
+}
+
+const Spinning = () => {
+  spinBtn.style.pointerEvents = "none";
+  firstClick.play();
+  gsap.to(spinBtnText, {
+    scale: 0.2,
+    opacity: 0,
+    ease: "none",
+    duration: 0.5,
+  });
+  gsap.fromTo(
+    spinBtnLoader,
+    {
+      opacity: 0,
+      scale: 0,
+      visibility: "hidden",
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      visibility: "visible",
+      duration: 0.5,
+      ease: "none",
+    },
+  );
+  buttonTl.pause();
+  setTimeout(() => {
+    if (spinAmount < 1) {
+      proccessAndLose.play();
+    } else {
+      proccessAndWin.play();
+    }
+  }, 500);
+  const targetRotationLose = currentRotation + (360 * 15 - nums[0]);
+  const targetRotationWin = currentRotation + (360 * 15 - nums[3]);
+
+  gsap.to(".main-wheel", {
+    rotate: spinAmount >= 1 ? targetRotationWin + 45 : targetRotationLose,
+    ease: CustomEase.create(
+      "custom",
+      "M0,0 C0.126,0.382 0.138,0.424 0.266,0.624 0.406,0.845 0.818,1.001 1,1 ",
+    ),
+    delay: 0.5,
+    duration: 7,
+    onComplete: () => {
+      firstRotateTl.kill();
+      setTimeout(() => {
+        spinAmount++;
+        currentRotation = targetRotationLose - nums[0];
+        localStorage.setItem("spinAmount", spinAmount);
+        localStorage.setItem("currentRotation", currentRotation);
+        if (spinAmount > 1) {
+          showModal("modal-win");
+          localStorage.setItem("modal", "win");
+          buttonTl.pause();
+          spinBtn.style.pointerEvents = "none";
+        } else {
+          showModal("modal-lose");
+          localStorage.setItem("modal", "lose");
+        }
+      }, 500);
+      spinBtn.style.pointerEvents = "auto";
+      gsap.to(spinBtnText, {
+        scale: 1,
+        opacity: 1,
+        ease: "none",
+        duration: 0.5,
+      });
+      gsap.to(spinBtnLoader, {
+        opacity: 0,
+        scale: 0,
+        visibility: "hidden",
+        duration: 0.5,
+        ease: "none",
+      });
+      buttonTl.play();
+    },
+  });
+};
 
 spinBtn.addEventListener("click", () => {
   document.querySelectorAll(".dark-overlay").forEach((el) => {
@@ -93,70 +225,10 @@ spinBtn.addEventListener("click", () => {
       delay: 0.2,
     });
   });
-  spinBtn.style.pointerEvents = "none";
-  firstClick.play();
-  gsap.to(spinBtnText, {
-    scale: 0.2,
-    opacity: 0,
-    ease: "none",
-    duration: 0.5,
-  });
-  gsap.fromTo(
-    spinBtnLoader,
-    {
-      opacity: 0,
-      scale: 0,
-      visibility: "hidden",
-    },
-    {
-      opacity: 1,
-      scale: 1,
-      visibility: "visible",
-      duration: 0.5,
-      ease: "none",
-    },
-  );
-  setTimeout(() => {
-    proccessAndLose.play();
-  }, 500);
-  buttonTl.pause();
-  gsap.to(".main-wheel", {
-    rotate: 360 * 15 - nums[8],
-    ease: CustomEase.create(
-      "custom",
-      "M0,0 C0.126,0.382 0.138,0.424 0.266,0.624 0.406,0.845 0.818,1.001 1,1 ",
-    ),
-    delay: 0.5,
-    duration: 7,
-    onComplete: () => {
-      setTimeout(() => {
-        showModal();
-      }, 500);
-      spinBtn.style.pointerEvents = "auto";
-      gsap.to(spinBtnText, {
-        scale: 1,
-        opacity: 1,
-        ease: "none",
-        duration: 0.5,
-      });
-      gsap.to(spinBtnLoader, {
-        opacity: 0,
-        scale: 0,
-        visibility: "hidden",
-        duration: 0.5,
-        ease: "none",
-      });
-      spinAmount++;
-      buttonTl.play();
+  Spinning();
+});
 
-      if (spinAmount === 1) {
-        buttonTl.kill();
-        spinBtn.style.pointerEvents = "none";
-      }
-    },
-  });
-
-  if (typeof firstRotateTl !== "undefined") {
-    firstRotateTl.kill();
-  }
+const firstModalCloseBtn = document.querySelector(".modal-lose-btn");
+firstModalCloseBtn.addEventListener("click", () => {
+  hideModal();
 });
