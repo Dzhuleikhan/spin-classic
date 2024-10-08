@@ -200,7 +200,7 @@ spinBtn.addEventListener("click", () => {
     });
   });
   // Mobile
-  mm.add("(max-width: 480px) and (max-height: 80px)", () => {
+  mm.add("(max-width: 480px) and (max-height: 800px)", () => {
     gsap.to(".camel-img", {
       y: 100,
       duration: 0.5,
