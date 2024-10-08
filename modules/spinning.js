@@ -200,7 +200,7 @@ spinBtn.addEventListener("click", () => {
     });
   });
   // Mobile
-  mm.add("(max-width: 480px) and (max-height: 700px)", () => {
+  mm.add("(max-width: 480px) and (max-height: 80px)", () => {
     gsap.to(".camel-img", {
       y: 100,
       duration: 0.5,
@@ -213,7 +213,7 @@ spinBtn.addEventListener("click", () => {
       delay: 0.2,
     });
   });
-  mm.add("(max-width: 480px) and (min-height: 700px)", () => {
+  mm.add("(max-width: 480px) and (min-height: 800px)", () => {
     gsap.to(".camel-img", {
       duration: 0.5,
       filter: "brightness(1)",
