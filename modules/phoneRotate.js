@@ -40,3 +40,9 @@ screenWidthMediaQuery.addEventListener("change", (e) => {
     checkScreenWidthAndOrientation();
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    document.querySelector(".preloader").classList.add("hidden");
+  }, 2000);
+});
