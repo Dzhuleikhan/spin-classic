@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 gsap.registerPlugin(CustomEase);
 
-let mm = gsap.matchMedia();
+export let mm = gsap.matchMedia();
 
 /**
  * Cursor animation
@@ -24,4 +24,42 @@ gsap.to(".dot-even", {
   repeat: -1,
   yoyo: true,
   delay: 0.5,
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  mm.add("(min-width: 768px)", () => {
+    gsap.fromTo(
+      ".spin-flags",
+      { scale: 0 },
+      { scale: 1, transformOrigin: "bottom center", duration: 1, delay: 0.2 },
+    );
+    gsap.fromTo(
+      ".wheel-action-text",
+      { y: 40, alpha: 0 },
+      { y: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+    );
+    gsap.fromTo(
+      ".camel-img",
+      { x: -100, alpha: 0 },
+      { x: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+    );
+    gsap.fromTo(
+      ".plov-img",
+      { y: 40, alpha: 0 },
+      { y: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+    );
+    gsap.fromTo(
+      ".money-img",
+      { y: -40, alpha: 0 },
+      { y: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+    );
+  });
+
+  mm.add("(max-width: 360px) and (max-height: 600px)", () => {
+    gsap.fromTo(
+      ".camel-img",
+      { y: 100, alpha: 0 },
+      { y: 0, alpha: 1, duration: 0.5, delay: 0.2 },
+    );
+  });
 });

@@ -121,6 +121,11 @@
   .number div p {
     font-size: 12px;
   }
+
+  .number div img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .overlay.is-open {

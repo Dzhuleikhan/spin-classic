@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 import { showModal } from "./modal";
+import { mm } from "./animations";
 
 const nums = [
   22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5,
@@ -52,6 +53,45 @@ let spinAmount = 0;
 spinBtn.addEventListener("click", () => {
   document.querySelectorAll(".dark-overlay").forEach((el) => {
     el.classList.add("is-hidden");
+  });
+  // Desktop
+  mm.add("(min-width: 768px)", () => {
+    gsap.to(".camel-img", {
+      duration: 0.5,
+      filter: "brightness(1)",
+    });
+    gsap.to(".wheel-action-text", {
+      y: 60,
+      alpha: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
+  });
+  // Mobile
+  mm.add("(max-width: 480px) and (max-height: 700px)", () => {
+    gsap.to(".camel-img", {
+      y: 100,
+      duration: 0.5,
+      filter: "brightness(1)",
+    });
+    gsap.to(".wheel-action-text", {
+      y: 60,
+      alpha: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
+  });
+  mm.add("(max-width: 480px) and (min-height: 600px)", () => {
+    gsap.to(".camel-img", {
+      duration: 0.5,
+      filter: "brightness(1)",
+    });
+    gsap.to(".wheel-action-text", {
+      y: 60,
+      alpha: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
   });
   spinBtn.style.pointerEvents = "none";
   firstClick.play();
