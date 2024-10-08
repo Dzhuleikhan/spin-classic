@@ -14,6 +14,9 @@ module.exports = {
       "big-laptop": {
         raw: "((max-width: 1200px) and (min-height: 1250px))",
       },
+      "extra-small": {
+        raw: "((max-width: 400px) and (max-height: 500px))",
+      },
     },
     extend: {
       fontFamily: {
