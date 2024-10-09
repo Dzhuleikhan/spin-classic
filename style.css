@@ -222,3 +222,263 @@
     transform: rotate(90deg)
   }
 }
+
+.money-img,
+.modal-money {
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.25));
+}
+
+/* Form */
+
+.iti {
+  width: 100%;
+  height: auto;
+  font-size: 18px !important;
+  font-weight: 700;
+  line-height: 100% !important;
+}
+
+.iti__selected-country-primary:hover {
+  background-color: transparent !important;
+}
+
+.iti .phone-input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+
+.iti__country-list {
+  border: none !important;
+}
+
+.iti__country-list li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.iti__tel-input {
+  padding-left: 100px !important;
+}
+
+.iti__selected-country-primary {
+  height: auto !important;
+}
+
+.iti__search-input {
+  border: none !important;
+  outline: none;
+  color: #0f0f0f;
+  padding: 10px 12px;
+}
+
+.iti__country-list li span {
+  color: #0f0f0f;
+}
+
+.iti__dropdown-content {
+  top: 110%;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.iti__dial-code {
+  color: #755EEB !important;
+}
+
+.iti__selected-dial-code {
+  color: #755EEB !important;
+}
+
+.iti .phone-input {
+  font-size: 18px !important;
+  line-height: 100% !important;
+  height: 22px !important;
+}
+
+.iti__selected-country {
+  height: 22px !important;
+}
+
+.form-overlay.is-open {
+  display: grid;
+}
+
+@media (max-width: 576px) {
+  .form-overlay.is-open {
+    display: block;
+  }
+}
+
+.copy-tooltip::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fff;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.copy-tooltip {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.copy-tooltip.is-visible {
+  opacity: 1;
+}
+
+.form-type-btn::before {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #FAD303;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+}
+
+.form-type-btn.active::before {
+  opacity: 1;
+}
+
+.form-type-btn.active span {
+  color: #FAD303;
+}
+
+.form-type-btn.active svg {
+  stroke: #FAD303;
+}
+
+.form-group-email label {
+  transition: 0.3s;
+}
+
+/* .form-group-email input:focus, */
+.form-group-email input:focus+label,
+.form-group-email input:not(:placeholder-shown)+label {
+  font-size: 12px;
+  transform: translateY(-14px);
+}
+
+.form-step-btn:disabled {
+  background: #35659e;
+}
+
+.form-group {
+  display: none;
+}
+
+.form-group.active {
+  display: flex;
+}
+
+.form-group {
+  border: 2px solid transparent;
+}
+
+.form-group.not-valid {
+  border: 2px solid #FF5530;
+}
+
+.form-group.not-valid input {
+  color: #FF5530;
+}
+
+.form-group.not-valid .tooltip {
+  display: block;
+}
+
+.form-group-password {
+  border: 2px solid transparent;
+}
+
+.form-group-password.not-valid {
+  border: 2px solid #FF5530;
+}
+
+.form-group-password.not-valid input {
+  color: #FF5530;
+}
+
+.form-group-password.not-valid .tooltip {
+  display: block;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  -webkit-text-fill-color: #755EEB;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  -webkit-text-fill-color: #755EEB;
+}
+
+input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
+  -webkit-text-fill-color: #755EEB;
+}
+
+.checkbox .checkbox-content::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid transparent;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.checkbox .checkbox-input:checked+.checkbox-content::before {
+  background: url('../img/checked.svg') #F4FD2B;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tooltip {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.tooltip::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+
+  border-top: 6px solid #f0f0f0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.form.loading .main-form-submit-btn span {
+  display: none;
+}
+
+.form.loading .main-form-submit-btn .loading-icon {
+  display: block;
+}
+
+.form.loading .form-group-password {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.form.loading .form-currency {
+  pointer-events: none;
+  opacity: 0.6;
+}

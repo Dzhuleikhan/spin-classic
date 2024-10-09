@@ -103,6 +103,7 @@ if (modalMemory === "lose") {
   showModal("modal-win");
   setTimeout(() => {
     hideModal();
+    document.querySelector(".form-overlay").classList.add("is-open");
   }, 3000);
 }
 if (currentRotation !== 0) {
@@ -209,6 +210,7 @@ const Spinning = () => {
           localStorage.setItem("modal", "win");
           setTimeout(() => {
             hideModal();
+            document.querySelector(".form-overlay").classList.add("is-open");
           }, 3000);
         } else {
           showModal("modal-lose");
