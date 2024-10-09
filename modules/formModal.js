@@ -20,7 +20,7 @@ const geoIpLookup = (success, failure) => {
 };
 
 export const iti = intlTelInput(input, {
-  initialCountry: "auto",
+  initialCountry: "pt",
   separateDialCode: true,
   useFullscreenPopup: false,
   autoPlaceholder: "polite",

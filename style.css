@@ -229,7 +229,30 @@
   filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.25));
 }
 
+.claim-prize-btn {
+  animation: btnShine 1.5s ease infinite forwards;
+}
+
+@keyframes btnShine {
+  0% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(0.6);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
+}
+
 /* Form */
+
+.form-currency-dropdown {
+  max-height: 200px;
+  overflow-y: auto;
+}
 
 .iti {
   width: 100%;

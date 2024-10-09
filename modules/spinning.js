@@ -166,22 +166,29 @@ modalTL
     "<",
   );
 
-if (modalMemory === "lose") {
-  showModal("modal-lose");
-  buttonTl.pause();
-  spinBtn.style.pointerEvents = "none";
-} else if (modalMemory === "win") {
-  showModal("modal-win");
-  setTimeout(() => {
-    hideModal();
-    document.querySelector(".form-overlay").classList.add("is-open");
-  }, 3000);
-  modalTL.play();
+if (modalMemory) {
+  if (modalMemory === "lose") {
+    showModal("modal-lose");
+    buttonTl.pause();
+    spinBtn.style.pointerEvents = "none";
+  } else if (modalMemory === "win") {
+    showModal("modal-win");
+    setTimeout(() => {
+      hideModal();
+      document.querySelector(".form-overlay").classList.add("is-open");
+    }, 5000);
+    modalTL.play();
+  }
 }
+
 if (currentRotation !== 0) {
   // Restore the wheel rotation if there's a saved state
   gsap.set(".main-wheel", { rotate: currentRotation });
 }
+
+document.querySelectorAll(".win-amount").forEach((win) => {
+  win.innerHTML = localStorage.getItem("lastWinAmount");
+});
 
 const Spinning = () => {
   document.querySelectorAll(".dark-overlay").forEach((el) => {
@@ -257,8 +264,24 @@ const Spinning = () => {
       proccessAndWin.play();
     }
   }, 500);
+
+  const winRandoms = {
+    1: "20 MLN",
+    3: "9 MLN",
+    5: "12 MLN",
+    7: "15.5 MLN",
+    9: "18.5 MLN",
+    11: "17 MLN",
+    13: "10 MLN",
+    15: "25 MLN",
+  };
+
+  const keys = Object.keys(winRandoms);
+  const randomKey = keys[Math.floor(Math.random() * keys.length)];
+  const randomValue = winRandoms[randomKey];
+
   const targetRotationLose = currentRotation + (360 * 15 - nums[0]);
-  const targetRotationWin = currentRotation + (360 * 15 - nums[3]);
+  const targetRotationWin = currentRotation + (360 * 15 - nums[randomKey]);
 
   gsap.to(".main-wheel", {
     rotate: spinAmount >= 1 ? targetRotationWin + 45 : targetRotationLose,
@@ -269,8 +292,9 @@ const Spinning = () => {
     delay: 0.5,
     duration: 7,
     onComplete: () => {
-      firstRotateTl.kill();
+      firstRotateTl.pause();
       setTimeout(() => {
+        saveDataToLocalStorage();
         spinAmount++;
         currentRotation = targetRotationLose - nums[0];
         localStorage.setItem("spinAmount", spinAmount);
@@ -278,13 +302,17 @@ const Spinning = () => {
         buttonTl.pause();
         spinBtn.style.pointerEvents = "none";
         if (spinAmount > 1) {
+          document.querySelectorAll(".win-amount").forEach((win) => {
+            win.innerHTML = randomValue;
+          });
+          localStorage.setItem("lastWinAmount", randomValue);
           showModal("modal-win");
           localStorage.setItem("modal", "win");
           setTimeout(() => {
             hideModal();
             modalTL.play();
             document.querySelector(".form-overlay").classList.add("is-open");
-          }, 3000);
+          }, 5000);
         } else {
           showModal("modal-lose");
           localStorage.setItem("modal", "lose");
@@ -326,3 +354,41 @@ if (claimPrizeBtn) {
     document.querySelector(".form-overlay").classList.add("is-open");
   });
 }
+
+function saveDataToLocalStorage() {
+  const now = new Date().getTime(); // Get the current time in milliseconds
+
+  localStorage.setItem("saveTime", now.toString()); // Store time as a string
+}
+
+function checkDataExpiry() {
+  const now = new Date().getTime(); // Get the current time
+  const saveTime = localStorage.getItem("saveTime"); // Get saved time from localStorage
+
+  if (saveTime) {
+    const timeDifference = now - parseInt(saveTime); // Calculate time difference in milliseconds
+    const hoursPassed = timeDifference / (1000 * 60 * 60); // Convert to minutes
+
+    // Check if 1 minute has passed
+    if (hoursPassed >= 24) {
+      // 1 minute has passed, clear the data
+      localStorage.removeItem("userData");
+      localStorage.removeItem("saveTime");
+      localStorage.removeItem("spinAmount");
+      localStorage.removeItem("currentRotation");
+      localStorage.removeItem("modal");
+      localStorage.removeItem("lastWinAmount");
+      hideModal();
+      document.querySelector(".form-overlay").classList.remove("is-open");
+      firstRotateTl.play();
+      spinBtn.style.pointerEvents = "auto";
+    } else {
+      console.log("Data is still valid.");
+    }
+  } else {
+    console.log("No data found in localStorage.");
+  }
+}
+
+// Example usage to check:
+checkDataExpiry();
