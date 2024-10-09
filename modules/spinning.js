@@ -91,9 +91,80 @@ let spinAmount = parseInt(localStorage.getItem("spinAmount")) || 0;
 let currentRotation = parseInt(localStorage.getItem("currentRotation")) || 0;
 let modalMemory = localStorage.getItem("modal");
 
+gsap.set(".win-rays", {
+  left: "50%",
+  top: "50%",
+  xPercent: -50,
+  yPercent: -50,
+});
+
 if (spinAmount >= 1) {
   gsap.set(".wheel-action-text", { display: "none" });
 }
+
+const modalTL = gsap.timeline();
+modalTL
+  .to(".win-rays", {
+    rotate: 360,
+    ease: "none",
+    duration: 10,
+    repeat: -1,
+  })
+  .to(
+    ".modal-cup",
+    {
+      scale: 1.1,
+      rotate: 10,
+      ease: "none",
+      yoyo: true,
+      repeat: -1,
+    },
+    "<",
+  )
+  .to(
+    ".modal-money",
+    {
+      rotate: 10,
+      ease: "none",
+      duration: 5,
+      yoyo: true,
+      repeat: -1,
+    },
+    "<",
+  )
+  .to(
+    ".modal-camel-img",
+    {
+      x: 30,
+      ease: "none",
+      duration: 1.5,
+      yoyo: true,
+      repeat: -1,
+    },
+    "<",
+  )
+  .to(
+    ".star-1",
+    {
+      scale: 0.5,
+      ease: "none",
+      duration: 0.7,
+      yoyo: true,
+      repeat: -1,
+    },
+    "<",
+  )
+  .to(
+    ".star-2",
+    {
+      scale: 1.5,
+      ease: "none",
+      duration: 0.7,
+      yoyo: true,
+      repeat: -1,
+    },
+    "<",
+  );
 
 if (modalMemory === "lose") {
   showModal("modal-lose");
@@ -105,6 +176,7 @@ if (modalMemory === "lose") {
     hideModal();
     document.querySelector(".form-overlay").classList.add("is-open");
   }, 3000);
+  modalTL.play();
 }
 if (currentRotation !== 0) {
   // Restore the wheel rotation if there's a saved state
@@ -210,6 +282,7 @@ const Spinning = () => {
           localStorage.setItem("modal", "win");
           setTimeout(() => {
             hideModal();
+            modalTL.play();
             document.querySelector(".form-overlay").classList.add("is-open");
           }, 3000);
         } else {
@@ -245,3 +318,11 @@ firstModalCloseBtn.addEventListener("click", () => {
   Spinning();
   hideModal();
 });
+const claimPrizeBtn = document.querySelector(".claim-prize-btn");
+
+if (claimPrizeBtn) {
+  claimPrizeBtn.addEventListener("click", () => {
+    hideModal();
+    document.querySelector(".form-overlay").classList.add("is-open");
+  });
+}

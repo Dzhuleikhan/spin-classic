@@ -138,10 +138,11 @@
   background-size: cover;
 }
 
-.modal-win {
+.modal-win-inner {
   box-shadow: inset 0 10px 13px 0 rgba(255, 255, 255, 0.66);
   background: url('../img/modal-lines.svg'), linear-gradient(180deg, #24a521 0%, #26351d 100%);
-
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .modal-lose-inner {

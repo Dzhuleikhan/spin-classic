@@ -26,11 +26,6 @@ gsap.to(".dot-even", {
   delay: 0.5,
 });
 
-// gsap.set(".wheel-action-text", {
-//   left: "50%",
-//   xPercent: -50,
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   mm.add("(min-width: 768px)", () => {
     gsap.fromTo(
