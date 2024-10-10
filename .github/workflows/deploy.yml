@@ -3,7 +3,7 @@ name: Deploy to OVHCloud via SFTP
 on:
   push:
     branches:
-      - uz_two_step # or the branch you want to trigger the action on
+      - az_two_step # or the branch you want to trigger the action on
 
 jobs:
   build-and-deploy:
@@ -31,4 +31,4 @@ jobs:
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
           local-dir: ./dist/ # The folder containing your built project
-          server-dir: /www/goldbetio.com/spin/uzbekistan/ # The directory on the server where you want to upload the dist folder
+          server-dir: /www/goldbetio.com/spin/azerbaijan/ # The directory on the server where you want to upload the dist folder
