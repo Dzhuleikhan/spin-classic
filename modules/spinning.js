@@ -164,6 +164,28 @@ modalTL
       repeat: -1,
     },
     "<",
+  )
+  .to(
+    ".star-3",
+    {
+      scale: 1.5,
+      ease: "none",
+      duration: 0.7,
+      yoyo: true,
+      repeat: -1,
+    },
+    "<",
+  )
+  .to(
+    ".star-4",
+    {
+      scale: 1.5,
+      ease: "none",
+      duration: 0.7,
+      yoyo: true,
+      repeat: -1,
+    },
+    "<",
   );
 
 if (modalMemory) {
@@ -196,7 +218,7 @@ const Spinning = () => {
   });
   // Desktop
   mm.add("(min-width: 768px)", () => {
-    gsap.to(".camel-img", {
+    gsap.to(".horse-img", {
       duration: 0.5,
       filter: "brightness(1)",
     });
@@ -209,7 +231,7 @@ const Spinning = () => {
   });
   // Mobile
   mm.add("(max-width: 480px) and (max-height: 800px)", () => {
-    gsap.to(".camel-img", {
+    gsap.to(".horse-img", {
       y: 100,
       duration: 0.5,
       filter: "brightness(1)",
@@ -222,7 +244,8 @@ const Spinning = () => {
     });
   });
   mm.add("(max-width: 480px) and (min-height: 800px)", () => {
-    gsap.to(".camel-img", {
+    gsap.to(".horse-img", {
+      y: 100,
       duration: 0.5,
       filter: "brightness(1)",
     });
@@ -266,14 +289,14 @@ const Spinning = () => {
   }, 500);
 
   const winRandoms = {
-    1: "20 MLN",
-    3: "9 MLN",
-    5: "12 MLN",
-    7: "15.5 MLN",
-    9: "18.5 MLN",
-    11: "17 MLN",
-    13: "10 MLN",
-    15: "25 MLN",
+    1: "8.000",
+    3: "500",
+    5: "2.000",
+    7: "4.500",
+    9: "10.000",
+    11: "7.500",
+    13: "13.000",
+    15: "17.000",
   };
 
   const keys = Object.keys(winRandoms);

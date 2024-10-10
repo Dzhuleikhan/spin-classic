@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
+import { Power1 } from "gsap";
 gsap.registerPlugin(CustomEase);
 
 export let mm = gsap.matchMedia();
@@ -39,12 +40,12 @@ document.addEventListener("DOMContentLoaded", () => {
       { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
     gsap.fromTo(
-      ".camel-img",
+      ".horse-img",
       { x: -100, alpha: 0 },
       { x: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
     gsap.fromTo(
-      ".plov-img",
+      ".grenade-img",
       { y: 40, alpha: 0 },
       { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mm.add("(max-width: 360px) and (max-height: 600px)", () => {
     gsap.fromTo(
-      ".camel-img",
+      ".horse-img",
       { y: 100, alpha: 0 },
       { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
@@ -79,6 +80,7 @@ gsap.fromTo(
     transformOrigin: "bottom center",
     duration: 1,
     delay: 1.3,
+    ease: Power1.easeInOut,
     yoyo: true,
     repeat: -1,
   },

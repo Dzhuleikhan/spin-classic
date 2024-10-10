@@ -112,6 +112,17 @@
   }
 }
 
+@media (max-width: 992px) {
+  .number div p {
+    font-size: 13px;
+  }
+
+  .number div span img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 @media (max-width: 650px) {
   .number div .wheel-currency {
     width: 17px;
