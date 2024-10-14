@@ -87,7 +87,7 @@
 
 .number div p {
   font-family: 'Dela Gothic One';
-  font-size: 32px;
+  font-size: 20px;
   color: #fff;
   line-height: 76%;
   text-shadow: -6px 0px 8px #000;
@@ -108,7 +108,7 @@
   }
 
   .number div p {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -406,7 +406,12 @@
 }
 
 .form-step-btn:disabled {
-  background: #35659e;
+  background: #862516;
+}
+
+.form-step-btn:disabled span,
+.form-step-btn:disabled svg {
+  opacity: 0.4;
 }
 
 .form-group {

@@ -45,11 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
       { x: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
     gsap.fromTo(
-      ".grenade-img",
-      { y: 40, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
-    );
-    gsap.fromTo(
       ".money-img",
       { y: -40, alpha: 0 },
       { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
@@ -68,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 gsap.to(".money-img", {
   rotate: Math.random() * 20 - 10,
   duration: 2,
+  ease: "none",
   yoyo: true,
   repeat: -1,
 });
