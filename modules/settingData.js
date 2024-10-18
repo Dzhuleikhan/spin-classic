@@ -1,4 +1,4 @@
-import { getLocation } from "./getLocation";
+import { getLocation } from "./geoLocation";
 import { countryCurrencyData } from "../public/data";
 import { settingGeoLocation } from "./setGeo";
 
