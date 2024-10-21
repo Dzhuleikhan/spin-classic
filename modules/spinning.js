@@ -166,6 +166,8 @@ modalTL
     "<",
   );
 
+let timeoutId;
+
 if (modalMemory) {
   if (modalMemory === "lose") {
     showModal("modal-lose");
@@ -173,14 +175,11 @@ if (modalMemory) {
     spinBtn.style.pointerEvents = "none";
   } else if (modalMemory === "win") {
     showModal("modal-win");
-    setTimeout(() => {
+    timeoutId = setTimeout(() => {
       hideModal();
       document.querySelector(".form-overlay").classList.add("is-open");
     }, 5000);
     modalTL.play();
-  } else {
-    hideModal();
-    document.querySelector(".form-overlay").classList.remove("is-open");
   }
 }
 
@@ -315,11 +314,11 @@ const Spinning = () => {
             hideModal();
             modalTL.play();
             document.querySelector(".form-overlay").classList.add("is-open");
+            console.log("second");
           }, 5000);
         } else {
           showModal("modal-lose");
           localStorage.setItem("modal", "lose");
-          document.querySelector(".form-overlay").classList.remove("is-open");
         }
       }, 500);
       spinBtn.style.pointerEvents = "auto";
@@ -359,13 +358,13 @@ if (claimPrizeBtn) {
   });
 }
 
+// ? Clearing the data
+
 function saveDataToLocalStorage() {
   const now = new Date().getTime(); // Get the current time in milliseconds
 
   localStorage.setItem("saveTime", now.toString()); // Store time as a string
 }
-
-document.querySelector(".form-overlay").classList.remove("is-open");
 
 function checkDataExpiry() {
   const now = new Date().getTime(); // Get the current time
@@ -373,23 +372,19 @@ function checkDataExpiry() {
 
   if (saveTime) {
     const timeDifference = now - parseInt(saveTime); // Calculate time difference in milliseconds
-    // const hoursPassed = timeDifference / (1000 * 60 * 60); // Convert to hours
-    const minutesPassed = timeDifference / (1000 * 60); // Convert to minutes
+    const hoursPassed = timeDifference / (1000 * 60 * 60); // Convert to hours
 
     // Check if 1 minute has passed
-    if (minutesPassed >= 1) {
-      // 1 minute has passed, clear the data
-      // localStorage.removeItem("userData");
-      // localStorage.removeItem("saveTime");
-      // localStorage.removeItem("spinAmount");
-      // localStorage.removeItem("currentRotation");
-      // localStorage.removeItem("modal");
-      // localStorage.removeItem("lastWinAmount");
+    if (hoursPassed >= 12) {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
       localStorage.clear();
       hideModal();
       document.querySelector(".form-overlay").classList.remove("is-open");
       firstRotateTl.play();
       spinBtn.style.pointerEvents = "auto";
+      location.reload();
     } else {
       console.log("Data is still valid.");
     }
@@ -398,5 +393,4 @@ function checkDataExpiry() {
   }
 }
 
-// Example usage to check:
 checkDataExpiry();
