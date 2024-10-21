@@ -178,6 +178,9 @@ if (modalMemory) {
       document.querySelector(".form-overlay").classList.add("is-open");
     }, 5000);
     modalTL.play();
+  } else {
+    hideModal();
+    document.querySelector(".form-overlay").classList.remove("is-open");
   }
 }
 
@@ -316,6 +319,7 @@ const Spinning = () => {
         } else {
           showModal("modal-lose");
           localStorage.setItem("modal", "lose");
+          document.querySelector(".form-overlay").classList.remove("is-open");
         }
       }, 500);
       spinBtn.style.pointerEvents = "auto";
@@ -360,6 +364,8 @@ function saveDataToLocalStorage() {
 
   localStorage.setItem("saveTime", now.toString()); // Store time as a string
 }
+
+document.querySelector(".form-overlay").classList.remove("is-open");
 
 function checkDataExpiry() {
   const now = new Date().getTime(); // Get the current time
