@@ -367,17 +367,19 @@ function checkDataExpiry() {
 
   if (saveTime) {
     const timeDifference = now - parseInt(saveTime); // Calculate time difference in milliseconds
-    const hoursPassed = timeDifference / (1000 * 60 * 60); // Convert to minutes
+    // const hoursPassed = timeDifference / (1000 * 60 * 60); // Convert to hours
+    const minutesPassed = timeDifference / (1000 * 60); // Convert to minutes
 
     // Check if 1 minute has passed
-    if (hoursPassed >= 24) {
+    if (minutesPassed >= 1) {
       // 1 minute has passed, clear the data
-      localStorage.removeItem("userData");
-      localStorage.removeItem("saveTime");
-      localStorage.removeItem("spinAmount");
-      localStorage.removeItem("currentRotation");
-      localStorage.removeItem("modal");
-      localStorage.removeItem("lastWinAmount");
+      // localStorage.removeItem("userData");
+      // localStorage.removeItem("saveTime");
+      // localStorage.removeItem("spinAmount");
+      // localStorage.removeItem("currentRotation");
+      // localStorage.removeItem("modal");
+      // localStorage.removeItem("lastWinAmount");
+      localStorage.clear();
       hideModal();
       document.querySelector(".form-overlay").classList.remove("is-open");
       firstRotateTl.play();
