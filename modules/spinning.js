@@ -188,6 +188,8 @@ modalTL
     "<",
   );
 
+let timeoutId;
+
 if (modalMemory) {
   if (modalMemory === "lose") {
     showModal("modal-lose");
@@ -195,7 +197,7 @@ if (modalMemory) {
     spinBtn.style.pointerEvents = "none";
   } else if (modalMemory === "win") {
     showModal("modal-win");
-    setTimeout(() => {
+    timeoutId = setTimeout(() => {
       hideModal();
       document.querySelector(".form-overlay").classList.add("is-open");
     }, 5000);
@@ -393,18 +395,16 @@ function checkDataExpiry() {
     const hoursPassed = timeDifference / (1000 * 60 * 60); // Convert to minutes
 
     // Check if 1 minute has passed
-    if (hoursPassed >= 24) {
-      // 1 minute has passed, clear the data
-      localStorage.removeItem("userData");
-      localStorage.removeItem("saveTime");
-      localStorage.removeItem("spinAmount");
-      localStorage.removeItem("currentRotation");
-      localStorage.removeItem("modal");
-      localStorage.removeItem("lastWinAmount");
+    if (hoursPassed >= 12) {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      localStorage.clear();
       hideModal();
       document.querySelector(".form-overlay").classList.remove("is-open");
       firstRotateTl.play();
       spinBtn.style.pointerEvents = "auto";
+      location.reload();
     } else {
       console.log("Data is still valid.");
     }
