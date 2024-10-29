@@ -238,37 +238,37 @@ function disableFormWhileSubmitting() {
 let cid = getUrlParameter("cid");
 
 // Hidden select
-const hiddenSelect = document.getElementById("hidden-select");
+// const hiddenSelect = document.getElementById("hidden-select");
 
-document.addEventListener("keydown", function (event) {
-  if ((event.ctrlKey || event.metaKey) && event.key === "k") {
-    event.preventDefault();
-    if (hiddenSelect.classList.contains("hidden")) {
-      hiddenSelect.classList.remove("hidden");
-      hiddenSelect.focus();
-    } else {
-      hiddenSelect.classList.add("hidden");
-    }
-  }
-});
+// document.addEventListener("keydown", function (event) {
+//   if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+//     event.preventDefault();
+//     if (hiddenSelect.classList.contains("hidden")) {
+//       hiddenSelect.classList.remove("hidden");
+//       hiddenSelect.focus();
+//     } else {
+//       hiddenSelect.classList.add("hidden");
+//     }
+//   }
+// });
 
-let pressTimer;
+// let pressTimer;
 
-// Mobile touch support
-document.addEventListener("touchstart", function () {
-  pressTimer = setTimeout(function () {
-    if (hiddenSelect.classList.contains("hidden")) {
-      hiddenSelect.classList.remove("hidden");
-      hiddenSelect.focus();
-    } else {
-      hiddenSelect.classList.add("hidden");
-    }
-  }, 1000);
-});
+// // Mobile touch support
+// document.addEventListener("touchstart", function () {
+//   pressTimer = setTimeout(function () {
+//     if (hiddenSelect.classList.contains("hidden")) {
+//       hiddenSelect.classList.remove("hidden");
+//       hiddenSelect.focus();
+//     } else {
+//       hiddenSelect.classList.add("hidden");
+//     }
+//   }, 1000);
+// });
 
-document.addEventListener("touchend", function () {
-  clearTimeout(pressTimer);
-});
+// document.addEventListener("touchend", function () {
+//   clearTimeout(pressTimer);
+// });
 
 if (mainForm) {
   mainForm.addEventListener("keydown", (e) => {
@@ -315,10 +315,10 @@ if (mainForm) {
         if (!submitBtn.disabled) {
           if (formTab === "email") {
             disableFormWhileSubmitting();
-            window.location.href = `https://${hiddenSelect.value === "prod" ? "" : "dev."}gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
+            window.location.href = `https://gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
           } else if (formTab === "phone") {
             disableFormWhileSubmitting();
-            window.location.href = `https://${hiddenSelect.value === "prod" ? "" : "dev."}gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
+            window.location.href = `https://gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
           }
         }
       }
@@ -364,13 +364,10 @@ if (mainForm) {
 
     if (formTab === "email") {
       disableFormWhileSubmitting();
-      window.location.href = `https://${hiddenSelect.value === "prod" ? "" : "dev."}gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
-      console.log(
-        `https://${hiddenSelect.value === "prod" ? "" : "dev."}gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`,
-      );
+      window.location.href = `https://gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
     } else if (formTab === "phone") {
       disableFormWhileSubmitting();
-      window.location.href = `https://${hiddenSelect.value === "prod" ? "" : "dev."}gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
+      window.location.href = `https://gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
     }
   });
 }
@@ -396,7 +393,7 @@ formSocialLinks.forEach((link) => {
       let currencyStoredData = localStorage.getItem("currencyData");
       let currencyData = JSON.parse(currencyStoredData);
       let currency = currencyData.abbr;
-      window.location.href = `https://${hiddenSelect.value === "prod" ? "" : "dev."}gbetauth.com/api/register?env=prod&type=${type}&currency=${currency}${bonus === "" ? "" : "&bonus=" + bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`;
+      window.location.href = `https://gbetauth.com/api/register?env=prod&type=${type}&currency=${currency}${bonus === "" ? "" : "&bonus=" + bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`;
     });
   }
 });
