@@ -1,6 +1,16 @@
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
-import { showModal } from "./modal";
+import { mm } from "./animations";
+import { getLocation } from "./geoLocation";
+import { winRandoms } from "../public/spinAmountsData";
+
+const overlay = document.querySelector(".overlay");
+
+const modal = gsap.utils.toArray(".modal");
+
+modal.forEach((modal) => {
+  gsap.set(modal, { scale: 0, opacity: 0, visibility: "hidden" });
+});
 
 const nums = [
   22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 247.5, 270, 292.5,
@@ -16,7 +26,7 @@ buttonTl.to(".spin-btn-text", {
   ease: "none",
   repeat: -1,
   yoyo: true,
-  duration: 1,
+  duration: 0.5,
 });
 
 gsap.set(".main-wheel", {
@@ -40,16 +50,166 @@ firstRotateTl.fromTo(
 );
 
 const firstClick = new Audio("./audio/first-click.mp3");
-const proccessAndWin = new Audio("./audio/proccess-and-win.mp3");
 const proccessAndLose = new Audio("./audio/proccess-and-lose.mp3");
+const proccessAndWin = new Audio("./audio/proccess-and-win.mp3");
 
 const spinBtn = document.querySelector(".spin-btn");
 const spinBtnText = document.querySelector(".spin-btn-text");
 const spinBtnLoader = document.querySelector(".spin-btn-loader");
 
-let spinAmount = 0;
+function showModal(mod) {
+  document.body.style.overflow = "hidden";
+  overlay.classList.add("is-open");
+  document.querySelectorAll(".modal").forEach((m) => {
+    m.classList.add("hidden");
+  });
+  document.querySelector(`.${mod}`).classList.remove("hidden");
+  modal.forEach((modal) => {
+    gsap.to(modal, {
+      scale: 1,
+      opacity: 1,
+      visibility: "visible",
+      duration: 0.3,
+      ease: "none",
+    });
+  });
+}
 
-spinBtn.addEventListener("click", () => {
+function hideModal() {
+  document.body.style.overflow = "visible";
+  overlay.classList.remove("is-open");
+  modal.forEach((modal) => {
+    gsap.set(modal, {
+      scale: 0,
+      opacity: 0,
+      visibility: "hidden",
+      duration: 0.3,
+      ease: "none",
+    });
+  });
+}
+
+let spinAmount = parseInt(localStorage.getItem("spinAmount")) || 0;
+let currentRotation = parseInt(localStorage.getItem("currentRotation")) || 0;
+let modalMemory = localStorage.getItem("modal");
+
+gsap.set(".win-rays", {
+  left: "50%",
+  top: "50%",
+  xPercent: -50,
+  yPercent: -50,
+});
+
+const modalTL = gsap.timeline();
+modalTL
+  .to(".win-rays", {
+    rotate: 360,
+    ease: "none",
+    duration: 10,
+    repeat: -1,
+  })
+  .to(
+    ".modal-cup",
+    {
+      scale: 1.1,
+      rotate: 10,
+      ease: "none",
+      yoyo: true,
+      repeat: -1,
+    },
+    "<",
+  );
+
+let timeoutId;
+
+if (modalMemory) {
+  if (modalMemory === "lose") {
+    showModal("modal-lose");
+    buttonTl.pause();
+    spinBtn.style.pointerEvents = "none";
+  } else if (modalMemory === "win") {
+    showModal("modal-win");
+    timeoutId = setTimeout(() => {
+      hideModal();
+      document.querySelector(".form-overlay").classList.add("is-open");
+    }, 5000);
+    modalTL.play();
+  }
+}
+
+if (currentRotation !== 0) {
+  // Restore the wheel rotation if there's a saved state
+  gsap.set(".main-wheel", { rotate: currentRotation });
+}
+
+document.querySelectorAll(".win-amount").forEach((win) => {
+  win.innerHTML = localStorage.getItem("lastWinAmount");
+});
+
+function setAmountsByLanguage(detectedLang) {
+  const langData = winRandoms[detectedLang] || winRandoms["en"];
+
+  Object.keys(langData).forEach((number) => {
+    const pTag = document.querySelector(
+      `.number-amount.number-amount-${number}`,
+    );
+    if (pTag) {
+      pTag.textContent = langData[number];
+    }
+  });
+}
+
+async function settingBonusMoneyAmounts() {
+  const location = await getLocation();
+  const detectedLang = location.countryCode.toLowerCase();
+  setAmountsByLanguage(detectedLang);
+}
+
+settingBonusMoneyAmounts();
+
+const Spinning = async () => {
+  document.querySelectorAll(".dark-overlay").forEach((el) => {
+    el.classList.add("is-hidden");
+  });
+  // Desktop
+  mm.add("(min-width: 768px)", () => {
+    gsap.to(".camel-img", {
+      duration: 0.5,
+      filter: "brightness(1)",
+    });
+    gsap.to(".wheel-action-text", {
+      y: 60,
+      alpha: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
+  });
+  // Mobile
+  mm.add("(max-width: 480px) and (max-height: 800px)", () => {
+    gsap.to(".camel-img", {
+      y: 100,
+      duration: 0.5,
+      filter: "brightness(1)",
+    });
+    gsap.to(".wheel-action-text", {
+      y: 60,
+      alpha: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
+  });
+  mm.add("(max-width: 480px) and (min-height: 800px)", () => {
+    gsap.to(".camel-img", {
+      duration: 0.5,
+      filter: "brightness(1)",
+    });
+    gsap.to(".wheel-action-text", {
+      y: 60,
+      alpha: 0,
+      duration: 0.5,
+      delay: 0.2,
+    });
+  });
   spinBtn.style.pointerEvents = "none";
   firstClick.play();
   gsap.to(spinBtnText, {
@@ -73,12 +233,36 @@ spinBtn.addEventListener("click", () => {
       ease: "none",
     },
   );
-  setTimeout(() => {
-    proccessAndLose.play();
-  }, 500);
   buttonTl.pause();
+  setTimeout(() => {
+    if (spinAmount < 1) {
+      proccessAndLose.play();
+    } else {
+      proccessAndWin.play();
+    }
+  }, 500);
+
+  // Detect location and use the language data from it
+  const location = await getLocation();
+  const detectedLang = location.countryCode.toLowerCase();
+  const langData = winRandoms[detectedLang] || winRandoms["en"];
+
+  // Select a random number key within the detected language data
+  const numberKeys = Object.keys(langData);
+  const randomNumberKey =
+    numberKeys[Math.floor(Math.random() * numberKeys.length)];
+  const randomValue = langData[randomNumberKey];
+  console.log(
+    `Detected Language: ${detectedLang}, Random Win Amount: ${randomValue}`,
+  );
+
+  // Define rotation for lose and win conditions
+  const targetRotationLose = currentRotation + (360 * 15 - nums[0]);
+  const targetRotationWin =
+    currentRotation + (360 * 15 - nums[randomNumberKey]);
+
   gsap.to(".main-wheel", {
-    rotate: 360 * 15 - nums[8],
+    rotate: spinAmount >= 1 ? targetRotationWin + 45 : targetRotationLose,
     ease: CustomEase.create(
       "custom",
       "M0,0 C0.126,0.382 0.138,0.424 0.266,0.624 0.406,0.845 0.818,1.001 1,1 ",
@@ -86,8 +270,32 @@ spinBtn.addEventListener("click", () => {
     delay: 0.5,
     duration: 7,
     onComplete: () => {
+      firstRotateTl.pause();
       setTimeout(() => {
-        showModal();
+        saveDataToLocalStorage();
+        spinAmount++;
+        currentRotation = targetRotationLose - nums[0];
+        localStorage.setItem("spinAmount", spinAmount);
+        localStorage.setItem("currentRotation", currentRotation);
+        buttonTl.pause();
+        spinBtn.style.pointerEvents = "none";
+        if (spinAmount > 1) {
+          document.querySelectorAll(".win-amount").forEach((win) => {
+            win.innerHTML = randomValue;
+          });
+          localStorage.setItem("lastWinAmount", randomValue);
+          showModal("modal-win");
+          localStorage.setItem("modal", "win");
+          setTimeout(() => {
+            hideModal();
+            modalTL.play();
+            document.querySelector(".form-overlay").classList.add("is-open");
+            console.log("second");
+          }, 5000);
+        } else {
+          showModal("modal-lose");
+          localStorage.setItem("modal", "lose");
+        }
       }, 500);
       spinBtn.style.pointerEvents = "auto";
       gsap.to(spinBtnText, {
@@ -103,17 +311,63 @@ spinBtn.addEventListener("click", () => {
         duration: 0.5,
         ease: "none",
       });
-      spinAmount++;
       buttonTl.play();
-
-      if (spinAmount === 1) {
-        buttonTl.kill();
-        spinBtn.style.pointerEvents = "none";
-      }
     },
   });
+};
 
-  if (typeof firstRotateTl !== "undefined") {
-    firstRotateTl.kill();
-  }
+spinBtn.addEventListener("click", () => {
+  Spinning();
 });
+
+const firstModalCloseBtn = document.querySelector(".modal-lose-btn");
+
+firstModalCloseBtn.addEventListener("click", () => {
+  Spinning();
+  hideModal();
+});
+const claimPrizeBtn = document.querySelector(".claim-prize-btn");
+
+if (claimPrizeBtn) {
+  claimPrizeBtn.addEventListener("click", () => {
+    hideModal();
+    document.querySelector(".form-overlay").classList.add("is-open");
+  });
+}
+
+// ? Clearing the data
+
+function saveDataToLocalStorage() {
+  const now = new Date().getTime(); // Get the current time in milliseconds
+
+  localStorage.setItem("saveTime", now.toString()); // Store time as a string
+}
+
+function checkDataExpiry() {
+  const now = new Date().getTime(); // Get the current time
+  const saveTime = localStorage.getItem("saveTime"); // Get saved time from localStorage
+
+  if (saveTime) {
+    const timeDifference = now - parseInt(saveTime); // Calculate time difference in milliseconds
+    const hoursPassed = timeDifference / (1000 * 60 * 60); // Convert to hours
+
+    // Check if 1 minute has passed
+    if (hoursPassed >= 12) {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      localStorage.clear();
+      hideModal();
+      document.querySelector(".form-overlay").classList.remove("is-open");
+      firstRotateTl.play();
+      spinBtn.style.pointerEvents = "auto";
+      location.reload();
+    } else {
+      console.log("Data is still valid.");
+    }
+  } else {
+    console.log("No data found in localStorage.");
+  }
+}
+
+checkDataExpiry();

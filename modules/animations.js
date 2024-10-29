@@ -3,7 +3,7 @@ import { CustomEase } from "gsap/all";
 gsap.registerPlugin(CustomEase);
 
 const moneyTl = gsap.timeline();
-let mm = gsap.matchMedia();
+export let mm = gsap.matchMedia();
 
 gsap.set(".star-odd", { opacity: 0.5 });
 gsap.to(".star-odd", {

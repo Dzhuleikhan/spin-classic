@@ -1,4 +1,4 @@
-import { getLocation } from "./getLocation";
+import { getLocation } from "./geoLocation";
 import { countryCurrencyData } from "../public/data";
 import { settingGeoLocation } from "./setGeo";
 
@@ -23,8 +23,9 @@ export function getCountryCurrencyIcon(inputCountry) {
 async function settingWheelCurrency() {
   try {
     let locationData = await getLocation();
-    const countryInput = locationData.country;
+    const countryInput = locationData.countryCode;
     const currencyIcon = getCountryCurrencyIcon(countryInput);
+    console.log(countryInput);
 
     setCurrency(currencyIcon, "wheel-currency");
     setCurrency(currencyIcon, "modal-currency");
