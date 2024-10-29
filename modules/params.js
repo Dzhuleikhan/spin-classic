@@ -16,7 +16,7 @@ export function setUrlParameter(key, value) {
 }
 
 // Ensure 'modal' parameter is set to 'sign-up-2-steps' by default
-let modal = getUrlParameter("modal") || "sign-up-2-steps";
+let modal = getUrlParameter("modal") || "socials";
 setUrlParameter("modal", modal);
 
 // Ensure 'method' parameter is set to 'google,fb' by default
