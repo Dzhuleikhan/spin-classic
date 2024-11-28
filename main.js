@@ -19,3 +19,4 @@ import "./modules/footerPayments";
 import "./modules/language";
 import "./modules/modalLanguage";
 import "./modules/setBonusValue";
+import "./modules/fetchingDomain";

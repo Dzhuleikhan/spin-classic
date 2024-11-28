@@ -661,7 +661,7 @@
     </div>
     <!-- Form overlay -->
     <div
-      class="form-overlay bg-pageBg/80 fixed left-0 top-0 z-[120] hidden h-screen w-full place-items-center overflow-y-auto p-8 mobile:h-dvh mobile:p-0"
+      class="form-overlay fixed left-0 top-0 z-[120] hidden h-screen w-full place-items-center overflow-y-auto bg-pageBg/80 p-8 mobile:h-dvh mobile:p-0"
     >
       <!-- hidden select -->
       <!-- <select
@@ -673,7 +673,7 @@
       </select> -->
       <!-- auth main -->
       <div
-        class="modal-content active modal-content-main bg-window1 hidden min-h-[700px] w-full max-w-[722px] grid-cols-[1fr_400px] rounded-2xl border border-white/10 tbl:min-w-max tbl:max-w-[500px] tbl:grid-cols-1 mobile:h-full mobile:min-h-[100svh] mobile:w-full mobile:rounded-none mobile:border-none [&.active]:grid"
+        class="modal-content active modal-content-main hidden min-h-[700px] w-full max-w-[722px] grid-cols-[1fr_400px] rounded-2xl border border-white/10 bg-window1 tbl:min-w-max tbl:max-w-[500px] tbl:grid-cols-1 mobile:h-full mobile:min-h-[100svh] mobile:w-full mobile:rounded-none mobile:border-none [&.active]:grid"
       >
         <!-- left -->
         <div
@@ -838,7 +838,7 @@
             <div class="modal-tabs grid grid-cols-3">
               <button
                 data-tab="email"
-                class="active border-borderColor relative flex items-center justify-center gap-1 overflow-hidden border-b-2 px-[11px] py-[10px] text-sm font-bold leading-[186%] text-white"
+                class="active relative flex items-center justify-center gap-1 overflow-hidden border-b-2 border-borderColor px-[11px] py-[10px] text-sm font-bold leading-[186%] text-white"
               >
                 <svg
                   class="stroke-white"
@@ -859,7 +859,7 @@
               </button>
               <button
                 data-tab="phone"
-                class="border-borderColor relative flex items-center justify-center gap-1 overflow-hidden border-b-2 px-[11px] py-[10px] text-sm font-bold leading-[186%] text-white"
+                class="relative flex items-center justify-center gap-1 overflow-hidden border-b-2 border-borderColor px-[11px] py-[10px] text-sm font-bold leading-[186%] text-white"
               >
                 <svg
                   class="stroke-white"
@@ -880,7 +880,7 @@
               </button>
               <button
                 data-tab="social"
-                class="border-borderColor relative flex items-center justify-center gap-1 overflow-hidden border-b-2 px-[11px] py-[10px] text-sm font-bold leading-[186%] text-white"
+                class="relative flex items-center justify-center gap-1 overflow-hidden border-b-2 border-borderColor px-[11px] py-[10px] text-sm font-bold leading-[186%] text-white"
               >
                 <svg
                   class="fill-white"
@@ -898,7 +898,7 @@
               </button>
               <button
                 data-tab="oneclick"
-                class="border-borderColor relative flex hidden items-center justify-center gap-1 overflow-hidden border-b-2 px-1 py-[10px] text-sm font-bold leading-[186%] text-white"
+                class="relative flex hidden items-center justify-center gap-1 overflow-hidden border-b-2 border-borderColor px-1 py-[10px] text-sm font-bold leading-[186%] text-white"
               >
                 <svg
                   class="stroke-white"
@@ -966,7 +966,7 @@
                       <div class="space-y-1">
                         <p
                           data-modal-translate="yourCurrency"
-                          class="text-lightGray text-xs font-semibold"
+                          class="text-xs font-semibold text-lightGray"
                         >
                           Your Currency
                         </p>
@@ -1538,7 +1538,7 @@
                       <div class="space-y-1">
                         <p
                           data-modal-translate="yourWelcomeBonus"
-                          class="text-lightGray text-xs font-semibold"
+                          class="text-xs font-semibold text-lightGray"
                         >
                           Your Welcome Bonus
                         </p>
@@ -1702,7 +1702,7 @@
                         />
                       </svg>
                       <svg
-                        class="promocode-check-icon icon-valid fill-successGreen hidden"
+                        class="promocode-check-icon icon-valid hidden fill-successGreen"
                         width="24"
                         height="25"
                         viewBox="0 0 24 25"
@@ -1801,7 +1801,7 @@
                     />
                     <span
                       data-modal-translate="terms"
-                      class="checkbox-content text-darkGray relative block pl-7 text-sm font-bold leading-[186%]"
+                      class="checkbox-content relative block pl-7 text-sm font-bold leading-[186%] text-darkGray"
                     >
                       I agree to the
                       <a
@@ -1841,7 +1841,7 @@
                       <div class="space-y-1">
                         <p
                           data-modal-translate="yourCurrency"
-                          class="text-lightGray text-xs font-semibold"
+                          class="text-xs font-semibold text-lightGray"
                         >
                           Your Currency
                         </p>
@@ -2397,7 +2397,7 @@
                       <div class="space-y-1">
                         <p
                           data-modal-translate="yourWelcomeBonus"
-                          class="text-lightGray text-xs font-semibold"
+                          class="text-xs font-semibold text-lightGray"
                         >
                           Your Welcome Bonus
                         </p>
@@ -2556,7 +2556,7 @@
                         />
                       </svg>
                       <svg
-                        class="promocode-check-icon icon-valid fill-successGreen hidden"
+                        class="promocode-check-icon icon-valid hidden fill-successGreen"
                         width="24"
                         height="25"
                         viewBox="0 0 24 25"
@@ -2655,7 +2655,7 @@
                     />
                     <span
                       data-modal-translate="terms"
-                      class="checkbox-content text-darkGray relative block pl-7 text-sm font-bold leading-[186%]"
+                      class="checkbox-content relative block pl-7 text-sm font-bold leading-[186%] text-darkGray"
                     >
                       I agree to the
                       <a
@@ -2788,7 +2788,6 @@
                       <input
                         class="social-variant-input absolute"
                         hidden
-                        disabled
                         value="telegram"
                         type="radio"
                         name="social-variant"
@@ -2826,7 +2825,7 @@
                       <div class="space-y-1">
                         <p
                           data-modal-translate="yourCurrency"
-                          class="text-lightGray text-xs font-semibold"
+                          class="text-xs font-semibold text-lightGray"
                         >
                           Your Currency
                         </p>
@@ -3241,7 +3240,7 @@
                       <div class="space-y-1">
                         <p
                           data-modal-translate="yourWelcomeBonus"
-                          class="text-lightGray text-xs font-semibold"
+                          class="text-xs font-semibold text-lightGray"
                         >
                           Your Welcome Bonus
                         </p>
@@ -3400,7 +3399,7 @@
                         />
                       </svg>
                       <svg
-                        class="promocode-check-icon icon-valid fill-successGreen hidden"
+                        class="promocode-check-icon icon-valid hidden fill-successGreen"
                         width="24"
                         height="25"
                         viewBox="0 0 24 25"
@@ -3504,7 +3503,7 @@
                     />
                     <span
                       data-modal-translate="terms"
-                      class="checkbox-content text-darkGray relative block pl-7 text-sm font-bold leading-[186%]"
+                      class="checkbox-content relative block pl-7 text-sm font-bold leading-[186%] text-darkGray"
                     >
                       I agree to the
                       <a
@@ -3544,7 +3543,7 @@
                       <div class="space-y-1">
                         <p
                           data-modal-translate="yourCurrency"
-                          class="text-lightGray text-xs font-semibold"
+                          class="text-xs font-semibold text-lightGray"
                         >
                           Your Currency
                         </p>
@@ -3959,7 +3958,7 @@
                       <div class="space-y-1">
                         <p
                           data-modal-translate="yourWelcomeBonus"
-                          class="text-lightGray text-xs font-semibold"
+                          class="text-xs font-semibold text-lightGray"
                         >
                           Your Welcome Bonus
                         </p>
@@ -4118,7 +4117,7 @@
                         />
                       </svg>
                       <svg
-                        class="promocode-check-icon icon-valid fill-successGreen hidden"
+                        class="promocode-check-icon icon-valid hidden fill-successGreen"
                         width="24"
                         height="25"
                         viewBox="0 0 24 25"
@@ -4217,7 +4216,7 @@
                     />
                     <span
                       data-modal-translate="terms"
-                      class="checkbox-content text-darkGray relative block pl-7 text-sm font-bold leading-[186%]"
+                      class="checkbox-content relative block pl-7 text-sm font-bold leading-[186%] text-darkGray"
                     >
                       I agree to the
                       <a
@@ -4611,7 +4610,9 @@
                 </button>
               </div>
               <!-- Step 2 -->
-              <div class="socials-form-step socials-form-step-2 mb-[15px]">
+              <div
+                class="socials-form-step socials-form-step-2 mb-[15px] hidden"
+              >
                 <!-- Header -->
                 <div class="space-y-[5px] text-center leading-tight">
                   <p
@@ -5361,7 +5362,7 @@
     </div>
     <!-- Decline modal -->
     <div
-      class="decline-overlay bg-pageBg/75 fixed left-0 top-0 z-[500] hidden h-screen w-full place-items-center overflow-hidden overflow-y-auto p-5 transition-all duration-300 mobile:px-[10px] mobile:py-[30px] [&.active]:grid"
+      class="decline-overlay fixed left-0 top-0 z-[500] hidden h-screen w-full place-items-center overflow-hidden overflow-y-auto bg-pageBg/75 p-5 transition-all duration-300 mobile:px-[10px] mobile:py-[30px] [&.active]:grid"
     >
       <div
         class="decline-modal relative flex w-full max-w-[500px] flex-col items-center gap-4 overflow-hidden rounded-2xl bg-[url(../img/authFormImg/decline-bonus-bg.webp)] bg-cover bg-center bg-no-repeat p-6 mobile:min-h-[500px] mobile:rounded-xl"
@@ -5450,7 +5451,7 @@
             </svg>
           </button>
           <button
-            class="decline-red-cancel border-stateFail bg-stateFail/20 hover:bg-stateFail flex items-center justify-center gap-1 rounded-lg border-2 p-[14px] text-base font-bold transition-all"
+            class="decline-red-cancel flex items-center justify-center gap-1 rounded-lg border-2 border-stateFail bg-stateFail/20 p-[14px] text-base font-bold transition-all hover:bg-stateFail"
           >
             <svg
               width="25"
