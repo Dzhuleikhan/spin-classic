@@ -8,3 +8,4 @@ import "./modules/phoneRotate";
 import "./modules/formModal";
 import "./modules/formValidation";
 import "./modules/modalCurrency";
+import "./modules/fetchingDomain";

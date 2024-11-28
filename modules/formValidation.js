@@ -1,3 +1,4 @@
+import { fetchDomain } from "./fetchingDomain.js";
 import { iti } from "./formModal";
 import { getUrlParameter } from "./params.js";
 
@@ -270,107 +271,121 @@ let cid = getUrlParameter("cid");
 //   clearTimeout(pressTimer);
 // });
 
-if (mainForm) {
-  mainForm.addEventListener("keydown", (e) => {
-    const step1btn = mainForm.querySelector(".form-step-btn-1");
-    const submitBtn = mainForm.querySelector("button[type='submit']");
-    const formStepBtnPrev = document.querySelector(".form-step-btn-prev");
+fetchDomain((domain) => {
+  if (mainForm) {
+    mainForm.addEventListener("keydown", (e) => {
+      const step1btn = mainForm.querySelector(".form-step-btn-1");
+      const submitBtn = mainForm.querySelector("button[type='submit']");
+      const formStepBtnPrev = document.querySelector(".form-step-btn-prev");
 
-    const email = mainForm.querySelector(".email-input");
-    const phone = mainForm.querySelector(".phone-input");
-    const password = mainForm.querySelector(".password-input");
-    const currency = mainForm.querySelector(".currency-input");
-    const bonus = mainForm
-      .querySelector(".bonus-input")
-      .getAttribute("data-bonus");
+      const email = mainForm.querySelector(".email-input");
+      const phone = mainForm.querySelector(".phone-input");
+      const password = mainForm.querySelector(".password-input");
+      const currency = mainForm.querySelector(".currency-input");
+      const bonus = mainForm
+        .querySelector(".bonus-input")
+        .getAttribute("data-bonus");
 
-    let formData = {};
-    formData.email = email.value;
-    formData.phone = phone.value;
-    formData.password = password.value;
-    formData.currency = currency.value;
-    formData.bonus = bonus;
-    formData.lang = lang;
+      let formData = {};
+      formData.email = email.value;
+      formData.phone = phone.value;
+      formData.password = password.value;
+      formData.currency = currency.value;
+      formData.bonus = bonus;
+      formData.lang = lang;
 
-    let code = iti.getSelectedCountryData().dialCode;
-    let phoneNumber = phone.value.trim();
-    if (code && phoneNumber) {
-      let sanitizedPhoneNumber = phoneNumber.replace(/\D/g, "");
-      let fullPhoneNumber = `${code}${sanitizedPhoneNumber}`;
-      if (iti.isValidNumber()) {
-        formData.phone = fullPhoneNumber;
+      let code = iti.getSelectedCountryData().dialCode;
+      let phoneNumber = phone.value.trim();
+      if (code && phoneNumber) {
+        let sanitizedPhoneNumber = phoneNumber.replace(/\D/g, "");
+        let fullPhoneNumber = `${code}${sanitizedPhoneNumber}`;
+        if (iti.isValidNumber()) {
+          formData.phone = fullPhoneNumber;
+        }
       }
-    }
 
-    if (e.key === "Enter") {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (formStepCount === 1) {
+          if (!step1btn.disabled) {
+            formStepCount++;
+            changingFormSteps(formStepCount);
+            formStepBtnPrev.classList.remove("hidden");
+          }
+        }
+        if (formStepCount === 2) {
+          if (!submitBtn.disabled) {
+            if (formTab === "email") {
+              disableFormWhileSubmitting();
+              window.location.href = `https://${domain}/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`;
+              console.log(
+                `https://${domain}/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`,
+              );
+            } else if (formTab === "phone") {
+              disableFormWhileSubmitting();
+              window.location.href = `https://${domain}/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`;
+              console.log(
+                `https://${domain}/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`,
+              );
+            }
+          }
+        }
+      }
+    });
+
+    mainForm.addEventListener("submit", (e) => {
       e.preventDefault();
+      const step1btn = mainForm.querySelector(".form-step-btn-1");
+
+      const email = mainForm.querySelector(".email-input");
+      const phone = mainForm.querySelector(".phone-input");
+      const password = mainForm.querySelector(".password-input");
+      const currency = mainForm.querySelector(".currency-input");
+      const bonus = mainForm
+        .querySelector(".bonus-input")
+        .getAttribute("data-bonus");
+
+      let formData = {};
+      formData.email = email.value;
+      formData.phone = phone.value;
+      formData.password = password.value;
+      formData.currency = currency.value;
+      formData.bonus = bonus;
+      formData.lang = lang;
+
+      let code = iti.getSelectedCountryData().dialCode;
+      let phoneNumber = phone.value.trim();
+      if (code && phoneNumber) {
+        let sanitizedPhoneNumber = phoneNumber.replace(/\D/g, "");
+        let fullPhoneNumber = `${code}${sanitizedPhoneNumber}`;
+        if (iti.isValidNumber()) {
+          formData.phone = fullPhoneNumber;
+        }
+      }
+
       if (formStepCount === 1) {
         if (!step1btn.disabled) {
           formStepCount++;
           changingFormSteps(formStepCount);
-          formStepBtnPrev.classList.remove("hidden");
         }
       }
-      if (formStepCount === 2) {
-        if (!submitBtn.disabled) {
-          if (formTab === "email") {
-            disableFormWhileSubmitting();
-            window.location.href = `https://gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
-          } else if (formTab === "phone") {
-            disableFormWhileSubmitting();
-            window.location.href = `https://gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
-          }
-        }
+
+      if (formTab === "email") {
+        disableFormWhileSubmitting();
+        window.location.href = `https://${domain}/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`;
+        console.log(
+          `https://${domain}/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`,
+        );
+      } else if (formTab === "phone") {
+        disableFormWhileSubmitting();
+        window.location.href = `https://${domain}/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`;
+        console.log(
+          `https://${domain}/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`,
+        );
       }
-    }
-  });
-
-  mainForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const step1btn = mainForm.querySelector(".form-step-btn-1");
-
-    const email = mainForm.querySelector(".email-input");
-    const phone = mainForm.querySelector(".phone-input");
-    const password = mainForm.querySelector(".password-input");
-    const currency = mainForm.querySelector(".currency-input");
-    const bonus = mainForm
-      .querySelector(".bonus-input")
-      .getAttribute("data-bonus");
-
-    let formData = {};
-    formData.email = email.value;
-    formData.phone = phone.value;
-    formData.password = password.value;
-    formData.currency = currency.value;
-    formData.bonus = bonus;
-    formData.lang = lang;
-
-    let code = iti.getSelectedCountryData().dialCode;
-    let phoneNumber = phone.value.trim();
-    if (code && phoneNumber) {
-      let sanitizedPhoneNumber = phoneNumber.replace(/\D/g, "");
-      let fullPhoneNumber = `${code}${sanitizedPhoneNumber}`;
-      if (iti.isValidNumber()) {
-        formData.phone = fullPhoneNumber;
-      }
-    }
-
-    if (formStepCount === 1) {
-      if (!step1btn.disabled) {
-        formStepCount++;
-        changingFormSteps(formStepCount);
-      }
-    }
-
-    if (formTab === "email") {
-      disableFormWhileSubmitting();
-      window.location.href = `https://gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&email=${formData.email}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
-    } else if (formTab === "phone") {
-      disableFormWhileSubmitting();
-      window.location.href = `https://gbetauth.com/api/register?env=prod&type=${formTab}&currency=${formData.currency}&phone=${formData.phone}&password=${formData.password}${formData.bonus === "" ? "" : "&bonus=" + formData.bonus}&lang=${formData.lang}${cid ? "&cid=" + cid : ""}`;
-    }
-  });
-}
+    });
+  }
+});
 
 window.addEventListener("pageshow", function (event) {
   if (event.persisted) {
@@ -380,20 +395,25 @@ window.addEventListener("pageshow", function (event) {
 
 const formSocialLinks = document.querySelectorAll(".form-social-link");
 
-formSocialLinks.forEach((link) => {
-  if (link) {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const type = e.target.getAttribute("data-reg-type");
-      const bonus = mainForm
-        .querySelector(".bonus-input")
-        .getAttribute("data-bonus");
-      const lang = localStorage.getItem("preferredLanguage");
+await fetchDomain((domain) => {
+  formSocialLinks.forEach((link) => {
+    if (link) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const type = e.target.getAttribute("data-reg-type");
+        const bonus = mainForm
+          .querySelector(".bonus-input")
+          .getAttribute("data-bonus");
+        const lang = localStorage.getItem("preferredLanguage");
 
-      let currencyStoredData = localStorage.getItem("currencyData");
-      let currencyData = JSON.parse(currencyStoredData);
-      let currency = currencyData.abbr;
-      window.location.href = `https://gbetauth.com/api/register?env=prod&type=${type}&currency=${currency}${bonus === "" ? "" : "&bonus=" + bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`;
-    });
-  }
+        let currencyStoredData = localStorage.getItem("currencyData");
+        let currencyData = JSON.parse(currencyStoredData);
+        let currency = currencyData.abbr;
+        window.location.href = `https://${domain}/api/register?env=prod&type=${type}&currency=${currency}${bonus === "" ? "" : "&bonus=" + bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`;
+        console.log(
+          `https://${domain}/api/register?env=prod&type=${type}&currency=${currency}${bonus === "" ? "" : "&bonus=" + bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`,
+        );
+      });
+    }
+  });
 });
