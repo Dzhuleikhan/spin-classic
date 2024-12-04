@@ -100,10 +100,15 @@
 
 .number div p {
   font-family: "Dela Gothic One";
-  font-size: 32px;
+  font-size: 24px;
   color: #fff;
   line-height: 76%;
   text-shadow: -6px 0px 8px #000;
+}
+
+.number div img {
+  width: 30px;
+  height: 30px;
 }
 
 .number div .wheel-currency {
