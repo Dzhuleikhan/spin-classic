@@ -63,14 +63,12 @@
   width: 100%;
   height: 100%;
   box-shadow: 0 29px 98px 0 rgba(0, 0, 0, 0.4);
-  background: linear-gradient(
-    270deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    #fff 30%,
-    rgba(255, 255, 255, 0.49) 50%,
-    #fff 69.5%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
+  background: linear-gradient(270deg,
+      rgba(255, 255, 255, 0.15) 0%,
+      #fff 30%,
+      rgba(255, 255, 255, 0.49) 50%,
+      #fff 69.5%,
+      rgba(255, 255, 255, 0.15) 100%);
   position: absolute;
   left: 0;
   top: 0;
@@ -431,8 +429,8 @@
 }
 
 /* .form-group-email input:focus, */
-.form-group-email input:focus + label,
-.form-group-email input:not(:placeholder-shown) + label {
+.form-group-email input:focus+label,
+.form-group-email input:not(:placeholder-shown)+label {
   font-size: 12px;
   transform: translateY(-14px);
 }
@@ -508,7 +506,7 @@ input:-webkit-autofill:hover {
   top: 0;
 }
 
-.checkbox .checkbox-input:checked + .checkbox-content::before {
+.checkbox .checkbox-input:checked+.checkbox-content::before {
   background: url("../img/checked.svg") #f4fd2b;
   background-repeat: no-repeat;
   background-position: center;
@@ -565,7 +563,9 @@ input:-webkit-autofill:hover {
     transform: translateY(5px);
   }
 }
+
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
