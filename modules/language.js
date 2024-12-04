@@ -1,27 +1,14 @@
 import { changeModalLanguage } from "./modalLanguage";
+import { countryCurrencyData } from "../public/data";
 import { translations } from "/public/translations";
-import { getLocation } from "./geoLocation";
-import { settingBonusValueAndAmount } from "./setBonusValue";
+import { geoData, getLocation } from "./geoLocation";
 import { setPaymentMethods } from "./footerPayments";
 import { paymentCountries } from "../public/payments";
+import gsap from "gsap";
 
-const headerLangBtn = document.querySelector(".header-lang-btn");
-const headerLangList = document.querySelector(".header-lang-list");
-const languageLinks = document.querySelectorAll(".language-link");
+const bonusBoxes = document.querySelectorAll(".form-bonus");
 
-if (headerLangBtn) {
-  headerLangBtn.addEventListener("click", () => {
-    headerLangList.classList.toggle("is-open");
-  });
-}
-
-languageLinks.forEach((link) => {
-  if (link) {
-    link.addEventListener("click", () => {
-      headerLangList.classList.remove("is-open");
-    });
-  }
-});
+let lang;
 
 function updateContent(lang) {
   const elements = document.querySelectorAll("[data-translate]");
@@ -33,50 +20,8 @@ function updateContent(lang) {
 
 function changeLanguage(lang) {
   updateContent(lang);
-  saveUserLanguage(lang);
-  setActiveLanguageBtn(lang);
-  settingBonusValueAndAmount(lang);
   changeModalLanguage(lang);
-  setPaymentMethods(paymentCountries, lang);
-}
-
-function getLanguageFromPath() {
-  const pathSegments = window.location.pathname.split("/");
-  const lang = pathSegments[1];
-  // Assuming the language code is the first segment in the path
-  return translations[lang] ? lang : null;
-}
-
-function getUserLanguage() {
-  const userLang = navigator.language || navigator.userLanguage;
-  const supportedLangs = [
-    "en",
-    "es",
-    "fr",
-    "az",
-    "uz",
-    "ua",
-    "ru",
-    "bd",
-    "tr",
-    "id",
-    "pt",
-    "de",
-    "cn",
-    "kz",
-    "kg",
-  ];
-  const langPrefix = userLang.split("-")[0]; // Get the language code without region
-
-  return supportedLangs.includes(langPrefix) ? langPrefix : "en"; // Default to 'en' if the language is not supported
-}
-
-function saveUserLanguage(lang) {
-  localStorage.setItem("preferredLanguage", lang);
-}
-
-function loadUserLanguage() {
-  return localStorage.getItem("preferredLanguage");
+  settingBonusValueAndAmount(geoData.countryCode);
 }
 
 function setActiveLanguageBtn(currentLang) {
@@ -89,48 +34,103 @@ function setActiveLanguageBtn(currentLang) {
   });
 }
 
+function updateButtonText(lang) {
+  const headerLangBtn = document.querySelector(".header-lang-btn img");
+  const headerLangName = document.querySelector(".header-lang-btn span");
+
+  const languageNames = {
+    en: "English",
+    es: "Español",
+    fr: "Français",
+    az: "Azərbaycan dili",
+    uz: "Oʻzbekcha",
+    ua: "Українська",
+    ru: "Русский",
+    bd: "বাংলা",
+    tr: "Türkçe",
+    id: "Bahasa Indonesia",
+    pt: "Português",
+    de: "Deutsch",
+    cn: "中文",
+    kz: "Қазақ",
+    kg: "Кыргыз тили",
+  };
+  headerLangBtn.setAttribute(
+    "src",
+    `./img/flags/${lang}.svg` || `./img/flags/en.svg`,
+  );
+  headerLangName.innerHTML = languageNames[lang];
+  document.querySelector("html").setAttribute("lang", lang);
+}
+
+bonusBoxes.forEach((bonusBox) => {
+  bonusBox.classList.add("hidden");
+});
+
+function settingBonusValueAndAmount(countryCode) {
+  const detectedCountry = countryCode.toUpperCase();
+  // Find the matching entry in countryCurrencyData
+  const matchingCurrencyData = countryCurrencyData.find((currency) =>
+    currency.countries.includes(detectedCountry),
+  );
+
+  if (matchingCurrencyData) {
+    const bonusCurrency = document.querySelectorAll(".bonus-currency");
+    const bonusValue = document.querySelectorAll(".bonus-value");
+
+    // Update the bonus amount and currency on the page
+    bonusValue.forEach((amount) => {
+      amount.innerHTML = matchingCurrencyData.amount;
+    });
+    bonusCurrency.forEach((cur) => {
+      cur.innerHTML = matchingCurrencyData.countryCurrencySymbol;
+    });
+    bonusBoxes.forEach((bonusBox) => {
+      bonusBox.classList.remove("hidden");
+    });
+  } else {
+    console.log("No matching country found in the data.");
+  }
+}
+
 async function determineLanguage() {
-  let lang = getLanguageFromPath();
-  if (!lang) {
-    lang = loadUserLanguage();
-  }
-  if (!lang) {
-    try {
-      const locationData = await getLocation();
-      const countryLangMap = {
-        EN: "en",
-        ES: "es",
-        FR: "fr",
-        AZ: "az",
-        UZ: "uz",
-        UA: "ua",
-        RU: "ru",
-        BD: "bd",
-        TR: "tr",
-        ID: "id",
-        PT: "pt",
-        DE: "de",
-        CN: "cn",
-        KZ: "kz",
-        KG: "kg",
-        // Add more country codes and their corresponding languages as needed
-      };
-      lang = countryLangMap[locationData.country] || getUserLanguage();
-    } catch (error) {
-      console.error("Failed to fetch location data:", error);
-      lang = getUserLanguage();
-    }
-  }
+  const location = await getLocation();
+  const userLang = navigator.language.split("-")[0];
+
+  const countryLangMap = {
+    EN: "en",
+    ES: "es",
+    FR: "fr",
+    AZ: "az",
+    UZ: "uz",
+    UA: "ua",
+    RU: "ru",
+    BD: "bd",
+    TR: "tr",
+    ID: "id",
+    PT: "pt",
+    DE: "de",
+    CN: "cn",
+    KZ: "kz",
+    KG: "kg",
+    // Add more country codes and their corresponding languages as needed
+  };
+  lang = userLang || countryLangMap[location.countryCode] || "en";
+
   return lang;
 }
 
-window.onload = async () => {
-  const lang = await determineLanguage();
-  changeLanguage(lang);
-  changeModalLanguage(lang);
-  settingBonusValueAndAmount(lang);
-  setPaymentMethods(paymentCountries, lang);
-};
+async function mainFunction() {
+  try {
+    lang = await determineLanguage();
+    changeLanguage(lang);
+    gsap.to(".preloader", { opacity: 0, duration: 0.5 });
+    document.querySelector(".wrapper").classList.remove("hidden");
+  } catch (error) {
+    console.error("Error determining language:", error);
+  }
+}
+mainFunction();
 
 document.querySelectorAll(".language-link").forEach((langBtn) => {
   langBtn.addEventListener("click", (e) => {
@@ -138,7 +138,7 @@ document.querySelectorAll(".language-link").forEach((langBtn) => {
     const targetLang = e.target.getAttribute("data-lang");
     changeLanguage(targetLang);
     changeModalLanguage(targetLang);
-    settingBonusValueAndAmount(targetLang);
+    settingBonusValueAndAmount(geoData.countryCode);
     setPaymentMethods(paymentCountries, targetLang);
   });
 });

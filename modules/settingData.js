@@ -1,4 +1,4 @@
-import { getLocation } from "./geoLocation";
+import { getLocation, geoData } from "./geoLocation";
 import { countryCurrencyData } from "../public/data";
 import { settingGeoLocation } from "./setGeo";
 
@@ -20,22 +20,16 @@ export function getCountryCurrencyIcon(inputCountry) {
   return "./img/currencies/usd.svg";
 }
 
-async function settingWheelCurrency() {
-  try {
-    let locationData = await getLocation();
-    const countryInput = locationData.countryCode;
-    const currencyIcon = getCountryCurrencyIcon(countryInput);
-    console.log(countryInput);
+function settingWheelCurrency() {
+  const countryInput = geoData.countryCode;
+  const currencyIcon = getCountryCurrencyIcon(countryInput);
 
-    setCurrency(currencyIcon, "wheel-currency");
-    setCurrency(currencyIcon, "modal-currency");
-    showCurrencyImage(currencyIcon);
+  setCurrency(currencyIcon, "wheel-currency");
+  setCurrency(currencyIcon, "modal-currency");
+  showCurrencyImage(currencyIcon);
 
-    // Setting geo
-    settingGeoLocation(countryInput.toLowerCase(), "country-flag");
-  } catch (error) {
-    console.error("Error fetching location data:", error);
-  }
+  // Setting geo
+  settingGeoLocation(countryInput.toLowerCase(), "country-flag");
 }
 
 function showCurrencyImage(currencyIcon) {

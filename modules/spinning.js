@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 import { mm } from "./animations";
-import { getLocation } from "./geoLocation";
+import { getLocation, geoData } from "./geoLocation";
 import { winRandoms } from "../public/spinAmountsData";
 
 const overlay = document.querySelector(".overlay");
@@ -159,57 +159,22 @@ function setAmountsByLanguage(detectedLang) {
   });
 }
 
-async function settingBonusMoneyAmounts() {
-  const location = await getLocation();
-  const detectedLang = location.countryCode.toLowerCase();
+function settingBonusMoneyAmounts() {
+  const detectedLang = geoData.countryCode.toLowerCase();
   setAmountsByLanguage(detectedLang);
 }
 
 settingBonusMoneyAmounts();
 
-const Spinning = async () => {
+const Spinning = () => {
   document.querySelectorAll(".dark-overlay").forEach((el) => {
     el.classList.add("is-hidden");
   });
   // Desktop
-  mm.add("(min-width: 768px)", () => {
-    gsap.to(".camel-img", {
-      duration: 0.5,
-      filter: "brightness(1)",
-    });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
-  });
+  mm.add("(min-width: 768px)", () => {});
   // Mobile
-  mm.add("(max-width: 480px) and (max-height: 800px)", () => {
-    gsap.to(".camel-img", {
-      y: 100,
-      duration: 0.5,
-      filter: "brightness(1)",
-    });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
-  });
-  mm.add("(max-width: 480px) and (min-height: 800px)", () => {
-    gsap.to(".camel-img", {
-      duration: 0.5,
-      filter: "brightness(1)",
-    });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
-  });
+  mm.add("(max-width: 480px) and (max-height: 800px)", () => {});
+  mm.add("(max-width: 480px) and (min-height: 800px)", () => {});
   spinBtn.style.pointerEvents = "none";
   firstClick.play();
   gsap.to(spinBtnText, {
@@ -243,8 +208,8 @@ const Spinning = async () => {
   }, 500);
 
   // Detect location and use the language data from it
-  const location = await getLocation();
-  const detectedLang = location.countryCode.toLowerCase();
+
+  const detectedLang = geoData.countryCode.toLowerCase();
   const langData = winRandoms[detectedLang] || winRandoms["en"];
 
   // Select a random number key within the detected language data
@@ -315,6 +280,12 @@ const Spinning = async () => {
     },
   });
 };
+
+let lastSpinAmount = localStorage.getItem("spinAmount");
+
+if (lastSpinAmount >= 2) {
+  spinBtn.style.pointerEvents = "none";
+}
 
 spinBtn.addEventListener("click", () => {
   Spinning();
