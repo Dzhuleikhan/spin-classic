@@ -1,48 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Coiny&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Bold.woff2') format('woff2');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Black.woff2') format('woff2');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Black.woff2") format("woff2");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Regular.woff2') format('woff2');
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Dela Gothic One';
-  src: url('../fonts/DelaGothicOne-Regular.woff2') format('woff2');
+  font-family: "Dela Gothic One";
+  src: url("../fonts/DelaGothicOne-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Podkova';
-  src: url('../fonts/Podkova-ExtraBold.woff2') format('woff2');
+  font-family: "Podkova";
+  src: url("../fonts/Podkova-ExtraBold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Podkova';
-  src: url('../fonts/Podkova-Bold.woff2') format('woff2');
+  font-family: "Podkova";
+  src: url("../fonts/Podkova-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -54,16 +54,23 @@
 
 @layer components {
   .dot {
-    @apply w-6 h-6 rounded-full bg-white absolute opacity-55 mobile:w-3 mobile:h-3
+    @apply absolute h-6 w-6 rounded-full bg-white opacity-55 mobile:h-3 mobile:w-3;
   }
 }
 
 .money-portal::before {
-  content: '';
+  content: "";
   width: 100%;
   height: 100%;
   box-shadow: 0 29px 98px 0 rgba(0, 0, 0, 0.4);
-  background: linear-gradient(270deg, rgba(255, 255, 255, 0.15) 0%, #fff 30%, rgba(255, 255, 255, 0.49) 50%, #fff 69.5%, rgba(255, 255, 255, 0.15) 100%);
+  background: linear-gradient(
+    270deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    #fff 30%,
+    rgba(255, 255, 255, 0.49) 50%,
+    #fff 69.5%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
   position: absolute;
   left: 0;
   top: 0;
@@ -94,7 +101,7 @@
 }
 
 .number div p {
-  font-family: 'Dela Gothic One';
+  font-family: "Dela Gothic One";
   font-size: 32px;
   color: #fff;
   line-height: 76%;
@@ -159,7 +166,8 @@
 
 .modal-win-inner {
   box-shadow: inset 0 10px 13px 0 rgba(255, 255, 255, 0.66);
-  background: url('../img/modal-lines.svg'), linear-gradient(180deg, #24a521 0%, #26351d 100%);
+  background: url("../img/modal-lines.svg"),
+    linear-gradient(180deg, #24a521 0%, #26351d 100%);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -170,11 +178,19 @@
 }
 
 .modal-win .modal-head p {
-  text-shadow: 0 5px 0 #1d500c, 0 -2px 0 #1d500c, -2px 0 0 #1d500c, 2px 0 0 #1d500c;
+  text-shadow:
+    0 5px 0 #1d500c,
+    0 -2px 0 #1d500c,
+    -2px 0 0 #1d500c,
+    2px 0 0 #1d500c;
 }
 
 .modal-lose .modal-head p {
-  text-shadow: 0 5px 0 #380808, 0 -2px 0 #380808, -2px 0 0 #380808, 2px 0 0 #380808;
+  text-shadow:
+    0 5px 0 #380808,
+    0 -2px 0 #380808,
+    -2px 0 0 #380808,
+    2px 0 0 #380808;
 }
 
 .modal-head span {
@@ -198,13 +214,21 @@
 }
 
 .modal-btn {
-  box-shadow: inset 0 -11px 11px 0 rgba(255, 255, 255, 0.34), inset 0 10px 5px 0 rgba(0, 0, 0, 0.3), 0 -5px 0 0 rgba(56, 8, 8, 0.4), 0 2px 0 0 rgba(255, 255, 255, 0.27);
+  box-shadow:
+    inset 0 -11px 11px 0 rgba(255, 255, 255, 0.34),
+    inset 0 10px 5px 0 rgba(0, 0, 0, 0.3),
+    0 -5px 0 0 rgba(56, 8, 8, 0.4),
+    0 2px 0 0 rgba(255, 255, 255, 0.27);
   background: linear-gradient(180deg, #16c013 16.48%, #085e05 61.69%);
   transition: all 0.2s;
 }
 
 .modal-btn:hover {
-  box-shadow: inset 0 -11px 22px 0 rgba(255, 255, 255, 0.4), inset 0 10px 15px 0 rgba(0, 0, 0, 0.3), 0 -5px 0 0 rgba(56, 8, 8, 0.4), 0 2px 0 0 rgba(255, 255, 255, 0.27);
+  box-shadow:
+    inset 0 -11px 22px 0 rgba(255, 255, 255, 0.4),
+    inset 0 10px 15px 0 rgba(0, 0, 0, 0.3),
+    0 -5px 0 0 rgba(56, 8, 8, 0.4),
+    0 2px 0 0 rgba(255, 255, 255, 0.27);
 }
 
 .star {
@@ -231,15 +255,15 @@
 
 @keyframes rotate {
   0% {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
   }
 
   50% {
-    transform: rotate(90deg)
+    transform: rotate(90deg);
   }
 
   100% {
-    transform: rotate(90deg)
+    transform: rotate(90deg);
   }
 }
 
@@ -330,11 +354,11 @@
 }
 
 .iti__dial-code {
-  color: #755EEB !important;
+  color: #755eeb !important;
 }
 
 .iti__selected-dial-code {
-  color: #755EEB !important;
+  color: #755eeb !important;
 }
 
 .iti .phone-input {
@@ -358,7 +382,7 @@
 }
 
 .copy-tooltip::before {
-  content: '';
+  content: "";
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
@@ -380,10 +404,10 @@
 }
 
 .form-type-btn::before {
-  content: '';
+  content: "";
   width: 100%;
   height: 3px;
-  background: #FAD303;
+  background: #fad303;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -395,11 +419,11 @@
 }
 
 .form-type-btn.active span {
-  color: #FAD303;
+  color: #fad303;
 }
 
 .form-type-btn.active svg {
-  stroke: #FAD303;
+  stroke: #fad303;
 }
 
 .form-group-email label {
@@ -407,8 +431,8 @@
 }
 
 /* .form-group-email input:focus, */
-.form-group-email input:focus+label,
-.form-group-email input:not(:placeholder-shown)+label {
+.form-group-email input:focus + label,
+.form-group-email input:not(:placeholder-shown) + label {
   font-size: 12px;
   transform: translateY(-14px);
 }
@@ -430,11 +454,11 @@
 }
 
 .form-group.not-valid {
-  border: 2px solid #FF5530;
+  border: 2px solid #ff5530;
 }
 
 .form-group.not-valid input {
-  color: #FF5530;
+  color: #ff5530;
 }
 
 .form-group.not-valid .tooltip {
@@ -446,11 +470,11 @@
 }
 
 .form-group-password.not-valid {
-  border: 2px solid #FF5530;
+  border: 2px solid #ff5530;
 }
 
 .form-group-password.not-valid input {
-  color: #FF5530;
+  color: #ff5530;
 }
 
 .form-group-password.not-valid .tooltip {
@@ -459,21 +483,21 @@
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
-  -webkit-text-fill-color: #755EEB;
+  -webkit-text-fill-color: #755eeb;
 }
 
 input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
-  -webkit-text-fill-color: #755EEB;
+  -webkit-text-fill-color: #755eeb;
 }
 
 input:-webkit-autofill:hover {
   -webkit-box-shadow: 0 0 0 1000px #ffffff inset;
-  -webkit-text-fill-color: #755EEB;
+  -webkit-text-fill-color: #755eeb;
 }
 
 .checkbox .checkbox-content::before {
-  content: '';
+  content: "";
   width: 20px;
   height: 20px;
   border-radius: 4px;
@@ -484,8 +508,8 @@ input:-webkit-autofill:hover {
   top: 0;
 }
 
-.checkbox .checkbox-input:checked+.checkbox-content::before {
-  background: url('../img/checked.svg') #F4FD2B;
+.checkbox .checkbox-input:checked + .checkbox-content::before {
+  background: url("../img/checked.svg") #f4fd2b;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -495,7 +519,7 @@ input:-webkit-autofill:hover {
 }
 
 .tooltip::before {
-  content: '';
+  content: "";
   width: 0;
   height: 0;
   border-left: 12px solid transparent;
@@ -540,4 +564,12 @@ input:-webkit-autofill:hover {
     opacity: 1;
     transform: translateY(5px);
   }
+}
+
+.terms-modal.is-open {
+  display: grid;
+}
+
+.scroll-lock {
+  overflow: hidden;
 }

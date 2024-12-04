@@ -28,19 +28,8 @@ function getCountryCurrencyIcon(inputCountry) {
   return "./img/currencies/usd.svg"; // or some default value if country is not found
 }
 
-function getCountryCurrencySymbol(inputCountry) {
-  for (const data of countryCurrencyData) {
-    if (data.countries.includes(inputCountry)) {
-      return data.countryCurrencySymbol;
-    }
-  }
-  return "$"; // or some default value if country is not found
-}
-
-function setCurrency(abbr, name, icon, symbol) {
+function setCurrency(abbr, name, icon) {
   const formCurrency = document.querySelectorAll(".form-currency");
-  const pageCurrencySymbol = document.querySelectorAll(".currency-symbol");
-  const currencyAbbrName = document.querySelectorAll(".currency-abbr");
   formCurrency.forEach((cur) => {
     let input = cur.querySelector("input");
     let currencyName = cur.querySelector(".main-currency-name");
@@ -48,11 +37,16 @@ function setCurrency(abbr, name, icon, symbol) {
     input.value = abbr;
     currencyName.textContent = name;
     currencyIcon.src = icon;
-    pageCurrencySymbol.forEach((el) => {
-      el.textContent = symbol;
-    });
-    currencyAbbrName.forEach((el) => {
-      el.textContent = abbr;
+
+    const currencyListItem = cur.querySelectorAll(
+      ".form-currency-dropdown ul li",
+    );
+
+    currencyListItem.forEach((item) => {
+      const itemAbbr = item.querySelector(".currency-item-abbr").textContent;
+      if (itemAbbr.includes(abbr)) {
+        item.classList.add("active");
+      }
     });
   });
 }
@@ -61,23 +55,22 @@ async function settingModalCurrency() {
   try {
     let locationData = await getLocation();
     const countryInput = locationData.countryCode;
+    console.log(countryInput);
 
     const currencyAbbr = getCountryCurrencyABBR(countryInput);
     const currencyFullName = getCountryCurrencyFullName(countryInput);
     const currencyIcon = getCountryCurrencyIcon(countryInput);
-    const currencySymbol = getCountryCurrencySymbol(countryInput);
 
     const currencyData = {
       abbr: currencyAbbr,
       name: currencyFullName,
       icon: currencyIcon,
-      symbol: currencySymbol,
     };
 
     // Save to local storage
     localStorage.setItem("currencyData", JSON.stringify(currencyData));
 
-    setCurrency(currencyAbbr, currencyFullName, currencyIcon, currencySymbol);
+    setCurrency(currencyAbbr, currencyFullName, currencyIcon);
   } catch (error) {
     console.error("Error fetching location data:", error);
   }
@@ -86,22 +79,16 @@ async function settingModalCurrency() {
 function loadCurrencyFromLocalStorage() {
   const currencyData = JSON.parse(localStorage.getItem("currencyData"));
   if (currencyData) {
-    setCurrency(
-      currencyData.abbr,
-      currencyData.name,
-      currencyData.icon,
-      currencyData.symbol,
-    );
+    setCurrency(currencyData.abbr, currencyData.name, currencyData.icon);
   } else {
     settingModalCurrency();
   }
 }
 
-// Call this function when the page loads
-document.addEventListener("DOMContentLoaded", loadCurrencyFromLocalStorage);
+loadCurrencyFromLocalStorage();
 
 /**
- *  Currency dropdown
+ *  Currency dropdownxw
  */
 
 const formCurrency = document.querySelectorAll(".form-currency");
