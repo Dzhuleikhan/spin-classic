@@ -1,3 +1,4 @@
+import gsap from "gsap";
 // Media query for detecting screen width less than 1100px
 const screenWidthMediaQuery = window.matchMedia("(max-width: 1100px)");
 
@@ -41,10 +42,7 @@ screenWidthMediaQuery.addEventListener("change", (e) => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    document.querySelector(".preloader").style.opacity = 0;
-    document.querySelector(".preloader").style.visibility = "hidden";
-    document.querySelector(".wrapper").style.opacity = 1;
-  }, 1000);
-});
+export function hidePreloader() {
+  gsap.to(".preloader", { opacity: 0, duration: 0.5 });
+  document.querySelector(".wrapper").classList.remove("hidden");
+}
