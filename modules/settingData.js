@@ -21,7 +21,10 @@ export function getCountryCurrencyIcon(inputCountry) {
 }
 
 function settingWheelCurrency() {
-  const countryInput = geoData.countryCode;
+  let countryInput = geoData.countryCode;
+  if (countryInput === "RU") {
+    countryInput = "US";
+  }
   const currencyIcon = getCountryCurrencyIcon(countryInput);
 
   setCurrency(currencyIcon, "wheel-currency");
