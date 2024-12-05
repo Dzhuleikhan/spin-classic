@@ -95,8 +95,6 @@ function settingBonusValueAndAmount(countryCode) {
 
 async function determineLanguage() {
   const location = await getLocation();
-  const userLang = navigator.language.split("-")[0];
-
   const countryLangMap = {
     EN: "en",
     ES: "es",
@@ -110,12 +108,11 @@ async function determineLanguage() {
     ID: "id",
     PT: "pt",
     DE: "de",
-    CN: "cn",
     KZ: "kz",
     KG: "kg",
     // Add more country codes and their corresponding languages as needed
   };
-  lang = userLang || countryLangMap[location.countryCode] || "en";
+  lang = countryLangMap[location.countryCode] || "en";
 
   return lang;
 }

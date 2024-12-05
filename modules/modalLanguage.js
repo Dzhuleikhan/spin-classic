@@ -37,7 +37,7 @@ export function changeModalLanguage(lang) {
 async function setModalLanguage() {
   try {
     const location = await getLocation();
-    changeLanguage(location.countryCode);
+    changeLanguage(location.countryCode.toLowerCase());
     setPaymentMethods(paymentCountries, location.countryCode.toLowerCase());
   } catch (error) {
     console.log(error);
