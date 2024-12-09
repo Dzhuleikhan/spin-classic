@@ -98,10 +98,6 @@ gsap.set(".win-rays", {
   yPercent: -50,
 });
 
-if (spinAmount >= 1) {
-  gsap.set(".wheel-action-text", { display: "none" });
-}
-
 const modalTL = gsap.timeline();
 modalTL
   .to(".win-rays", {
@@ -138,28 +134,6 @@ modalTL
       x: 30,
       ease: "none",
       duration: 1.5,
-      yoyo: true,
-      repeat: -1,
-    },
-    "<",
-  )
-  .to(
-    ".star-1",
-    {
-      scale: 0.5,
-      ease: "none",
-      duration: 0.7,
-      yoyo: true,
-      repeat: -1,
-    },
-    "<",
-  )
-  .to(
-    ".star-2",
-    {
-      scale: 1.5,
-      ease: "none",
-      duration: 0.7,
       yoyo: true,
       repeat: -1,
     },
@@ -202,12 +176,6 @@ const Spinning = () => {
       duration: 0.5,
       filter: "brightness(1)",
     });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
   });
   // Mobile
   mm.add("(max-width: 480px) and (max-height: 800px)", () => {
@@ -216,23 +184,11 @@ const Spinning = () => {
       duration: 0.5,
       filter: "brightness(1)",
     });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
   });
   mm.add("(max-width: 480px) and (min-height: 800px)", () => {
     gsap.to(".camel-img", {
       duration: 0.5,
       filter: "brightness(1)",
-    });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
     });
   });
   spinBtn.style.pointerEvents = "none";
@@ -268,14 +224,14 @@ const Spinning = () => {
   }, 500);
 
   const winRandoms = {
-    1: "20 MLN",
-    3: "9 MLN",
-    5: "12 MLN",
-    7: "15.5 MLN",
-    9: "18.5 MLN",
-    11: "17 MLN",
-    13: "10 MLN",
-    15: "25 MLN",
+    1: "1.2 MLN",
+    3: "3 MLN",
+    5: "3.2 MLN",
+    7: "4.4 MLN",
+    9: "3.9 MLN",
+    11: "1.9 MLN",
+    13: "4.7 MLN",
+    15: "2.2 MLN",
   };
 
   const keys = Object.keys(winRandoms);
