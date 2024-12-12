@@ -35,11 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
       { scale: 1, transformOrigin: "bottom center", duration: 1, delay: 1.3 },
     );
     gsap.fromTo(
-      ".wheel-action-text",
-      { y: 40, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
-    );
-    gsap.fromTo(
       ".horse-img",
       { x: -100, alpha: 0 },
       { x: 0, alpha: 1, duration: 0.5, delay: 1.3 },
