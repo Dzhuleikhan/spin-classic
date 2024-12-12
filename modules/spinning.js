@@ -98,10 +98,6 @@ gsap.set(".win-rays", {
   yPercent: -50,
 });
 
-if (spinAmount >= 1) {
-  gsap.set(".wheel-action-text", { display: "none" });
-}
-
 const modalTL = gsap.timeline();
 modalTL
   .to(".win-rays", {
@@ -224,12 +220,6 @@ const Spinning = () => {
       duration: 0.5,
       filter: "brightness(1)",
     });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
   });
   // Mobile
   mm.add("(max-width: 480px) and (max-height: 800px)", () => {
@@ -238,24 +228,12 @@ const Spinning = () => {
       duration: 0.5,
       filter: "brightness(1)",
     });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
-    });
   });
   mm.add("(max-width: 480px) and (min-height: 800px)", () => {
     gsap.to(".horse-img", {
       y: 100,
       duration: 0.5,
       filter: "brightness(1)",
-    });
-    gsap.to(".wheel-action-text", {
-      y: 60,
-      alpha: 0,
-      duration: 0.5,
-      delay: 0.2,
     });
   });
   spinBtn.style.pointerEvents = "none";
