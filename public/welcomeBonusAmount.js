@@ -1,5 +1,5 @@
 export const welcomeBonusData = {
-  RUB: { name: "Russian Ruble", amount: "900.000", countryCode: "ru" },
+  // RUB: { name: "Russian Ruble", amount: "900.000", countryCode: "ru" },
   USD: { name: "US Dollar", amount: "10.000", countryCode: "us" },
   EUR: { name: "Euro", amount: "9.000", countryCode: "eu" },
   ARS: { name: "Argentine Peso", amount: "9 MLN", countryCode: "ar" },

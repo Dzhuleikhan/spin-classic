@@ -20,3 +20,4 @@ import "./modules/language";
 import "./modules/modalLanguage";
 import "./modules/fetchingDomain";
 import "./modules/termsModal";
+import "./modules/settingBonusValue";
