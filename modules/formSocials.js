@@ -25,7 +25,15 @@ const changingFormSteps = (stepCount) => {
 changingFormSteps(formStepCount);
 
 const formModals = document.querySelectorAll(".form-modal-socials");
-let formTab = "email";
+
+let formTab;
+let formTabParam = getUrlParameter("method-type");
+
+if (formTabParam) {
+  formTab = formTabParam === "phone" ? "phone" : "email";
+} else {
+  formTab = "email";
+}
 
 formModals.forEach((modal) => {
   if (modal) {
