@@ -20,7 +20,10 @@ export const changingFormSteps = (stepCount) => {
 changingFormSteps(formStepCount);
 
 const formModals = document.querySelectorAll(".form-modal");
-let formTab = "email";
+
+let formTabParam = getUrlParameter("method-type");
+
+let formTab = formTabParam === "phone" ? "phone" : "email";
 
 formModals.forEach((modal) => {
   if (modal) {
