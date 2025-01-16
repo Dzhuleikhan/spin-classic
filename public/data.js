@@ -261,7 +261,7 @@ export const countryCurrencyData = [
     countryCurrencySymbol: "$",
     countryCurrencyFullName: "Canadian Dollar",
     countryCurrencyIcon: "./img/currencies/cad.svg",
-    amount: "6.000",
+    amount: "6.500",
     spins: "200FS",
   },
   {
@@ -305,8 +305,8 @@ export const countryCurrencyData = [
     countryCurrencySymbol: "€",
     countryCurrencyFullName: "Euro",
     countryCurrencyIcon: "./img/currencies/eur.svg",
-    amount: "9.000",
-    spins: "25FS",
+    amount: "4.500",
+    spins: "200FS",
   },
   {
     countries: ["ID"],
@@ -418,8 +418,8 @@ export const countryCurrencyData = [
     countryCurrencySymbol: "$",
     countryCurrencyFullName: "US Dollar",
     countryCurrencyIcon: "./img/currencies/usd.svg",
-    amount: "10.000",
-    spins: "25FS",
+    amount: "5.000",
+    spins: "200FS",
   },
   {
     countries: ["UZ"],
