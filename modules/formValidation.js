@@ -1,5 +1,6 @@
 import { newDomain } from "./fetchingDomain.js";
 import { iti } from "./itiTelInput.js";
+import { checkTir1CurrencyMatch } from "./modalCurrency.js";
 import { getUrlParameter } from "./params.js";
 
 export let formStepCount = 1;
@@ -303,6 +304,9 @@ if (mainForm) {
 
     let code = iti.getSelectedCountryData().dialCode;
     let phoneNumber = phone.value.trim();
+
+    formData.bonus = checkTir1CurrencyMatch(formData.currency, formData.bonus);
+
     if (code && phoneNumber) {
       let sanitizedPhoneNumber = phoneNumber.replace(/\D/g, "");
       let fullPhoneNumber = `${code}${sanitizedPhoneNumber}`;
@@ -362,6 +366,9 @@ if (mainForm) {
 
     let code = iti.getSelectedCountryData().dialCode;
     let phoneNumber = phone.value.trim();
+
+    formData.bonus = checkTir1CurrencyMatch(formData.currency, formData.bonus);
+
     if (code && phoneNumber) {
       let sanitizedPhoneNumber = phoneNumber.replace(/\D/g, "");
       let fullPhoneNumber = `${code}${sanitizedPhoneNumber}`;
@@ -414,6 +421,9 @@ formSocialLinks.forEach((link) => {
       let currencyStoredData = localStorage.getItem("currencyData");
       let currencyData = JSON.parse(currencyStoredData);
       let currency = currencyData.abbr;
+
+      bonus = checkTir1CurrencyMatch(currency, bonus);
+
       window.location.href = `https://${newDomain}/api/register?env=prod&type=${type}&currency=${currency}${bonus === "" ? "" : "&bonus=" + bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`;
       console.log(
         `https://${newDomain}/api/register?env=prod&type=${type}&currency=${currency}${bonus === "" ? "" : "&bonus=" + bonus}&lang=${lang}${cid ? "&cid=" + cid : ""}`,
