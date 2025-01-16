@@ -358,7 +358,7 @@ if (mainForm) {
     formData.password = password.value;
     formData.currency = currency.value;
     formData.bonus = bonus;
-    formData.lang = lang;
+    formData.lang = localStorage.getItem("preferredLanguage");
 
     let code = iti.getSelectedCountryData().dialCode;
     let phoneNumber = phone.value.trim();
