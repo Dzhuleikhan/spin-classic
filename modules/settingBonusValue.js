@@ -7,7 +7,7 @@ bonusBoxes.forEach((bonusBox) => {
   bonusBox.classList.add("hidden");
 });
 
-function settingBonusValueAndAmount(countryCode) {
+export function settingBonusValueAndAmount(countryCode) {
   let detectedCountry = countryCode.toUpperCase();
 
   if (detectedCountry === "RU") {
@@ -19,22 +19,34 @@ function settingBonusValueAndAmount(countryCode) {
     currency.countries.includes(detectedCountry),
   );
 
-  if (matchingCurrencyData) {
-    const bonusCurrency = document.querySelectorAll(".bonus-currency");
-    const bonusValue = document.querySelectorAll(".bonus-value");
+  const bonusCurrency = document.querySelectorAll(".bonus-currency");
+  const bonusValue = document.querySelectorAll(".bonus-value");
+  const bonusSpins = document.querySelectorAll(".bonus-spins");
 
-    // Update the bonus amount and currency on the page
+  function settingData(bonusAmount, symbol, spins) {
     bonusValue.forEach((amount) => {
-      amount.innerHTML = matchingCurrencyData.amount;
+      amount.innerHTML = bonusAmount;
     });
     bonusCurrency.forEach((cur) => {
-      cur.innerHTML = matchingCurrencyData.countryCurrencySymbol;
+      cur.innerHTML = symbol;
+    });
+    bonusSpins.forEach((cur) => {
+      cur.innerHTML = spins;
     });
     bonusBoxes.forEach((bonusBox) => {
       bonusBox.classList.remove("hidden");
     });
+  }
+
+  if (matchingCurrencyData) {
+    settingData(
+      matchingCurrencyData.amount,
+      matchingCurrencyData.countryCurrencySymbol,
+      matchingCurrencyData.spins,
+    );
   } else {
     console.log("No matching country found in the data.");
+    settingData("10.000", "$", "25FS");
   }
 }
 
@@ -64,8 +76,13 @@ function waitForDynamicContent(callback) {
     // Check if the dynamic elements are present on the page
     const bonusCurrency = document.querySelectorAll(".bonus-currency");
     const bonusValue = document.querySelectorAll(".bonus-value");
+    const bonusSpins = document.querySelectorAll(".bonus-spins");
 
-    if (bonusCurrency.length > 0 && bonusValue.length > 0) {
+    if (
+      bonusCurrency.length > 0 &&
+      bonusValue.length > 0 &&
+      bonusSpins.length > 0
+    ) {
       // Stop observing once the content is ready
       obs.disconnect();
 

@@ -4,6 +4,7 @@ import { getLocation } from "./geoLocation";
 import { setPaymentMethods } from "./footerPayments";
 import { paymentCountries } from "../public/payments";
 import gsap from "gsap";
+import { settingBonusValueAndAmount } from "./settingBonusValue";
 
 let lang;
 
@@ -18,6 +19,7 @@ function updateContent(lang) {
 function changeLanguage(lang) {
   updateContent(lang);
   changeModalLanguage(lang);
+  settingBonusValueAndAmount(lang);
 }
 
 export const availableLang = [
