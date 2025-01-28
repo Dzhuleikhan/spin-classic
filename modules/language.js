@@ -19,7 +19,6 @@ function updateContent(lang) {
 function changeLanguage(lang) {
   updateContent(lang);
   changeModalLanguage(lang);
-  settingBonusValueAndAmount(lang);
 }
 
 export const availableLang = [
@@ -67,9 +66,11 @@ async function mainFunction() {
   try {
     lang = await determineLanguage();
     changeLanguage(lang);
-    localStorage.setItem("preferredLanguage", lang);
     gsap.to(".preloader", { opacity: 0, duration: 0.5 });
     document.querySelector(".wrapper").classList.remove("hidden");
+    settingBonusValueAndAmount(
+      localStorage.getItem("preferredLanguage").toUpperCase(),
+    );
   } catch (error) {
     console.error("Error determining language:", error);
   }
