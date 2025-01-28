@@ -413,7 +413,7 @@ formSocialLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
       const type = e.target.getAttribute("data-reg-type");
-      const bonus = mainForm
+      let bonus = mainForm
         .querySelector(".bonus-input")
         .getAttribute("data-bonus");
       const lang = localStorage.getItem("preferredLanguage");
