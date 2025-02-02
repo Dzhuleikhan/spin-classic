@@ -31,17 +31,17 @@ function showSocialsMethod(method) {
 let modal = getUrlParameter("modal") || "socials";
 setUrlParameter("modal", modal);
 
-if (modal === "socials") {
-  if (!getUrlParameter("method-type")) {
-    addUrlParameter("method-type", "email");
-  }
-  const method = getUrlParameter("method-type");
-  if (method === "phone") {
-    showSocialsMethod("phone");
-  } else {
-    showSocialsMethod("email");
-  }
-}
+// if (modal === "socials") {
+//   if (!getUrlParameter("method-type")) {
+//     addUrlParameter("method-type", "email");
+//   }
+//   const method = getUrlParameter("method-type");
+//   if (method === "phone") {
+//     showSocialsMethod("phone");
+//   } else {
+//     showSocialsMethod("email");
+//   }
+// }
 
 // Ensure 'method' parameter is set to 'google,fb' by default
 let method = getUrlParameter("method") || "google,fb";
