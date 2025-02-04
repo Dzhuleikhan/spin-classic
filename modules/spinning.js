@@ -127,17 +127,6 @@ modalTL
       repeat: -1,
     },
     "<",
-  )
-  .to(
-    ".modal-camel-img",
-    {
-      x: 30,
-      ease: "none",
-      duration: 1.5,
-      yoyo: true,
-      repeat: -1,
-    },
-    "<",
   );
 
 let timeoutId;
@@ -176,6 +165,7 @@ const Spinning = () => {
       duration: 0.5,
       filter: "brightness(1)",
     });
+    gsap.to(".wheel-big-text", { y: 40, opacity: 0, duration: 0.5 });
   });
   // Mobile
   mm.add("(max-width: 480px) and (max-height: 800px)", () => {
@@ -224,14 +214,14 @@ const Spinning = () => {
   }, 500);
 
   const winRandoms = {
-    1: "1.2 MLN",
-    3: "3 MLN",
-    5: "3.2 MLN",
-    7: "4.4 MLN",
-    9: "3.9 MLN",
-    11: "1.9 MLN",
-    13: "4.7 MLN",
-    15: "2.2 MLN",
+    1: "3.300",
+    3: "4.000",
+    5: "1.800",
+    7: "2.400",
+    9: "5.100",
+    11: "1.000",
+    13: "6.000",
+    15: "6.500",
   };
 
   const keys = Object.keys(winRandoms);
@@ -295,6 +285,10 @@ const Spinning = () => {
     },
   });
 };
+
+if (localStorage.getItem("spinAmount") >= 1) {
+  document.querySelector(".wheel-big-text").classList.add("hidden");
+}
 
 spinBtn.addEventListener("click", () => {
   Spinning();

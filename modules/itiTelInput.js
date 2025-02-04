@@ -1,6 +1,6 @@
 import intlTelInput from "intl-tel-input/intlTelInputWithUtils";
 
-const socialsPhoneInput = document.querySelector(".socials-phone-input");
+const twoStepPhoneInput = document.querySelector(".two-step-phone-input");
 
 const geoIpLookup = (success, failure) => {
   const cachedData = localStorage.getItem("geoIpData");
@@ -19,7 +19,7 @@ const geoIpLookup = (success, failure) => {
   }
 };
 
-export const iti = intlTelInput(socialsPhoneInput, {
+export const twoStepiti = intlTelInput(twoStepPhoneInput, {
   initialCountry: "auto",
   separateDialCode: true,
   useFullscreenPopup: false,

@@ -43,6 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
       { y: -40, alpha: 0 },
       { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
     );
+    gsap.fromTo(
+      ".wheel-big-text",
+      { y: 40, alpha: 0 },
+      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
+    );
   });
 
   mm.add("(max-width: 360px) and (max-height: 600px)", () => {

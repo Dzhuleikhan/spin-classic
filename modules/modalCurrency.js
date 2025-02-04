@@ -1,5 +1,11 @@
 import { getLocation } from "./geoLocation";
 import { countryCurrencyData } from "../public/data";
+import {
+  checkTir1CurrencyMatch,
+  exceptCurrencies,
+  twoStepFormData,
+  settingInitialBonusValue,
+} from "./twoStepForm";
 
 export function getCountryCurrencyABBR(inputCountry) {
   for (const data of countryCurrencyData) {
@@ -74,25 +80,40 @@ async function settingModalCurrency() {
     localStorage.setItem("currencyData", JSON.stringify(currencyData));
 
     setCurrency(currencyAbbr, currencyFullName, currencyIcon);
+
+    twoStepFormData.currency = currencyData.abbr;
+    twoStepFormData.bonus = checkTir1CurrencyMatch(twoStepFormData.currency);
   } catch (error) {
     console.error("Error fetching location data:", error);
   }
 }
 
-function loadCurrencyFromLocalStorage() {
-  const currencyData = JSON.parse(localStorage.getItem("currencyData"));
-  if (currencyData) {
-    setCurrency(currencyData.abbr, currencyData.name, currencyData.icon);
-  } else {
-    settingModalCurrency();
-  }
-}
-
-loadCurrencyFromLocalStorage();
+settingModalCurrency();
 
 /**
  *  Currency dropdownxw
  */
+export const settingBonusOnCurrencyChange = (
+  currencyDataArray,
+  targetCurrency,
+) => {
+  const matchedObject = currencyDataArray.find(
+    (item) => item.countryCurrency === targetCurrency.abbr,
+  );
+  const amount = matchedObject ? matchedObject.amount : null;
+  const symbol = matchedObject ? matchedObject.countryCurrencySymbol : null;
+  const spins = matchedObject ? matchedObject.spins : null;
+
+  document.querySelectorAll(".bonus-value").forEach((el) => {
+    el.innerHTML = amount;
+  });
+  document.querySelectorAll(".bonus-currency").forEach((el) => {
+    el.innerHTML = symbol;
+  });
+  document.querySelectorAll(".bonus-spins").forEach((el) => {
+    el.innerHTML = spins;
+  });
+};
 
 const formCurrency = document.querySelectorAll(".form-currency");
 
@@ -136,6 +157,16 @@ formCurrency.forEach((cur) => {
           icon: curIcon,
         };
         localStorage.setItem("currencyData", JSON.stringify(currencyData));
+
+        // Two step currency update
+        settingBonusOnCurrencyChange(countryCurrencyData, currencyData);
+        twoStepFormData.currency = currencyData.abbr;
+        settingInitialBonusValue(twoStepFormData.currency);
+
+        twoStepFormData.bonus = checkTir1CurrencyMatch(
+          twoStepFormData.currency,
+          twoStepFormData.bonus,
+        );
       });
     });
 
@@ -146,23 +177,3 @@ formCurrency.forEach((cur) => {
     });
   }
 });
-
-export const checkTir1CurrencyMatch = (currency, bonus) => {
-  const exceptCurrencies = [
-    "RON",
-    "DKK",
-    "HUF",
-    "CZK",
-    "CHF",
-    "PLN",
-    "CAD",
-    "USD",
-    "EUR",
-  ];
-  if (exceptCurrencies.includes(currency) && bonus === "welcome-bonus-1") {
-    bonus = bonus + "-alt";
-  } else {
-    bonus = bonus;
-  }
-  return bonus;
-};
