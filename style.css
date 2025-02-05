@@ -872,6 +872,7 @@ input:-webkit-autofill:hover {
   text-shadow: 0 0 15px #000000;
 }
 
+
 @media (max-width: 1750px) {
   .header-bg-wrapper {
     background-position: calc(100% + 170px);
