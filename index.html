@@ -10,7 +10,7 @@
     class="relative overscroll-none bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat mobile:overflow-hidden"
   >
     <div
-      class="wrapper relative mx-auto h-full min-h-dvh w-full min-w-[320px] max-w-[1920px] overflow-hidden"
+      class="wrapper relative mx-auto h-full min-h-dvh w-full min-w-[320px] overflow-hidden"
     >
       <div
         class="landscape fixed left-0 top-0 z-[1000] grid hidden h-dvh w-full place-items-center bg-white"
@@ -28,20 +28,20 @@
       </div>
       <main class="relative z-[30]">
         <div
-          class="header-bg-wrapper absolute left-0 top-0 flex h-[114px] w-full justify-end bg-[url(../img/header-bg.svg)] bg-cover bg-[100%] bg-no-repeat drop-shadow-2xl lg:h-[64px] lg:justify-center lg:bg-[url(../img/header-bg-sm.svg)]"
+          class="header-bg-wrapper absolute left-0 top-0 flex h-[50px] w-full justify-end bg-[#710097] drop-shadow-2xl lg:h-[50px] lg:justify-center"
         >
           <div
-            class="mr-[440px] flex items-center gap-2 extralg:mr-[270px] xl:mr-[150px] lg:mr-0 lg:gap-1"
+            class="wideScreen:mr-[520px] header-bg-wrapper-logo relative mr-[400px] flex items-center gap-2 px-[50px] extralg:mr-[230px] xl:mr-[150px] lg:mr-0 lg:gap-1"
           >
             <img
-              class="lg:max-w-[100px]"
+              class="relative -bottom-[20px] lg:-bottom-[10px] lg:max-w-[100px]"
               width="177"
               height="60"
               src="./img/logo-white.svg"
               alt="Logo"
             />
             <img
-              class="lg:h-5 lg:w-5"
+              class="relative -bottom-[20px] lg:-bottom-[10px] lg:h-5 lg:w-5"
               width="40"
               height="40"
               src="./img/flags/ca.svg"
@@ -75,11 +75,13 @@
             alt="Money"
           />
           <div
-            class="mx-auto mt-[100px] flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:mt-[50px] lg:justify-center medium:px-3 mobile:mt-[75px] big-laptop:justify-center"
+            class="wideScreen:ml-auto wideScreen:mr-[180px] wideScreen:mt-[180px] wideScreen:px-0 wideScreen:w-[1000px] wideScreen:h-[1000px] mx-auto mt-[100px] flex w-full justify-end px-[180px] extralg:px-[100px] xl:px-6 lg:mt-[50px] lg:justify-center medium:px-3 mobile:mt-[75px] big-laptop:justify-center"
           >
             <!-- spin big wrapper -->
-            <div class="relative">
-              <div class="relative z-[25] flex max-w-[705px] items-center">
+            <div class="wideScreen:w-full wideScreen:h-full relative">
+              <div
+                class="wideScreen:max-w-full wideScreen:w-full wideScreen:h-full relative z-[25] flex max-w-[705px] items-center"
+              >
                 <img
                   class="absolute left-1/2 top-1/2 z-[7] h-[105%] min-w-[105%] -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl"
                   src="./img/wheel-plate.webp"
@@ -106,10 +108,10 @@
                 />
                 <!-- Wheel -->
                 <div
-                  class="relative z-50 h-full w-full max-w-[705px] rounded-full extralg:max-w-[550px] lg:max-w-[405px] xl:landscape:max-w-[450px]"
+                  class="wideScreen:max-w-full relative z-50 h-full w-full max-w-[705px] rounded-full extralg:max-w-[550px] lg:max-w-[405px] xl:landscape:max-w-[450px]"
                 >
                   <!-- dots -->
-                  <div class="absolute z-[3] h-full w-full">
+                  <div class="wideScreen:z-50 absolute z-[3] h-full w-full">
                     <!-- top right -->
                     <div
                       class="dot dot-odd absolute left-1/2 top-[0] -translate-x-1/2"
@@ -164,6 +166,7 @@
                     ></div>
                   </div>
                   <img
+                    class="wideScreen:w-full wideScreen:h-full"
                     width="705"
                     height="705"
                     src="./img/wheel-round.webp"
@@ -174,7 +177,7 @@
                   ></div>
                   <!-- wheel inner -->
                   <div
-                    class="main-wheel absolute z-[39] w-[91%] will-change-transform"
+                    class="main-wheel wideScreen:w-full wideScreen:h-full absolute z-[39] w-[91%] will-change-transform"
                   >
                     <div
                       class="dark-overlay absolute left-0 top-0 z-20 h-full w-full rounded-full bg-black/50"
@@ -388,6 +391,7 @@
                       </div>
                     </div>
                     <img
+                      class="wideScreen:w-full wideScreen:h-full"
                       width="667"
                       height="667"
                       src="./img/wheel.webp"

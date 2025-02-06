@@ -5,6 +5,7 @@ module.exports = {
   content: ["./*.{html,js}"],
   theme: {
     screens: {
+      wideScreen: { min: "1921px" },
       extralg: { max: "1750px" },
       xl: { max: "1200px" },
       lg: { max: "992px" },
