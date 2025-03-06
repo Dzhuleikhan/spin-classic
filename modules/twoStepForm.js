@@ -175,39 +175,26 @@ if (twoStepPromocodeWrapper) {
     ".two-step-promocode-apply-btn",
   );
 
-  let promoIsValid;
-
   input.addEventListener("input", async () => {
-    const promoCode = input.value;
-    try {
-      const response = await fetch(
-        "https://promocodesapi.onrender.com/check-promo",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ code: promoCode }),
-        },
-      );
-
-      const result = await response.json();
-
-      promoIsValid = result.valid;
-
-      if (twoStepPromocodeWrapper.classList.contains("is-valid")) {
-        twoStepFormData.promocode = "";
-        console.log("Промокод неверный");
-        twoStepPromocodeWrapper.classList.remove("is-valid");
-        twoStepPromocodeWrapper.classList.add("is-not-valid");
-      }
-    } catch (error) {
-      console.error("Ошибка при проверке промокода:", error);
+    if (twoStepPromocodeWrapper.classList.contains("is-valid")) {
+      twoStepFormData.promocode = "";
+      console.log("Промокод неверный");
+      twoStepPromocodeWrapper.classList.remove("is-valid");
+      twoStepPromocodeWrapper.classList.add("is-not-valid");
     }
   });
 
-  promocodeApplyBtn.addEventListener("click", () => {
-    console.log(promoIsValid);
+  promocodeApplyBtn.addEventListener("click", async () => {
+    let promoCode = input.value;
+
+    const fetchPromocodes = async () => {
+      const res = await fetch(
+        `https://${newDomain}/api/v2/promocode/check-available?code=${promoCode.toUpperCase()}`,
+      );
+      const data = await res.json();
+      return data.available;
+    };
+    const promoIsValid = await fetchPromocodes();
     if (promoIsValid) {
       twoStepFormData.promocode = input.value.toUpperCase();
       console.log("Промокод верный");
