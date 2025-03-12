@@ -10,3 +10,5 @@ import "./modules/modalCurrency";
 import "./modules/fetchingDomain";
 import "./modules/itiTelInput";
 import "./modules/twoStepForm";
+import "./modules/settingData";
+import "./modules/language";

@@ -1,6 +1,8 @@
 import gsap from "gsap";
 import { CustomEase } from "gsap/all";
 import { mm } from "./animations";
+import { geoData } from "./geoLocation";
+import { winRandoms } from "../public/spinAmountsData";
 
 const overlay = document.querySelector(".overlay");
 
@@ -116,17 +118,6 @@ modalTL
       repeat: -1,
     },
     "<",
-  )
-  .to(
-    ".modal-money",
-    {
-      rotate: 10,
-      ease: "none",
-      duration: 5,
-      yoyo: true,
-      repeat: -1,
-    },
-    "<",
   );
 
 let timeoutId;
@@ -155,32 +146,47 @@ document.querySelectorAll(".win-amount").forEach((win) => {
   win.innerHTML = localStorage.getItem("lastWinAmount");
 });
 
+function setAmountsByLanguage(detectedCurrency) {
+  const langData = winRandoms[detectedCurrency] || winRandoms["eur"];
+
+  Object.keys(langData).forEach((number) => {
+    const pTag = document.querySelector(
+      `.number-amount.number-amount-${number}`,
+    );
+    if (pTag) {
+      pTag.textContent = langData[number];
+    }
+  });
+}
+
+function settingBonusMoneyAmounts() {
+  const detectedCurrency = geoData.currency.code.toLowerCase();
+
+  if (detectedCurrency === "che") {
+    detectedCurrency = "chf";
+  }
+  setAmountsByLanguage(detectedCurrency);
+}
+
+settingBonusMoneyAmounts();
+
 const Spinning = () => {
   document.querySelectorAll(".dark-overlay").forEach((el) => {
     el.classList.add("is-hidden");
   });
+  gsap.to(".darked-image", {
+    duration: 0.5,
+    filter: "brightness(1)",
+  });
+  gsap.to(".wheel-big-text", { y: 40, opacity: 0, duration: 0.5 });
   // Desktop
-  mm.add("(min-width: 768px)", () => {
-    gsap.to(".camel-img", {
-      duration: 0.5,
-      filter: "brightness(1)",
-    });
-    gsap.to(".wheel-big-text", { y: 40, opacity: 0, duration: 0.5 });
+  mm.add("(min-width: 769px)", () => {
+    gsap.to(".pig-image", { x: -100, duration: 0.5 });
+    gsap.to(".girl-image", { x: 100, duration: 0.5 });
   });
   // Mobile
-  mm.add("(max-width: 480px) and (max-height: 800px)", () => {
-    gsap.to(".camel-img", {
-      y: 100,
-      duration: 0.5,
-      filter: "brightness(1)",
-    });
-  });
-  mm.add("(max-width: 480px) and (min-height: 800px)", () => {
-    gsap.to(".camel-img", {
-      duration: 0.5,
-      filter: "brightness(1)",
-    });
-  });
+  mm.add("(max-width: 480px) and (max-height: 800px)", () => {});
+  mm.add("(max-width: 480px) and (min-height: 800px)", () => {});
   spinBtn.style.pointerEvents = "none";
   firstClick.play();
   gsap.to(spinBtnText, {
@@ -213,26 +219,27 @@ const Spinning = () => {
     }
   }, 500);
 
-  const winRandoms = {
-    1: "3.300",
-    3: "4.000",
-    5: "1.800",
-    7: "2.400",
-    9: "5.100",
-    11: "1.000",
-    13: "6.000",
-    15: "6.500",
-  };
+  // Detect location and use the language data from it
 
-  const keys = Object.keys(winRandoms);
-  const randomKey = keys[Math.floor(Math.random() * keys.length)];
-  const randomValue = winRandoms[randomKey];
+  const detectedCurrency = geoData.currency.code.toLowerCase();
+  const langDataCurrency = winRandoms[detectedCurrency] || winRandoms["eur"];
 
-  const targetRotationLose = currentRotation + (360 * 15 - nums[0]);
-  const targetRotationWin = currentRotation + (360 * 15 - nums[randomKey]);
+  // Select a random number key within the detected language data
+  const numberKeys = Object.keys(langDataCurrency);
+  const randomNumberKey =
+    numberKeys[Math.floor(Math.random() * numberKeys.length)];
+  const randomValue = langDataCurrency[randomNumberKey];
+  console.log(
+    `Detected Language: ${detectedCurrency}, Random Win Amount: ${randomValue}`,
+  );
+
+  // Define rotation for lose and win conditions
+  const targetRotationLose = currentRotation + (360 * 13 - nums[0]);
+  const targetRotationWin =
+    currentRotation + (360 * 13 - nums[randomNumberKey]);
 
   gsap.to(".main-wheel", {
-    rotate: spinAmount >= 1 ? targetRotationWin + 45 : targetRotationLose,
+    rotate: spinAmount >= 1 ? targetRotationWin + 0 : targetRotationLose,
     ease: CustomEase.create(
       "custom",
       "M0,0 C0.126,0.382 0.138,0.424 0.266,0.624 0.406,0.845 0.818,1.001 1,1 ",
@@ -286,8 +293,10 @@ const Spinning = () => {
   });
 };
 
-if (localStorage.getItem("spinAmount") >= 1) {
-  document.querySelector(".wheel-big-text").classList.add("hidden");
+let lastSpinAmount = localStorage.getItem("spinAmount");
+
+if (lastSpinAmount >= 2) {
+  spinBtn.style.pointerEvents = "none";
 }
 
 spinBtn.addEventListener("click", () => {
@@ -295,6 +304,7 @@ spinBtn.addEventListener("click", () => {
 });
 
 const firstModalCloseBtn = document.querySelector(".modal-lose-btn");
+
 firstModalCloseBtn.addEventListener("click", () => {
   Spinning();
   hideModal();

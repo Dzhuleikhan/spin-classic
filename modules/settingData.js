@@ -1,6 +1,5 @@
 import { getLocation } from "./geoLocation";
 import { countryCurrencyData } from "../public/data";
-import { settingGeoLocation } from "./setGeo";
 
 const wheelCurrency = document.querySelectorAll(".wheel-currency");
 
@@ -13,25 +12,25 @@ function setCurrency(icon, className) {
 }
 export function getCountryCurrencyIcon(inputCountry) {
   for (const data of countryCurrencyData) {
-    if (data.countries.includes(inputCountry)) {
+    if (data.countryCurrency.includes(inputCountry)) {
       return data.countryCurrencyIcon;
     }
   }
-  return "./img/currencies/usd.svg";
+  return "./img/currencies/eur.svg";
 }
 
 async function settingWheelCurrency() {
   try {
     let locationData = await getLocation();
-    const countryInput = locationData.country;
+    const countryInput = locationData.currency.code;
+    if (countryInput === "CHE") {
+      countryInput = "CHF";
+    }
     const currencyIcon = getCountryCurrencyIcon(countryInput);
 
     setCurrency(currencyIcon, "wheel-currency");
     setCurrency(currencyIcon, "modal-currency");
     showCurrencyImage(currencyIcon);
-
-    // Setting geo
-    settingGeoLocation(countryInput.toLowerCase(), "country-flag");
   } catch (error) {
     console.error("Error fetching location data:", error);
   }

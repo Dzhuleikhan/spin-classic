@@ -1,13 +1,17 @@
 <!doctype html>
-<html lang="ca">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./img/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spin Canada</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
   </head>
   <body
-    class="relative overscroll-none bg-[url('../img/page-bg.webp')] bg-cover bg-center bg-no-repeat mobile:overflow-hidden"
+    class="relative overscroll-none bg-[url(../img/page-bg.webp)] bg-cover bg-center bg-no-repeat mobile:overflow-hidden"
   >
     <div
       class="wrapper relative mx-auto h-full min-h-dvh w-full min-w-[320px] overflow-hidden"
@@ -26,92 +30,120 @@
           </div>
         </div>
       </div>
-      <main class="relative z-[30]">
+      <main class="relative z-[30] h-full xl:min-h-dvh">
         <div
-          class="header-bg-wrapper absolute left-0 top-0 flex h-[50px] w-full justify-end bg-[#78030C] drop-shadow-2xl lg:h-[50px] lg:justify-center sm:h-[35px]"
+          class="game-wrapper flex h-full flex-col items-center gap-[54px] pt-[30px] xl:min-h-dvh xl:justify-between xl:pb-[150px] lg:pb-[100px] mobile:pb-[40px] mobile:pt-5"
         >
-          <div
-            class="header-bg-wrapper-logo relative mr-[400px] flex items-center gap-2 px-[50px] wideScreen:mr-[450px] extralg:mr-[230px] xl:mr-[150px] lg:mr-0 lg:gap-1"
-          >
+          <div class="relative flex items-center gap-2">
             <img
-              class="relative -bottom-[20px] lg:-bottom-[10px] lg:max-w-[100px]"
-              width="177"
-              height="60"
+              class="relative shrink-0 extralg:max-w-[137px]"
+              width="237"
+              height="80"
               src="./img/logo-white.svg"
               alt="Logo"
             />
-            <img
-              class="relative -bottom-[20px] lg:-bottom-[10px] lg:h-5 lg:w-5"
-              width="40"
-              height="40"
-              src="./img/flags/ca.svg"
-              alt="Canada flag"
-            />
           </div>
-        </div>
-        <div
-          class="relative h-dvh min-h-[1080px] w-full items-center pt-[55px] extralg:min-h-dvh lg:items-start lg:pt-[50px] medium:min-h-[800px] medium:pt-5 mobile:h-dvh mobile:min-h-dvh mobile:pt-5"
-        >
-          <!-- Money  -->
-          <img
-            width="421"
-            height="357"
-            class="money-img absolute -left-[60px] -top-[100px] extralg:max-w-[350px] lg:-left-[50px] lg:-top-[50px] lg:max-w-[250px] tbl:max-w-[150px] mobile:hidden"
-            src="./img/money-1.webp"
-            alt="Money"
-          />
-          <img
-            class="money-img absolute -left-[150px] bottom-[200px] extralg:bottom-[120px] extralg:max-w-[350px] lg:-left-[50px] lg:max-w-[250px] tbl:max-w-[150px]"
-            width="441"
-            height="327"
-            src="./img/money-2.webp"
-            alt="money"
-          />
-          <img
-            class="money-img absolute -right-[150px] top-[110px] extralg:max-w-[320px] tbl:-right-[100px] tbl:top-[50px] tbl:max-w-[160px]"
-            width="373"
-            height="309"
-            src="./img/money-3.webp"
-            alt="Money"
-          />
           <div
-            class="mx-auto mt-[100px] flex w-full justify-end px-[180px] wideScreen:ml-auto wideScreen:mr-[180px] wideScreen:mt-[180px] wideScreen:h-[850px] wideScreen:w-[850px] wideScreen:px-0 extralg:px-[100px] xl:px-6 lg:mt-[50px] lg:justify-center medium:px-3 mobile:mt-[75px] big-laptop:justify-center"
+            class="relative aspect-square h-[75vh] w-auto extralg:h-[72vh] mobile:h-[60vh]"
           >
             <!-- spin big wrapper -->
-            <div class="relative wideScreen:h-full wideScreen:w-full">
-              <div
-                class="relative z-[25] flex max-w-[705px] items-center wideScreen:h-full wideScreen:w-full wideScreen:max-w-full"
-              >
+            <div class="relative h-full w-full">
+              <!-- moneys -->
+              <img
+                class="banknote banknote-1 darked-image money-img pointer-events-none fixed -left-[96px] top-[75px] z-[65] max-w-[264px] brightness-[0.6] lg:invisible lg:opacity-0"
+                width="370"
+                height="318"
+                src="./img/money-1-eur.webp"
+                alt="Money"
+              />
+              <img
+                class="banknote banknote-2 darked-image money-img pointer-events-none fixed left-[300px] top-[23px] z-[65] max-w-[312px] brightness-[0.6] lg:invisible lg:opacity-0"
+                width="434"
+                height="137"
+                src="./img/money-2-eur.webp"
+                alt="Money"
+              />
+              <img
+                class="banknote banknote-3 darked-image money-img pointer-events-none fixed -bottom-[23px] left-[20px] z-[65] max-w-[139px] brightness-[0.6] lg:invisible lg:opacity-0"
+                width="139"
+                height="183"
+                src="./img/money-3-eur.webp"
+                alt="Money"
+              />
+              <img
+                class="banknote banknote-4 darked-image money-img pointer-events-none fixed -right-8 top-11 z-[65] max-w-[254px] brightness-[0.6] lg:invisible lg:opacity-0"
+                width="254"
+                height="215"
+                src="./img/money-4-eur.webp"
+                alt="Money"
+              />
+              <img
+                class="banknote banknote-5 darked-image money-img pointer-events-none fixed -right-[190px] bottom-[250px] z-[70] max-w-[393px] brightness-[0.6] lg:invisible lg:opacity-0"
+                width="393"
+                height="283"
+                src="./img/money-5-eur.webp"
+                alt="Money"
+              />
+              <img
+                class="banknote banknote-2 darked-image money-img pointer-events-none fixed -right-20 bottom-[65px] z-[65] max-w-[312px] blur-[3px] brightness-[0.6] lg:invisible lg:opacity-0"
+                width="434"
+                height="137"
+                src="./img/money-2-eur.webp"
+                alt="Money"
+              />
+              <img
+                class="banknote banknote-6 darked-image money-img pointer-events-none fixed bottom-[300px] left-[230px] z-[71] max-w-[187px] blur-[3px] brightness-[0.6] lg:invisible lg:opacity-0"
+                width="187"
+                height="192"
+                src="./img/money-6-eur.webp"
+                alt="Money"
+              />
+              <!-- images -->
+              <img
+                width="317"
+                height="317"
+                class="darked-image absolute -bottom-[10%] left-[10%] z-[70] w-[40%] brightness-[0.6]"
+                src="./img/monkey.webp"
+                alt="Monkey"
+              />
+              <img
+                width="554"
+                height="930"
+                class="darked-image pig-image absolute -bottom-[250px] right-[80%] z-[70] w-[65%] brightness-[0.6] extralg:w-[75%] xl:-left-10 xl:-top-[200px] xl:bottom-auto xl:right-auto xl:z-10 xl:max-w-[60%] mobile:-top-[40%] mobile:left-0"
+                src="./img/pig.webp"
+                alt="pig"
+              />
+              <img
+                width="625"
+                height="807"
+                class="darked-image girl-image absolute -bottom-[100px] left-[75%] z-[70] w-[65%] brightness-[0.6] extralg:-bottom-[100px] extralg:w-[85%] xl:-right-10 xl:-top-[200px] xl:bottom-auto xl:left-auto xl:z-10 xl:max-w-[60%] mobile:-top-[40%] mobile:right-0"
+                src="./img/girl.webp"
+                alt="girl"
+              />
+              <img
+                class="darked-image absolute -bottom-[160px] right-[95%] z-[60] w-[70%] brightness-[0.6] extralg:w-[80%]"
+                width="600"
+                height="974"
+                src="./img/pirate.webp"
+                alt="Pirate"
+              />
+              <img
+                class="darked-image absolute -bottom-[200px] left-full z-[60] w-[70%] brightness-[0.6] extralg:w-[80%]"
+                width="565"
+                height="1037"
+                src="./img/player.webp"
+                alt="Player"
+              />
+              <div class="relative z-[25] flex h-full w-full items-center">
                 <img
                   class="absolute left-1/2 top-1/2 z-[7] h-[105%] min-w-[105%] -translate-x-1/2 -translate-y-1/2 drop-shadow-2xl"
                   src="./img/wheel-plate.webp"
                   alt=""
                 />
-                <img
-                  class="camel-img pointer-events-none fixed bottom-0 left-0 z-[70] w-full max-w-[55%] brightness-[0.7] will-change-transform lg:max-w-[560px] mobile:z-[51] mobile:hidden sm:bottom-0 sm:left-1/2 sm:max-w-[87%] sm:-translate-x-1/2 big-laptop:max-w-[70%]"
-                  src="./img/player.webp"
-                  alt="Deer image"
-                />
-                <img
-                  width="429"
-                  height="277"
-                  class="money-img fixed -bottom-[50px] -right-[40px] z-[20] extralg:max-w-[250px] tbl:-right-[50px] tbl:bottom-[50px] tbl:max-w-[160px]"
-                  src="./img/money-4.webp"
-                  alt="Money"
-                />
-                <img
-                  width="385"
-                  height="207"
-                  class="money-img-2 fixed bottom-[200px] left-[45%] z-[70] -translate-x-1/2 brightness-75 extralg:max-w-[250px] xl:hidden"
-                  src="./img/money-5.webp"
-                  alt="Money"
-                />
                 <!-- Wheel -->
-                <div
-                  class="relative z-50 h-full w-full max-w-[705px] rounded-full wideScreen:max-w-full extralg:max-w-[550px] lg:max-w-[405px] xl:landscape:max-w-[450px]"
-                >
+                <div class="relative z-50 h-full w-full rounded-full">
                   <!-- dots -->
-                  <div class="absolute z-[3] h-full w-full wideScreen:z-50">
+                  <div class="absolute z-40 h-full w-full wideScreen:z-50">
                     <!-- top right -->
                     <div
                       class="dot dot-odd absolute left-1/2 top-[0] -translate-x-1/2"
@@ -166,7 +198,7 @@
                     ></div>
                   </div>
                   <img
-                    class="wideScreen:h-full wideScreen:w-full"
+                    class="relative z-[2] h-full w-full"
                     width="705"
                     height="705"
                     src="./img/wheel-round.webp"
@@ -177,7 +209,7 @@
                   ></div>
                   <!-- wheel inner -->
                   <div
-                    class="main-wheel absolute z-[39] w-[91%] will-change-transform wideScreen:h-full wideScreen:w-full"
+                    class="main-wheel absolute z-[39] h-full w-full will-change-transform"
                   >
                     <div
                       class="dark-overlay absolute left-0 top-0 z-20 h-full w-full rounded-full bg-black/50"
@@ -195,16 +227,16 @@
                         /></span>
                       </div>
                     </div>
-                    <div style="--i: 2" class="number relative z-[30]">
+                    <div style="--i: 2" class="number">
                       <div>
-                        <p>6.500</p>
+                        <p class="number-amount number-amount-13"></p>
                         <span
                           ><img
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/currencies/cad.svg"
-                            alt="cad"
+                            src="./img/currencies/usd.svg"
+                            alt="USD"
                         /></span>
                       </div>
                     </div>
@@ -223,14 +255,14 @@
                     </div>
                     <div style="--i: 4" class="number">
                       <div>
-                        <p>3.300</p>
+                        <p class="number-amount number-amount-15"></p>
                         <span
                           ><img
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/currencies/cad.svg"
-                            alt="cad"
+                            src="./img/currencies/usd.svg"
+                            alt="USD"
                         /></span>
                       </div>
                     </div>
@@ -249,14 +281,14 @@
                     </div>
                     <div style="--i: 6" class="number">
                       <div>
-                        <p>4.000</p>
+                        <p class="number-amount number-amount-1"></p>
                         <span
                           ><img
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/currencies/cad.svg"
-                            alt="cad"
+                            src="./img/currencies/usd.svg"
+                            alt="USD"
                         /></span>
                       </div>
                     </div>
@@ -275,14 +307,14 @@
                     </div>
                     <div style="--i: 8" class="number">
                       <div>
-                        <p>1.800</p>
+                        <p class="number-amount number-amount-3"></p>
                         <span
                           ><img
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/currencies/cad.svg"
-                            alt="cad"
+                            src="./img/currencies/usd.svg"
+                            alt="USD"
                         /></span>
                       </div>
                     </div>
@@ -301,14 +333,14 @@
                     </div>
                     <div style="--i: 10" class="number">
                       <div>
-                        <p>2.400</p>
+                        <p class="number-amount number-amount-5"></p>
                         <span
                           ><img
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/currencies/cad.svg"
-                            alt="cad"
+                            src="./img/currencies/usd.svg"
+                            alt="USD"
                         /></span>
                       </div>
                     </div>
@@ -327,14 +359,14 @@
                     </div>
                     <div style="--i: 12" class="number">
                       <div>
-                        <p>5.100</p>
+                        <p class="number-amount number-amount-7"></p>
                         <span
                           ><img
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/currencies/cad.svg"
-                            alt="cad"
+                            src="./img/currencies/usd.svg"
+                            alt="USD"
                         /></span>
                       </div>
                     </div>
@@ -353,14 +385,14 @@
                     </div>
                     <div style="--i: 14" class="number">
                       <div>
-                        <p>1.000</p>
+                        <p class="number-amount number-amount-9"></p>
                         <span
                           ><img
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/currencies/cad.svg"
-                            alt="cad"
+                            src="./img/currencies/usd.svg"
+                            alt="USD"
                         /></span>
                       </div>
                     </div>
@@ -379,30 +411,25 @@
                     </div>
                     <div style="--i: 16" class="number">
                       <div>
-                        <p>6.000</p>
+                        <p class="number-amount number-amount-11"></p>
                         <span
                           ><img
                             width="38"
                             height="38"
                             class="wheel-currency"
-                            src="./img/currencies/cad.svg"
-                            alt="cad"
+                            src="./img/currencies/usd.svg"
+                            alt="USD"
                         /></span>
                       </div>
                     </div>
                     <img
-                      class="wideScreen:h-full wideScreen:w-full"
+                      class="absolute left-1/2 top-1/2 h-[98%] w-[98%] -translate-x-1/2 -translate-y-1/2"
                       width="667"
                       height="667"
                       src="./img/wheel.webp"
                       alt="Wheel"
                     />
                   </div>
-                  <img
-                    class="camel-img extra-sm:max-w-[85%] pointer-events-none fixed -bottom-[54px] -left-[105px] z-[60] hidden w-full max-w-[54%] brightness-[0.7] lg:max-w-[560px] mobile:block sm:bottom-0 sm:left-1/2 sm:w-[100%] sm:-translate-x-1/2 big-laptop:max-w-[70%]"
-                    src="./img/player.webp"
-                    alt="Deer"
-                  />
                   <!-- Spin button -->
                   <button
                     class="spin-btn absolute left-1/2 top-1/2 z-[50] flex h-[31%] w-[31%] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-[url('../img/spin-btn-bg.webp')] bg-contain bg-center bg-no-repeat"
@@ -416,6 +443,7 @@
                     />
                     <p class="spin-btn-text will-change-transform">
                       <span
+                        data-translate="spinBtn"
                         class="block text-[60px] font-black uppercase italic leading-[97%] text-[#f0f0f0] extralg:text-[40px] medium:text-[24px] xs:text-[18px]"
                       >
                         spin
@@ -434,9 +462,23 @@
               <div
                 class="wheel-big-text absolute bottom-0 left-0 z-[200] w-full text-center text-[64px] font-black uppercase extralg:text-[50px] lg:hidden"
               >
-                <p class="text-[#FFD84E]">Test your luck</p>
-                <p class="text-[#f0f0f0]">spin the wheel!</p>
+                <p
+                  data-translate="testYourLuck"
+                  class="wheel-text-orange text-[#FFD84E]"
+                >
+                  Test your luck
+                </p>
+                <p data-translate="spinTheWheel" class="italic text-[#f0f0f0]">
+                  spin the wheel!
+                </p>
               </div>
+              <img
+                class="absolute -bottom-[16%] left-1/2 w-full min-w-[110%] -translate-x-1/2"
+                width="967"
+                height="193"
+                src="./img/podium.webp"
+                alt="Podium"
+              />
             </div>
           </div>
         </div>
@@ -460,23 +502,23 @@
         />
         <!-- meneys -->
         <img
-          class="modal-money absolute bottom-[120%] right-[90%] max-w-[303px] rotate-[35deg] sm:right-[70%] sm:max-w-[150px]"
-          src="./img/money-1.webp"
+          class="modal-money banknote-1 banknote absolute bottom-[120%] right-[90%] max-w-[303px] rotate-[35deg] sm:right-[70%] sm:max-w-[150px]"
+          src="./img/money-1-eur.webp"
           alt="Money"
         />
         <img
-          class="modal-money absolute left-[80%] top-[120%] sm:left-[60%] sm:max-w-[150px] xs:top-[110%]"
-          src="./img/money-2.webp"
+          class="modal-money banknote banknote-2 absolute left-[80%] top-[120%] sm:left-[60%] sm:max-w-[150px] xs:top-[110%]"
+          src="./img/money-2-eur.webp"
           alt="Money"
         />
         <img
-          class="modal-money absolute right-[110%] top-[100%] max-w-[254px] -rotate-[30deg] sm:right-[70%] sm:top-[125%] sm:max-w-[150px] xs:top-[105%]"
-          src="./img/money-3.webp"
+          class="modal-money banknote banknote-3 absolute right-[110%] top-[100%] max-w-[254px] -rotate-[30deg] sm:right-[70%] sm:top-[125%] sm:max-w-[150px] xs:top-[105%]"
+          src="./img/money-3-eur.webp"
           alt="Money"
         />
         <img
-          class="modal-money absolute bottom-[120%] left-[110%] max-w-[130px] sm:bottom-[135%] sm:left-[80%] sm:max-w-[150px]"
-          src="./img/money-4.webp"
+          class="modal-money banknote banknote-4 absolute bottom-[120%] left-[110%] max-w-[130px] sm:bottom-[135%] sm:left-[80%] sm:max-w-[150px]"
+          src="./img/money-4-eur.webp"
           alt="Money"
         />
         <div
@@ -484,11 +526,14 @@
         >
           <div class="modal-head space-y-[10px] text-center sm:space-y-2">
             <p
+              data-translate="winModalTitle"
               class="font-roboto text-[29px] font-bold leading-[133%] text-white sm:text-[24px]"
             >
               Congratulations!
             </p>
-            <span class="font-roboto text-[24px] text-white sm:text-xl"
+            <span
+              data-translate="winModalText"
+              class="font-roboto text-[24px] text-white sm:text-xl"
               >Your prize is:</span
             >
           </div>
@@ -508,6 +553,7 @@
             />
           </div>
           <button
+            data-translate="winModalBtn"
             class="modal-btn claim-prize-btn relative w-full overflow-hidden rounded-[13px] border-[3.65px] border-[#380808] p-3 px-4 text-center font-roboto text-[31px] font-bold uppercase text-white sm:px-2 sm:py-[13px] sm:text-[20px]"
           >
             Claim Prize
@@ -530,12 +576,15 @@
         >
           <div class="modal-head space-y-[10px] text-center sm:space-y-2">
             <p
+              data-translate="looseModalTitle"
               class="extra-sm:text-base font-roboto text-[24px] font-bold capitalize leading-[133%] text-white"
             >
               Unfortunately, <br />
               You didn't win this time.
             </p>
-            <span class="extra-sm:text-sm font-roboto text-[20px] text-white"
+            <span
+              data-translate="looseModalText"
+              class="extra-sm:text-sm font-roboto text-[20px] text-white"
               >But don't worry, you have another chance!</span
             >
           </div>
@@ -555,6 +604,7 @@
             />
           </div>
           <button
+            data-translate="looseModalBtn"
             class="modal-btn modal-lose-btn w-full rounded-[13px] border-[3.65px] border-[#380808] p-3 px-4 text-center font-roboto text-[31px] font-bold uppercase text-white sm:px-2 sm:py-[13px] sm:text-[26px] xs:w-full xs:px-2 xs:text-[20px]"
           >
             ROLL AGAIN!
@@ -565,18 +615,19 @@
     <div
       class="form-overlay fixed left-0 top-0 z-[200] hidden h-screen w-full place-items-center overflow-y-auto bg-black/50 p-3 backdrop-blur-[10px] mobile:p-0"
     >
+      <!-- Two step overlay -->
       <div
-        class="two-step-overlay is-open large:py-5 fixed left-0 top-0 z-[300] h-dvh w-full flex-col justify-between overflow-y-auto px-9 pb-[50px] pt-[30px] mobile:px-4 sm:justify-start sm:gap-[15px] sm:px-[15px] sm:pt-[24px]"
+        class="two-step-overlay is-open large:py-5 small:justify-start small:gap-[15px] small:px-[15px] small:pt-[24px] fixed left-0 top-0 z-[300] h-dvh w-full flex-col justify-between overflow-y-auto px-9 pb-[50px] pt-[30px]"
       >
         <!-- Header -->
         <div
-          class="flex w-full items-center justify-between sm:absolute sm:left-0 sm:top-[15px] sm:px-[15px]"
+          class="small:absolute small:left-0 small:top-[15px] small:px-[15px] flex items-center justify-between"
         >
           <div
             class="two-step-header-back-btn invisible flex items-center gap-3 opacity-0"
           >
             <button
-              class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 sm:h-10 sm:w-10"
+              class="small:h-10 small:w-10 flex h-12 w-12 items-center justify-center rounded-xl bg-white/5"
             >
               <svg
                 class="pointer-events-none"
@@ -597,11 +648,11 @@
             </button>
             <span
               data-translate="backBtn"
-              class="text-lg font-bold leading-[117%] tracking-[0.02em] text-white mobile:hidden"
+              class="small:hidden text-lg font-bold leading-[117%] tracking-[0.02em] text-white"
               >Back</span
             >
           </div>
-          <a href="/" class="inline-flex items-center gap-1 sm:hidden">
+          <a href="/" class="small:hidden inline-flex items-center gap-1">
             <img
               class="tbl:max-w-[100px]"
               width="134"
@@ -617,16 +668,13 @@
               alt="Belgium"
             />
           </a>
-          <div
-            class="two-step-modal-close-btn pointer-events-none invisible flex items-center gap-3 opacity-0"
-          >
+          <div class="invisible flex items-center gap-3 opacity-0">
             <span
-              data-translate="closeBtn"
-              class="text-lg font-bold leading-[117%] tracking-[0.02em] text-white mobile:hidden"
+              class="text-lg font-bold leading-[117%] tracking-[0.02em] text-white"
               >Close</span
             >
             <button
-              class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 sm:h-10 sm:w-10"
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-white/5"
             >
               <svg
                 class="pointer-events-none"
@@ -648,15 +696,17 @@
           </div>
         </div>
         <!-- form -->
-        <div class="two-step-modal flex items-center justify-center">
-          <div class="w-full max-w-[500px] p-[30px] sm:p-0 sm:px-0">
+        <div
+          class="two-step-modal two-step-modal-socials flex items-center justify-center"
+        >
+          <div class="small:p-0 w-full max-w-[500px] p-[30px]">
             <form action="#" class="two-step-form">
               <!-- FIRST BONUS STEP -->
               <div class="two-step-form-step is-active two-step-form-step-1">
-                <div class="space-y-[5px] text-center">
+                <div class="space-y-[5px] text-center text-white">
                   <p
                     data-translate="step1Title"
-                    class="text-2xl font-bold tracking-[0.02em] text-white xs:text-[20px]"
+                    class="text-2xl font-bold tracking-[0.02em] xs:text-[20px]"
                   >
                     Choose Your Bonus
                   </p>
@@ -697,7 +747,8 @@
                           <p
                             class="two-step-bonus-checkbox-text text-[15px] leading-[160%] xs:text-xs"
                           >
-                            <span class="two-step-bonus-percent"></span> +
+                            <span class="two-step-welcome-amount"></span>
+                            <span class="two-step-welcome-symbol"></span> +
                             <span class="two-step-bonus-spins"></span>
                             <span data-translate="welcomeBonusText"
                               >on your first deposit</span
@@ -785,7 +836,8 @@
                             data-translate="highRollerBonusText"
                             class="two-step-bonus-checkbox-text text-[15px] leading-[160%] xs:text-xs"
                           >
-                            250% on Deposits Over $500
+                            250% on Deposits Over
+                            <span class="bonus-currency-symbol"></span>500
                           </p>
                         </div>
                       </div>
@@ -838,70 +890,88 @@
                   </label>
                 </div>
                 <!-- promocode -->
-                <div class="mt-[15px] xs:mt-[10px]">
-                  <p
-                    data-translate="iHavePromoCode"
-                    class="two-step-promocode-btn cursor-pointer text-center text-base font-bold leading-[131%] text-white underline underline-offset-4"
-                  >
-                    I Have a Promo-Code
-                  </p>
-                  <div
-                    class="two-step-promocode-wrapper two-step-input-wrapper relative hidden grid-cols-[auto_1fr_auto] items-center gap-[5px] rounded-2xl bg-white px-4 py-[10px]"
-                  >
-                    <svg
-                      class="shrink-0"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                <div class="promocode-applied-wrapper">
+                  <div class="mt-[15px] xs:mt-[10px]">
+                    <p
+                      data-translate="iHavePromoCode"
+                      class="two-step-promocode-btn cursor-pointer text-center text-base font-bold leading-[131%] text-white underline underline-offset-4"
                     >
-                      <path
-                        d="M11.1514 7.19152H12.8484V16.8082H11.1514V7.19152ZM0.686186 11.9998L11.9999 0.686141C12.7848 -0.0987483 14.0434 -0.0987479 14.8283 0.686141L17.6567 3.51457C17.2817 3.88964 17.071 4.39835 17.071 4.92878C17.071 5.45921 17.2817 5.96792 17.6567 6.34299C18.0318 6.71807 18.5405 6.92878 19.071 6.92878C19.6014 6.92878 20.1101 6.71807 20.4852 6.34299L23.3136 9.17142C24.0985 9.95631 24.0985 11.215 23.3136 11.9998L11.9999 23.3136C11.6248 23.6886 11.1161 23.8993 10.5857 23.8993C10.0552 23.8993 9.54654 23.6886 9.17147 23.3136L6.34304 20.4851C7.12793 19.7002 7.12793 18.4416 6.34304 17.6567C5.96797 17.2816 5.45926 17.0709 4.92883 17.0709C4.39839 17.0709 3.88969 17.2816 3.51461 17.6567L0.686186 14.8283C0.311113 14.4532 0.1004 13.9445 0.1004 13.4141C0.1004 12.8836 0.311113 12.3749 0.686186 11.9998ZM2.1004 13.4141L3.89645 15.2101C4.57391 15.0282 5.28734 15.0279 5.96495 15.2093C6.64257 15.3906 7.26046 15.7473 7.75647 16.2433C8.25248 16.7393 8.60911 17.3572 8.79048 18.0348C8.97185 18.7124 8.97155 19.4258 8.78963 20.1033L10.5857 21.8993L21.8994 10.5856L20.1033 8.78958C19.4259 8.97151 18.7124 8.9718 18.0348 8.79044C17.3572 8.60907 16.7393 8.25244 16.2433 7.75643C15.7473 7.26042 15.3907 6.64252 15.2093 5.96491C15.0279 5.2873 15.0282 4.57387 15.2102 3.89641L13.4141 2.10035L2.1004 13.4141ZM7.4037 10.9392C7.9906 10.3523 8.93812 10.3523 9.52502 10.9392C10.1119 11.5261 10.1119 12.4736 9.52502 13.0605C8.93812 13.6474 7.9906 13.6474 7.4037 13.0605C6.8168 12.4736 6.8168 11.5261 7.4037 10.9392ZM14.4748 10.9392C15.0617 10.3523 16.0092 10.3523 16.5961 10.9392C17.183 11.5261 17.183 12.4736 16.5961 13.0605C16.0092 13.6474 15.0617 13.6474 14.4748 13.0605C13.8879 12.4736 13.8879 11.5261 14.4748 10.9392Z"
-                        fill="#585858"
-                      />
-                    </svg>
-                    <input
-                      id="promocode"
-                      class="two-step-promocode-input two-step-general-input relative -bottom-1 w-full bg-transparent text-base font-bold uppercase tracking-[-0.02em] text-[#755eeb] outline-none"
-                      type="text"
-                    />
-                    <label
-                      data-translate="promoCodePlaceHolder"
-                      class="two-step-promocode-label two-step-general-label pointer-events-none absolute left-[45px] top-1/2 -translate-y-1/2 text-base font-bold tracking-[-0.02em] text-[#585858] transition-all"
-                      >Promo Code</label
+                      I Have a Promo-Code
+                    </p>
+                    <div
+                      class="two-step-promocode-wrapper two-step-input-wrapper relative hidden grid-cols-[auto_1fr_auto] items-center gap-[5px] rounded-2xl bg-white px-4 py-[10px]"
                     >
-                    <div>
-                      <button
-                        data-translate="promoCodeApplyBtn"
-                        type="button"
-                        class="two-step-promocode-apply-btn rounded-md bg-[#755eeb] px-3 py-1 font-semibold text-white"
-                      >
-                        Apply
-                      </button>
                       <svg
-                        class="two-step-promocode-valid-icon hidden shrink-0 fill-[#4ED937] xs:h-7 xs:w-7"
-                        width="36"
-                        height="36"
-                        viewBox="0 0 36 36"
+                        class="shrink-0"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <rect width="36" height="36" rx="18" />
                         <path
-                          d="M12 18.3333L16.6377 23L24 13"
-                          stroke="white"
-                          stroke-width="3"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          d="M11.1514 7.19152H12.8484V16.8082H11.1514V7.19152ZM0.686186 11.9998L11.9999 0.686141C12.7848 -0.0987483 14.0434 -0.0987479 14.8283 0.686141L17.6567 3.51457C17.2817 3.88964 17.071 4.39835 17.071 4.92878C17.071 5.45921 17.2817 5.96792 17.6567 6.34299C18.0318 6.71807 18.5405 6.92878 19.071 6.92878C19.6014 6.92878 20.1101 6.71807 20.4852 6.34299L23.3136 9.17142C24.0985 9.95631 24.0985 11.215 23.3136 11.9998L11.9999 23.3136C11.6248 23.6886 11.1161 23.8993 10.5857 23.8993C10.0552 23.8993 9.54654 23.6886 9.17147 23.3136L6.34304 20.4851C7.12793 19.7002 7.12793 18.4416 6.34304 17.6567C5.96797 17.2816 5.45926 17.0709 4.92883 17.0709C4.39839 17.0709 3.88969 17.2816 3.51461 17.6567L0.686186 14.8283C0.311113 14.4532 0.1004 13.9445 0.1004 13.4141C0.1004 12.8836 0.311113 12.3749 0.686186 11.9998ZM2.1004 13.4141L3.89645 15.2101C4.57391 15.0282 5.28734 15.0279 5.96495 15.2093C6.64257 15.3906 7.26046 15.7473 7.75647 16.2433C8.25248 16.7393 8.60911 17.3572 8.79048 18.0348C8.97185 18.7124 8.97155 19.4258 8.78963 20.1033L10.5857 21.8993L21.8994 10.5856L20.1033 8.78958C19.4259 8.97151 18.7124 8.9718 18.0348 8.79044C17.3572 8.60907 16.7393 8.25244 16.2433 7.75643C15.7473 7.26042 15.3907 6.64252 15.2093 5.96491C15.0279 5.2873 15.0282 4.57387 15.2102 3.89641L13.4141 2.10035L2.1004 13.4141ZM7.4037 10.9392C7.9906 10.3523 8.93812 10.3523 9.52502 10.9392C10.1119 11.5261 10.1119 12.4736 9.52502 13.0605C8.93812 13.6474 7.9906 13.6474 7.4037 13.0605C6.8168 12.4736 6.8168 11.5261 7.4037 10.9392ZM14.4748 10.9392C15.0617 10.3523 16.0092 10.3523 16.5961 10.9392C17.183 11.5261 17.183 12.4736 16.5961 13.0605C16.0092 13.6474 15.0617 13.6474 14.4748 13.0605C13.8879 12.4736 13.8879 11.5261 14.4748 10.9392Z"
+                          fill="#585858"
                         />
                       </svg>
+                      <input
+                        id="promocode"
+                        class="two-step-promocode-input two-step-general-input relative -bottom-1 w-full bg-transparent text-base font-bold uppercase tracking-[-0.02em] text-[#755eeb] outline-none"
+                        type="text"
+                      />
+                      <label
+                        data-translate="promoCodePlaceHolder"
+                        class="two-step-promocode-label two-step-general-label pointer-events-none absolute left-[45px] top-1/2 -translate-y-1/2 text-base font-bold tracking-[-0.02em] text-[#585858] transition-all"
+                        >Promo Code</label
+                      >
+                      <div>
+                        <button
+                          data-translate="promoCodeApplyBtn"
+                          type="button"
+                          class="two-step-promocode-apply-btn rounded-md bg-[#755eeb] px-3 py-1 font-semibold text-white"
+                        >
+                          Apply
+                        </button>
+                        <svg
+                          class="two-step-promocode-valid-icon hidden shrink-0 fill-[#4ED937] xs:h-7 xs:w-7"
+                          width="36"
+                          height="36"
+                          viewBox="0 0 36 36"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect width="36" height="36" rx="18" />
+                          <path
+                            d="M12 18.3333L16.6377 23L24 13"
+                            stroke="white"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </div>
                     </div>
+                  </div>
+                  <div
+                    class="promocode-applied-badge rounded-b-2xl bg-[#4ED937] p-2 text-center font-bold text-white"
+                  >
+                    <p
+                      data-translate="youWillGetFreeSpins"
+                      class="promocode-applied-badge-text promocode-applied-badge-freespins"
+                    >
+                      You will get freespins
+                    </p>
+                    <p
+                      data-translate="youWillGetNodepBonus"
+                      class="promocode-applied-badge-text promocode-applied-badge-nodep"
+                    >
+                      You will get without deposit bonus
+                    </p>
                   </div>
                 </div>
                 <button
                   type="button"
-                  class="next-step-btn mt-[15px] grid w-full grid-cols-[auto_1fr_auto] gap-1 rounded-2xl bg-[#f4fd2b] px-[14px] py-5 text-lg font-bold tracking-[0.02em] text-[#0f0f0f] sm:text-base xs:mt-[10px] xs:py-4"
+                  class="next-step-btn small:text-base mt-[15px] grid w-full grid-cols-[auto_1fr_auto] gap-1 rounded-2xl bg-[#f4fd2b] px-[14px] py-5 text-lg font-bold tracking-[0.02em] text-[#0f0f0f] xs:mt-[10px] xs:py-4"
                 >
                   <span class="h-6 w-6"></span>
                   <p data-translate="continueBtn">Continue</p>
@@ -926,60 +996,79 @@
               <div
                 class="two-step-form-step two-step-form-step-2 space-y-[15px]"
               >
-                <div class="space-y-[5px] text-center">
+                <div class="space-y-[5px] text-center text-white">
                   <p
                     data-translate="step2Title"
-                    class="text-2xl font-bold tracking-[0.02em] text-white xs:text-[20px]"
+                    class="text-2xl font-bold tracking-[0.02em] xs:text-[20px]"
                   >
                     Enter Your Email
                   </p>
                 </div>
                 <!-- Bonus applied -->
-                <div
-                  class="applied-bonus-wrapper relative mt-[15px] flex items-center justify-between gap-5 rounded-2xl border-[3px] border-[#2ba943] bg-[#2BA943]/25 p-[10px] text-white xs:mt-[10px]"
-                >
-                  <div class="flex items-center gap-[10px]">
-                    <div
-                      class="h-[52px] w-[52px] overflow-hidden rounded-xl xs:h-10 xs:w-10"
-                    >
-                      <img
-                        class="applied-bonus-img"
-                        width="52"
-                        height="52"
-                        src="./img/twoStepFormImg/two-step-bonus-img1.webp"
-                        alt="Image"
-                      />
-                    </div>
-                    <div class="space-y-[5px]">
-                      <p
-                        data-translate="welcomeBonus"
-                        class="applied-bonus-name text-lg font-bold leading-[117%] tracking-[0.02em] sm:text-sm"
-                      >
-                        Welcome Bonus
-                      </p>
-                      <p
-                        class="applied-bonus-text text-[15px] leading-[160%] sm:text-xs"
-                      >
-                        <span class="applied-bonus-percent">200%</span> +
-                        <span class="applied-bonus-spins">25FS</span>
-                        <span data-translate="welcomeBonusText"
-                          >on your first deposit</span
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                <div class="promocode-applied-wrapper">
+                  <div
+                    class="applied-bonus-wrapper relative mt-[15px] flex items-center justify-between gap-5 rounded-2xl border-[3px] border-[#2ba943] bg-[#2BA943]/25 p-[10px] text-white xs:mt-[10px]"
                   >
-                    <path
-                      d="M16.0132 2.6814C17.0503 2.68146 18.0518 3.05922 18.8306 3.74406L19.0359 3.9374L19.9666 4.86806C20.222 5.12181 20.5555 5.282 20.9132 5.32273L21.0932 5.3334H22.4266C23.5162 5.33334 24.5645 5.75016 25.3567 6.49838C26.1488 7.24661 26.6246 8.26954 26.6866 9.3574L26.6932 9.60006V10.9334C26.6932 11.2934 26.8159 11.6441 27.0372 11.9241L27.1572 12.0574L28.0866 12.9881C28.8569 13.754 29.306 14.7849 29.3424 15.8706C29.3788 16.9562 28.9998 18.0149 28.2826 18.8307L28.0892 19.0361L27.1586 19.9667C26.9048 20.2221 26.7446 20.5557 26.7039 20.9134L26.6932 21.0934V22.4267C26.6933 23.5164 26.2765 24.5647 25.5282 25.3568C24.78 26.1489 23.7571 26.6248 22.6692 26.6867L22.4266 26.6934H21.0932C20.7337 26.6935 20.3848 26.8147 20.1026 27.0374L19.9692 27.1574L19.0386 28.0867C18.2726 28.857 17.2417 29.3062 16.1561 29.3426C15.0704 29.379 14.0117 29 13.1959 28.2827L12.9906 28.0894L12.0599 27.1587C11.8045 26.905 11.471 26.7448 11.1132 26.7041L10.9332 26.6934H9.5999C8.51027 26.6935 7.46192 26.2766 6.66981 25.5284C5.8777 24.7802 5.40187 23.7573 5.3399 22.6694L5.33323 22.4267V21.0934C5.33311 20.7339 5.21193 20.3849 4.98923 20.1027L4.86923 19.9694L3.9399 19.0387C3.16961 18.2728 2.72046 17.2419 2.68404 16.1562C2.64762 15.0706 3.02667 14.0119 3.7439 13.1961L3.93723 12.9907L4.8679 12.0601C5.12165 11.8047 5.28184 11.4711 5.32256 11.1134L5.33323 10.9334V9.60006L5.3399 9.3574C5.39943 8.31132 5.8418 7.32373 6.58268 6.58285C7.32356 5.84196 8.31116 5.3996 9.35723 5.34006L9.5999 5.3334H10.9332C11.2927 5.33328 11.6417 5.2121 11.9239 4.9894L12.0572 4.8694L12.9879 3.94006C13.3843 3.54125 13.8557 3.22474 14.3749 3.00873C14.8941 2.79272 15.4509 2.68148 16.0132 2.6814ZM20.9426 12.3907C20.6925 12.1408 20.3535 12.0003 19.9999 12.0003C19.6463 12.0003 19.3073 12.1408 19.0572 12.3907L14.6666 16.7801L12.9426 15.0574L12.8172 14.9467C12.5492 14.7395 12.2124 14.6421 11.8752 14.6742C11.538 14.7063 11.2256 14.8656 11.0016 15.1197C10.7775 15.3738 10.6586 15.7036 10.6689 16.0422C10.6793 16.3808 10.8181 16.7028 11.0572 16.9427L13.7239 19.6094L13.8492 19.7201C14.1058 19.9191 14.4261 20.0176 14.7501 19.9972C15.0742 19.9769 15.3796 19.839 15.6092 19.6094L20.9426 14.2761L21.0532 14.1507C21.2522 13.8942 21.3508 13.5739 21.3304 13.2498C21.31 12.9258 21.1721 12.6203 20.9426 12.3907Z"
-                      fill="#2BA943"
-                    />
-                  </svg>
+                    <div class="flex items-center gap-[10px]">
+                      <div
+                        class="h-[52px] w-[52px] overflow-hidden rounded-xl xs:h-10 xs:w-10"
+                      >
+                        <img
+                          class="applied-bonus-img"
+                          width="52"
+                          height="52"
+                          src="./img/twoStepFormImg/two-step-bonus-img1.webp"
+                          alt="Image"
+                        />
+                      </div>
+                      <div class="space-y-[5px]">
+                        <p
+                          data-translate="welcomeBonus"
+                          class="applied-bonus-name small:text-sm text-lg font-bold leading-[117%] tracking-[0.02em]"
+                        >
+                          Welcome Bonus
+                        </p>
+                        <p
+                          class="applied-bonus-text small:text-xs text-[15px] leading-[160%]"
+                        >
+                          <span class="two-step-welcome-amount"></span>
+                          <span class="two-step-welcome-symbol"></span> +
+                          <span class="two-step-bonus-spins"></span>
+                          <span data-translate="welcomeBonusText"
+                            >on your first deposit</span
+                          >
+                        </p>
+                      </div>
+                    </div>
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.0132 2.6814C17.0503 2.68146 18.0518 3.05922 18.8306 3.74406L19.0359 3.9374L19.9666 4.86806C20.222 5.12181 20.5555 5.282 20.9132 5.32273L21.0932 5.3334H22.4266C23.5162 5.33334 24.5645 5.75016 25.3567 6.49838C26.1488 7.24661 26.6246 8.26954 26.6866 9.3574L26.6932 9.60006V10.9334C26.6932 11.2934 26.8159 11.6441 27.0372 11.9241L27.1572 12.0574L28.0866 12.9881C28.8569 13.754 29.306 14.7849 29.3424 15.8706C29.3788 16.9562 28.9998 18.0149 28.2826 18.8307L28.0892 19.0361L27.1586 19.9667C26.9048 20.2221 26.7446 20.5557 26.7039 20.9134L26.6932 21.0934V22.4267C26.6933 23.5164 26.2765 24.5647 25.5282 25.3568C24.78 26.1489 23.7571 26.6248 22.6692 26.6867L22.4266 26.6934H21.0932C20.7337 26.6935 20.3848 26.8147 20.1026 27.0374L19.9692 27.1574L19.0386 28.0867C18.2726 28.857 17.2417 29.3062 16.1561 29.3426C15.0704 29.379 14.0117 29 13.1959 28.2827L12.9906 28.0894L12.0599 27.1587C11.8045 26.905 11.471 26.7448 11.1132 26.7041L10.9332 26.6934H9.5999C8.51027 26.6935 7.46192 26.2766 6.66981 25.5284C5.8777 24.7802 5.40187 23.7573 5.3399 22.6694L5.33323 22.4267V21.0934C5.33311 20.7339 5.21193 20.3849 4.98923 20.1027L4.86923 19.9694L3.9399 19.0387C3.16961 18.2728 2.72046 17.2419 2.68404 16.1562C2.64762 15.0706 3.02667 14.0119 3.7439 13.1961L3.93723 12.9907L4.8679 12.0601C5.12165 11.8047 5.28184 11.4711 5.32256 11.1134L5.33323 10.9334V9.60006L5.3399 9.3574C5.39943 8.31132 5.8418 7.32373 6.58268 6.58285C7.32356 5.84196 8.31116 5.3996 9.35723 5.34006L9.5999 5.3334H10.9332C11.2927 5.33328 11.6417 5.2121 11.9239 4.9894L12.0572 4.8694L12.9879 3.94006C13.3843 3.54125 13.8557 3.22474 14.3749 3.00873C14.8941 2.79272 15.4509 2.68148 16.0132 2.6814ZM20.9426 12.3907C20.6925 12.1408 20.3535 12.0003 19.9999 12.0003C19.6463 12.0003 19.3073 12.1408 19.0572 12.3907L14.6666 16.7801L12.9426 15.0574L12.8172 14.9467C12.5492 14.7395 12.2124 14.6421 11.8752 14.6742C11.538 14.7063 11.2256 14.8656 11.0016 15.1197C10.7775 15.3738 10.6586 15.7036 10.6689 16.0422C10.6793 16.3808 10.8181 16.7028 11.0572 16.9427L13.7239 19.6094L13.8492 19.7201C14.1058 19.9191 14.4261 20.0176 14.7501 19.9972C15.0742 19.9769 15.3796 19.839 15.6092 19.6094L20.9426 14.2761L21.0532 14.1507C21.2522 13.8942 21.3508 13.5739 21.3304 13.2498C21.31 12.9258 21.1721 12.6203 20.9426 12.3907Z"
+                        fill="#2BA943"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="promocode-applied-badge rounded-b-2xl bg-[#4ED937] p-2 text-center font-bold text-white"
+                  >
+                    <p
+                      data-translate="youWillGetFreeSpins"
+                      class="promocode-applied-badge-text promocode-applied-badge-freespins"
+                    >
+                      You will get freespins
+                    </p>
+                    <p
+                      data-translate="youWillGetNodepBonus"
+                      class="promocode-applied-badge-text promocode-applied-badge-nodep"
+                    >
+                      You will get without deposit bonus
+                    </p>
+                  </div>
                 </div>
                 <!-- email input -->
                 <div
@@ -1003,7 +1092,7 @@
                   />
                   <label
                     data-translate="emailPlaceholder"
-                    class="two-step-general-label two-step-email-label pointer-events-none absolute left-[45px] top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
+                    class="two-step-general-label two-step-required-label two-step-email-label pointer-events-none absolute left-[45px] top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
                     >Enter E-mail</label
                   >
                 </div>
@@ -1029,7 +1118,7 @@
                   />
                   <label
                     data-translate="passwordPlaceholder"
-                    class="two-step-general-label two-step-password-label pointer-events-none absolute left-[45px] top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
+                    class="two-step-general-label two-step-required-label two-step-password-label pointer-events-none absolute left-[45px] top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
                     >Enter Password</label
                   >
                   <div class="two-step-password-show-btn cursor-pointer">
@@ -1042,7 +1131,7 @@
                 </div>
                 <button
                   type="button"
-                  class="next-step-btn mt-[15px] grid w-full grid-cols-[auto_1fr_auto] gap-1 rounded-2xl bg-[#f4fd2b] px-[14px] py-5 text-lg font-bold tracking-[0.02em] text-[#0f0f0f] sm:text-base xs:mt-[10px] xs:py-4"
+                  class="next-step-btn small:text-base mt-[15px] grid w-full grid-cols-[auto_1fr_auto] gap-1 rounded-2xl bg-[#f4fd2b] px-[14px] py-5 text-lg font-bold tracking-[0.02em] text-[#0f0f0f] xs:mt-[10px] xs:py-4"
                 >
                   <span class="disable-overlap"></span>
                   <span class="h-6 w-6"></span>
@@ -1068,60 +1157,79 @@
               <div
                 class="two-step-form-step two-step-form-step-3 space-y-[15px] xs:space-y-[10px]"
               >
-                <div class="space-y-[5px] text-center">
+                <div class="space-y-[5px] text-center text-white">
                   <p
                     data-translate="step3Title"
-                    class="text-2xl font-bold tracking-[0.02em] text-white xs:text-[20px]"
+                    class="text-2xl font-bold tracking-[0.02em] xs:text-[20px]"
                   >
                     What’s Your Name?
                   </p>
                 </div>
                 <!-- Bonus applied -->
-                <div
-                  class="applied-bonus-wrapper relative flex items-center justify-between gap-5 rounded-2xl border-[3px] border-[#2ba943] bg-[#2BA943]/25 p-[10px] text-white xs:mt-[10px]"
-                >
-                  <div class="flex items-center gap-[10px]">
-                    <div
-                      class="h-[52px] w-[52px] overflow-hidden rounded-xl xs:h-10 xs:w-10"
-                    >
-                      <img
-                        class="applied-bonus-img"
-                        width="52"
-                        height="52"
-                        src="./img/twoStepFormImg/two-step-bonus-img1.webp"
-                        alt="Image"
-                      />
-                    </div>
-                    <div class="space-y-[5px]">
-                      <p
-                        data-translate="welcomeBonus"
-                        class="applied-bonus-name text-lg font-bold leading-[117%] tracking-[0.02em] sm:text-sm"
-                      >
-                        Welcome Bonus
-                      </p>
-                      <p
-                        class="applied-bonus-text text-[15px] leading-[160%] sm:text-xs"
-                      >
-                        <span class="applied-bonus-percent">200%</span> +
-                        <span class="applied-bonus-spins">25FS</span>
-                        <span data-translate="welcomeBonusText"
-                          >on your first deposit</span
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                <div class="promocode-applied-wrapper">
+                  <div
+                    class="applied-bonus-wrapper relative flex items-center justify-between gap-5 rounded-2xl border-[3px] border-[#2ba943] bg-[#2BA943]/25 p-[10px] text-white xs:mt-[10px]"
                   >
-                    <path
-                      d="M16.0132 2.6814C17.0503 2.68146 18.0518 3.05922 18.8306 3.74406L19.0359 3.9374L19.9666 4.86806C20.222 5.12181 20.5555 5.282 20.9132 5.32273L21.0932 5.3334H22.4266C23.5162 5.33334 24.5645 5.75016 25.3567 6.49838C26.1488 7.24661 26.6246 8.26954 26.6866 9.3574L26.6932 9.60006V10.9334C26.6932 11.2934 26.8159 11.6441 27.0372 11.9241L27.1572 12.0574L28.0866 12.9881C28.8569 13.754 29.306 14.7849 29.3424 15.8706C29.3788 16.9562 28.9998 18.0149 28.2826 18.8307L28.0892 19.0361L27.1586 19.9667C26.9048 20.2221 26.7446 20.5557 26.7039 20.9134L26.6932 21.0934V22.4267C26.6933 23.5164 26.2765 24.5647 25.5282 25.3568C24.78 26.1489 23.7571 26.6248 22.6692 26.6867L22.4266 26.6934H21.0932C20.7337 26.6935 20.3848 26.8147 20.1026 27.0374L19.9692 27.1574L19.0386 28.0867C18.2726 28.857 17.2417 29.3062 16.1561 29.3426C15.0704 29.379 14.0117 29 13.1959 28.2827L12.9906 28.0894L12.0599 27.1587C11.8045 26.905 11.471 26.7448 11.1132 26.7041L10.9332 26.6934H9.5999C8.51027 26.6935 7.46192 26.2766 6.66981 25.5284C5.8777 24.7802 5.40187 23.7573 5.3399 22.6694L5.33323 22.4267V21.0934C5.33311 20.7339 5.21193 20.3849 4.98923 20.1027L4.86923 19.9694L3.9399 19.0387C3.16961 18.2728 2.72046 17.2419 2.68404 16.1562C2.64762 15.0706 3.02667 14.0119 3.7439 13.1961L3.93723 12.9907L4.8679 12.0601C5.12165 11.8047 5.28184 11.4711 5.32256 11.1134L5.33323 10.9334V9.60006L5.3399 9.3574C5.39943 8.31132 5.8418 7.32373 6.58268 6.58285C7.32356 5.84196 8.31116 5.3996 9.35723 5.34006L9.5999 5.3334H10.9332C11.2927 5.33328 11.6417 5.2121 11.9239 4.9894L12.0572 4.8694L12.9879 3.94006C13.3843 3.54125 13.8557 3.22474 14.3749 3.00873C14.8941 2.79272 15.4509 2.68148 16.0132 2.6814ZM20.9426 12.3907C20.6925 12.1408 20.3535 12.0003 19.9999 12.0003C19.6463 12.0003 19.3073 12.1408 19.0572 12.3907L14.6666 16.7801L12.9426 15.0574L12.8172 14.9467C12.5492 14.7395 12.2124 14.6421 11.8752 14.6742C11.538 14.7063 11.2256 14.8656 11.0016 15.1197C10.7775 15.3738 10.6586 15.7036 10.6689 16.0422C10.6793 16.3808 10.8181 16.7028 11.0572 16.9427L13.7239 19.6094L13.8492 19.7201C14.1058 19.9191 14.4261 20.0176 14.7501 19.9972C15.0742 19.9769 15.3796 19.839 15.6092 19.6094L20.9426 14.2761L21.0532 14.1507C21.2522 13.8942 21.3508 13.5739 21.3304 13.2498C21.31 12.9258 21.1721 12.6203 20.9426 12.3907Z"
-                      fill="#2BA943"
-                    />
-                  </svg>
+                    <div class="flex items-center gap-[10px]">
+                      <div
+                        class="h-[52px] w-[52px] overflow-hidden rounded-xl xs:h-10 xs:w-10"
+                      >
+                        <img
+                          class="applied-bonus-img"
+                          width="52"
+                          height="52"
+                          src="./img/twoStepFormImg/two-step-bonus-img1.webp"
+                          alt="Image"
+                        />
+                      </div>
+                      <div class="space-y-[5px]">
+                        <p
+                          data-translate="welcomeBonus"
+                          class="applied-bonus-name small:text-sm text-lg font-bold leading-[117%] tracking-[0.02em]"
+                        >
+                          Welcome Bonus
+                        </p>
+                        <p
+                          class="applied-bonus-text small:text-xs text-[15px] leading-[160%]"
+                        >
+                          <span class="two-step-welcome-amount"></span>
+                          <span class="two-step-welcome-symbol"></span> +
+                          <span class="two-step-bonus-spins"></span>
+                          <span data-translate="welcomeBonusText"
+                            >on your first deposit</span
+                          >
+                        </p>
+                      </div>
+                    </div>
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.0132 2.6814C17.0503 2.68146 18.0518 3.05922 18.8306 3.74406L19.0359 3.9374L19.9666 4.86806C20.222 5.12181 20.5555 5.282 20.9132 5.32273L21.0932 5.3334H22.4266C23.5162 5.33334 24.5645 5.75016 25.3567 6.49838C26.1488 7.24661 26.6246 8.26954 26.6866 9.3574L26.6932 9.60006V10.9334C26.6932 11.2934 26.8159 11.6441 27.0372 11.9241L27.1572 12.0574L28.0866 12.9881C28.8569 13.754 29.306 14.7849 29.3424 15.8706C29.3788 16.9562 28.9998 18.0149 28.2826 18.8307L28.0892 19.0361L27.1586 19.9667C26.9048 20.2221 26.7446 20.5557 26.7039 20.9134L26.6932 21.0934V22.4267C26.6933 23.5164 26.2765 24.5647 25.5282 25.3568C24.78 26.1489 23.7571 26.6248 22.6692 26.6867L22.4266 26.6934H21.0932C20.7337 26.6935 20.3848 26.8147 20.1026 27.0374L19.9692 27.1574L19.0386 28.0867C18.2726 28.857 17.2417 29.3062 16.1561 29.3426C15.0704 29.379 14.0117 29 13.1959 28.2827L12.9906 28.0894L12.0599 27.1587C11.8045 26.905 11.471 26.7448 11.1132 26.7041L10.9332 26.6934H9.5999C8.51027 26.6935 7.46192 26.2766 6.66981 25.5284C5.8777 24.7802 5.40187 23.7573 5.3399 22.6694L5.33323 22.4267V21.0934C5.33311 20.7339 5.21193 20.3849 4.98923 20.1027L4.86923 19.9694L3.9399 19.0387C3.16961 18.2728 2.72046 17.2419 2.68404 16.1562C2.64762 15.0706 3.02667 14.0119 3.7439 13.1961L3.93723 12.9907L4.8679 12.0601C5.12165 11.8047 5.28184 11.4711 5.32256 11.1134L5.33323 10.9334V9.60006L5.3399 9.3574C5.39943 8.31132 5.8418 7.32373 6.58268 6.58285C7.32356 5.84196 8.31116 5.3996 9.35723 5.34006L9.5999 5.3334H10.9332C11.2927 5.33328 11.6417 5.2121 11.9239 4.9894L12.0572 4.8694L12.9879 3.94006C13.3843 3.54125 13.8557 3.22474 14.3749 3.00873C14.8941 2.79272 15.4509 2.68148 16.0132 2.6814ZM20.9426 12.3907C20.6925 12.1408 20.3535 12.0003 19.9999 12.0003C19.6463 12.0003 19.3073 12.1408 19.0572 12.3907L14.6666 16.7801L12.9426 15.0574L12.8172 14.9467C12.5492 14.7395 12.2124 14.6421 11.8752 14.6742C11.538 14.7063 11.2256 14.8656 11.0016 15.1197C10.7775 15.3738 10.6586 15.7036 10.6689 16.0422C10.6793 16.3808 10.8181 16.7028 11.0572 16.9427L13.7239 19.6094L13.8492 19.7201C14.1058 19.9191 14.4261 20.0176 14.7501 19.9972C15.0742 19.9769 15.3796 19.839 15.6092 19.6094L20.9426 14.2761L21.0532 14.1507C21.2522 13.8942 21.3508 13.5739 21.3304 13.2498C21.31 12.9258 21.1721 12.6203 20.9426 12.3907Z"
+                        fill="#2BA943"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="promocode-applied-badge rounded-b-2xl bg-[#4ED937] p-2 text-center font-bold text-white"
+                  >
+                    <p
+                      data-translate="youWillGetFreeSpins"
+                      class="promocode-applied-badge-text promocode-applied-badge-freespins"
+                    >
+                      You will get freespins
+                    </p>
+                    <p
+                      data-translate="youWillGetNodepBonus"
+                      class="promocode-applied-badge-text promocode-applied-badge-nodep"
+                    >
+                      You will get without deposit bonus
+                    </p>
+                  </div>
                 </div>
                 <!-- first name -->
                 <div
@@ -1133,7 +1241,7 @@
                   />
                   <label
                     data-translate="namePlaceholder"
-                    class="two-step-general-label two-step-first-name-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
+                    class="two-step-general-label two-step-required-label two-step-first-name-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
                     >Enter Name</label
                   >
                 </div>
@@ -1147,7 +1255,7 @@
                   />
                   <label
                     data-translate="lastNamePlaceholder"
-                    class="two-step-general-label two-step-last-name-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
+                    class="two-step-general-label two-step-required-label two-step-last-name-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
                     >Enter Last Name</label
                   >
                 </div>
@@ -1314,7 +1422,7 @@
                 </div>
                 <button
                   type="button"
-                  class="next-step-btn mt-[15px] grid w-full grid-cols-[auto_1fr_auto] gap-1 rounded-2xl bg-[#f4fd2b] px-[14px] py-5 text-lg font-bold tracking-[0.02em] text-[#0f0f0f] sm:text-base xs:mt-[10px] xs:py-4"
+                  class="next-step-btn small:text-base mt-[15px] grid w-full grid-cols-[auto_1fr_auto] gap-1 rounded-2xl bg-[#f4fd2b] px-[14px] py-5 text-lg font-bold tracking-[0.02em] text-[#0f0f0f] xs:mt-[10px] xs:py-4"
                 >
                   <span class="disable-overlap"></span>
                   <span class="h-6 w-6"></span>
@@ -1340,60 +1448,79 @@
               <div
                 class="two-step-form-step two-step-form-step-4 space-y-[15px] xs:space-y-[10px]"
               >
-                <div class="space-y-[5px] text-center">
+                <div class="space-y-[5px] text-center text-white">
                   <p
                     data-translate="step4Title"
-                    class="text-2xl font-bold tracking-[0.02em] text-white xs:text-[20px]"
+                    class="text-2xl font-bold tracking-[0.02em] xs:text-[20px]"
                   >
                     Select Currency
                   </p>
                 </div>
                 <!-- Bonus applied -->
-                <div
-                  class="applied-bonus-wrapper relative flex items-center justify-between gap-5 rounded-2xl border-[3px] border-[#2ba943] bg-[#2BA943]/25 p-[10px] text-white xs:mt-[10px]"
-                >
-                  <div class="flex items-center gap-[10px]">
-                    <div
-                      class="h-[52px] w-[52px] overflow-hidden rounded-xl xs:h-10 xs:w-10"
-                    >
-                      <img
-                        class="applied-bonus-img"
-                        width="52"
-                        height="52"
-                        src="./img/twoStepFormImg/two-step-bonus-img1.webp"
-                        alt="Image"
-                      />
-                    </div>
-                    <div class="space-y-[5px]">
-                      <p
-                        data-translate="welcomeBonus"
-                        class="applied-bonus-name text-lg font-bold leading-[117%] tracking-[0.02em] sm:text-sm"
-                      >
-                        Welcome Bonus
-                      </p>
-                      <p
-                        class="applied-bonus-text text-[15px] leading-[160%] sm:text-xs"
-                      >
-                        <span class="applied-bonus-percent">200%</span> +
-                        <span class="applied-bonus-spins">25FS</span>
-                        <span data-translate="welcomeBonusText"
-                          >on your first deposit</span
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                <div class="promocode-applied-wrapper">
+                  <div
+                    class="applied-bonus-wrapper relative flex items-center justify-between gap-5 rounded-2xl border-[3px] border-[#2ba943] bg-[#2BA943]/25 p-[10px] text-white xs:mt-[10px]"
                   >
-                    <path
-                      d="M16.0132 2.6814C17.0503 2.68146 18.0518 3.05922 18.8306 3.74406L19.0359 3.9374L19.9666 4.86806C20.222 5.12181 20.5555 5.282 20.9132 5.32273L21.0932 5.3334H22.4266C23.5162 5.33334 24.5645 5.75016 25.3567 6.49838C26.1488 7.24661 26.6246 8.26954 26.6866 9.3574L26.6932 9.60006V10.9334C26.6932 11.2934 26.8159 11.6441 27.0372 11.9241L27.1572 12.0574L28.0866 12.9881C28.8569 13.754 29.306 14.7849 29.3424 15.8706C29.3788 16.9562 28.9998 18.0149 28.2826 18.8307L28.0892 19.0361L27.1586 19.9667C26.9048 20.2221 26.7446 20.5557 26.7039 20.9134L26.6932 21.0934V22.4267C26.6933 23.5164 26.2765 24.5647 25.5282 25.3568C24.78 26.1489 23.7571 26.6248 22.6692 26.6867L22.4266 26.6934H21.0932C20.7337 26.6935 20.3848 26.8147 20.1026 27.0374L19.9692 27.1574L19.0386 28.0867C18.2726 28.857 17.2417 29.3062 16.1561 29.3426C15.0704 29.379 14.0117 29 13.1959 28.2827L12.9906 28.0894L12.0599 27.1587C11.8045 26.905 11.471 26.7448 11.1132 26.7041L10.9332 26.6934H9.5999C8.51027 26.6935 7.46192 26.2766 6.66981 25.5284C5.8777 24.7802 5.40187 23.7573 5.3399 22.6694L5.33323 22.4267V21.0934C5.33311 20.7339 5.21193 20.3849 4.98923 20.1027L4.86923 19.9694L3.9399 19.0387C3.16961 18.2728 2.72046 17.2419 2.68404 16.1562C2.64762 15.0706 3.02667 14.0119 3.7439 13.1961L3.93723 12.9907L4.8679 12.0601C5.12165 11.8047 5.28184 11.4711 5.32256 11.1134L5.33323 10.9334V9.60006L5.3399 9.3574C5.39943 8.31132 5.8418 7.32373 6.58268 6.58285C7.32356 5.84196 8.31116 5.3996 9.35723 5.34006L9.5999 5.3334H10.9332C11.2927 5.33328 11.6417 5.2121 11.9239 4.9894L12.0572 4.8694L12.9879 3.94006C13.3843 3.54125 13.8557 3.22474 14.3749 3.00873C14.8941 2.79272 15.4509 2.68148 16.0132 2.6814ZM20.9426 12.3907C20.6925 12.1408 20.3535 12.0003 19.9999 12.0003C19.6463 12.0003 19.3073 12.1408 19.0572 12.3907L14.6666 16.7801L12.9426 15.0574L12.8172 14.9467C12.5492 14.7395 12.2124 14.6421 11.8752 14.6742C11.538 14.7063 11.2256 14.8656 11.0016 15.1197C10.7775 15.3738 10.6586 15.7036 10.6689 16.0422C10.6793 16.3808 10.8181 16.7028 11.0572 16.9427L13.7239 19.6094L13.8492 19.7201C14.1058 19.9191 14.4261 20.0176 14.7501 19.9972C15.0742 19.9769 15.3796 19.839 15.6092 19.6094L20.9426 14.2761L21.0532 14.1507C21.2522 13.8942 21.3508 13.5739 21.3304 13.2498C21.31 12.9258 21.1721 12.6203 20.9426 12.3907Z"
-                      fill="#2BA943"
-                    />
-                  </svg>
+                    <div class="flex items-center gap-[10px]">
+                      <div
+                        class="h-[52px] w-[52px] overflow-hidden rounded-xl xs:h-10 xs:w-10"
+                      >
+                        <img
+                          class="applied-bonus-img"
+                          width="52"
+                          height="52"
+                          src="./img/twoStepFormImg/two-step-bonus-img1.webp"
+                          alt="Image"
+                        />
+                      </div>
+                      <div class="space-y-[5px]">
+                        <p
+                          data-translate="welcomeBonus"
+                          class="applied-bonus-name small:text-sm text-lg font-bold leading-[117%] tracking-[0.02em]"
+                        >
+                          Welcome Bonus
+                        </p>
+                        <p
+                          class="applied-bonus-text small:text-xs text-[15px] leading-[160%]"
+                        >
+                          <span class="two-step-welcome-amount"></span>
+                          <span class="two-step-welcome-symbol"></span> +
+                          <span class="two-step-bonus-spins"></span>
+                          <span data-translate="welcomeBonusText"
+                            >on your first deposit</span
+                          >
+                        </p>
+                      </div>
+                    </div>
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M16.0132 2.6814C17.0503 2.68146 18.0518 3.05922 18.8306 3.74406L19.0359 3.9374L19.9666 4.86806C20.222 5.12181 20.5555 5.282 20.9132 5.32273L21.0932 5.3334H22.4266C23.5162 5.33334 24.5645 5.75016 25.3567 6.49838C26.1488 7.24661 26.6246 8.26954 26.6866 9.3574L26.6932 9.60006V10.9334C26.6932 11.2934 26.8159 11.6441 27.0372 11.9241L27.1572 12.0574L28.0866 12.9881C28.8569 13.754 29.306 14.7849 29.3424 15.8706C29.3788 16.9562 28.9998 18.0149 28.2826 18.8307L28.0892 19.0361L27.1586 19.9667C26.9048 20.2221 26.7446 20.5557 26.7039 20.9134L26.6932 21.0934V22.4267C26.6933 23.5164 26.2765 24.5647 25.5282 25.3568C24.78 26.1489 23.7571 26.6248 22.6692 26.6867L22.4266 26.6934H21.0932C20.7337 26.6935 20.3848 26.8147 20.1026 27.0374L19.9692 27.1574L19.0386 28.0867C18.2726 28.857 17.2417 29.3062 16.1561 29.3426C15.0704 29.379 14.0117 29 13.1959 28.2827L12.9906 28.0894L12.0599 27.1587C11.8045 26.905 11.471 26.7448 11.1132 26.7041L10.9332 26.6934H9.5999C8.51027 26.6935 7.46192 26.2766 6.66981 25.5284C5.8777 24.7802 5.40187 23.7573 5.3399 22.6694L5.33323 22.4267V21.0934C5.33311 20.7339 5.21193 20.3849 4.98923 20.1027L4.86923 19.9694L3.9399 19.0387C3.16961 18.2728 2.72046 17.2419 2.68404 16.1562C2.64762 15.0706 3.02667 14.0119 3.7439 13.1961L3.93723 12.9907L4.8679 12.0601C5.12165 11.8047 5.28184 11.4711 5.32256 11.1134L5.33323 10.9334V9.60006L5.3399 9.3574C5.39943 8.31132 5.8418 7.32373 6.58268 6.58285C7.32356 5.84196 8.31116 5.3996 9.35723 5.34006L9.5999 5.3334H10.9332C11.2927 5.33328 11.6417 5.2121 11.9239 4.9894L12.0572 4.8694L12.9879 3.94006C13.3843 3.54125 13.8557 3.22474 14.3749 3.00873C14.8941 2.79272 15.4509 2.68148 16.0132 2.6814ZM20.9426 12.3907C20.6925 12.1408 20.3535 12.0003 19.9999 12.0003C19.6463 12.0003 19.3073 12.1408 19.0572 12.3907L14.6666 16.7801L12.9426 15.0574L12.8172 14.9467C12.5492 14.7395 12.2124 14.6421 11.8752 14.6742C11.538 14.7063 11.2256 14.8656 11.0016 15.1197C10.7775 15.3738 10.6586 15.7036 10.6689 16.0422C10.6793 16.3808 10.8181 16.7028 11.0572 16.9427L13.7239 19.6094L13.8492 19.7201C14.1058 19.9191 14.4261 20.0176 14.7501 19.9972C15.0742 19.9769 15.3796 19.839 15.6092 19.6094L20.9426 14.2761L21.0532 14.1507C21.2522 13.8942 21.3508 13.5739 21.3304 13.2498C21.31 12.9258 21.1721 12.6203 20.9426 12.3907Z"
+                        fill="#2BA943"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="promocode-applied-badge rounded-b-2xl bg-[#4ED937] p-2 text-center font-bold text-white"
+                  >
+                    <p
+                      data-translate="youWillGetFreeSpins"
+                      class="promocode-applied-badge-text promocode-applied-badge-freespins"
+                    >
+                      You will get freespins
+                    </p>
+                    <p
+                      data-translate="youWillGetNodepBonus"
+                      class="promocode-applied-badge-text promocode-applied-badge-nodep"
+                    >
+                      You will get without deposit bonus
+                    </p>
+                  </div>
                 </div>
                 <!-- Countries -->
                 <div
@@ -1555,254 +1682,6 @@
                           class="currency-item-icon"
                           width="24"
                           height="24"
-                          src="./img/currencies/usd.svg"
-                          alt="USD"
-                        />
-                        <span class="currency-item-name">US Dollar</span>
-                        <div>
-                          <span class="currency-item-symbol">$</span>
-                          |
-                          <span class="currency-item-abbr">USD</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/kzt.svg"
-                          alt="KZT"
-                        />
-                        <span class="currency-item-name"
-                          >Kazakhstani Tenge</span
-                        >
-                        <div>
-                          <span class="currency-item-symbol">₸</span>
-                          |
-                          <span class="currency-item-abbr">KZT</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/try.svg"
-                          alt="TRY"
-                        />
-                        <span class="currency-item-name">Turkish Lira</span>
-                        <div>
-                          <span class="currency-item-symbol">₺</span>
-                          |
-                          <span class="currency-item-abbr">TRY</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/azn.svg"
-                          alt="AZN"
-                        />
-                        <span class="currency-item-name"
-                          >Azerbaijani Manat</span
-                        >
-                        <div>
-                          <span class="currency-item-symbol">₼</span>
-                          |
-                          <span class="currency-item-abbr">AZN</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/uzs.svg"
-                          alt="UZS"
-                        />
-                        <span class="currency-item-name">Uzbekistani Som</span>
-                        <div>
-                          <span class="currency-item-symbol">SO’M</span>
-                          |
-                          <span class="currency-item-abbr">UZS</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/uah.svg"
-                          alt="UAH"
-                        />
-                        <span class="currency-item-name"
-                          >Ukrainian Hryvnia</span
-                        >
-                        <div>
-                          <span class="currency-item-symbol">₴</span>
-                          |
-                          <span class="currency-item-abbr">UAH</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/kgs.svg"
-                          alt="KGS"
-                        />
-                        <span class="currency-item-name">Kyrgyzstani Som</span>
-                        <div>
-                          <span class="currency-item-symbol">с</span>
-                          |
-                          <span class="currency-item-abbr">KGS</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/brl.svg"
-                          alt="BRL"
-                        />
-                        <span class="currency-item-name">Brazilian real</span>
-                        <div>
-                          <span class="currency-item-symbol">R$</span>
-                          |
-                          <span class="currency-item-abbr">BRL</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/ars.svg"
-                          alt="ARS"
-                        />
-                        <span class="currency-item-name">Argentine Peso</span>
-                        <div>
-                          <span class="currency-item-symbol">$</span>
-                          |
-                          <span class="currency-item-abbr">ARS</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/aud.svg"
-                          alt="AUD"
-                        />
-                        <span class="currency-item-name"
-                          >Australian Dollar</span
-                        >
-                        <div>
-                          <span class="currency-item-symbol">AU$</span>
-                          |
-                          <span class="currency-item-abbr">AUD</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/bdt.svg"
-                          alt="BDT"
-                        />
-                        <span class="currency-item-name">Bangladeshi Taka</span>
-                        <div>
-                          <span class="currency-item-symbol">৳</span>
-                          |
-                          <span class="currency-item-abbr">BDT</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/cad.svg"
-                          alt="CAD"
-                        />
-                        <span class="currency-item-name">Canadian Dollar</span>
-                        <div>
-                          <span class="currency-item-symbol">$</span>
-                          |
-                          <span class="currency-item-abbr">CAD</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/inr.svg"
-                          alt="INR"
-                        />
-                        <span class="currency-item-name">Indian Rupee</span>
-                        <div>
-                          <span class="currency-item-symbol">₹</span>
-                          |
-                          <span class="currency-item-abbr">INR</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
-                          src="./img/currencies/nzd.svg"
-                          alt="NZD"
-                        />
-                        <span class="currency-item-name"
-                          >New Zealand Dollar</span
-                        >
-                        <div>
-                          <span class="currency-item-symbol">NZ$</span>
-                          |
-                          <span class="currency-item-abbr">NZD</span>
-                        </div>
-                      </li>
-                      <li
-                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
-                      >
-                        <img
-                          class="currency-item-icon"
-                          width="24"
-                          height="24"
                           src="./img/currencies/ron.svg"
                           alt="RON"
                         />
@@ -1898,6 +1777,23 @@
                           <span class="currency-item-abbr">PLN</span>
                         </div>
                       </li>
+                      <li
+                        class="grid cursor-pointer grid-cols-[auto_1fr_auto] gap-2 border-b border-[#755EEB]/20 bg-white px-4 py-[10px] text-base font-bold text-[#1c1c1c] transition-all [&.active]:bg-[#b4aae7]"
+                      >
+                        <img
+                          class="currency-item-icon"
+                          width="24"
+                          height="24"
+                          src="./img/currencies/nok.svg"
+                          alt="PLN"
+                        />
+                        <span class="currency-item-name">Norwegian krone</span>
+                        <div>
+                          <span class="currency-item-symbol">kr</span>
+                          |
+                          <span class="currency-item-abbr">NOK</span>
+                        </div>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -1926,7 +1822,7 @@
                   />
                   <label
                     data-translate="addressPlaceholder"
-                    class="two-step-general-label two-step-address-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
+                    class="two-step-general-label two-step-required-label two-step-address-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
                     >Enter Address</label
                   >
                 </div>
@@ -1940,7 +1836,7 @@
                   />
                   <label
                     data-translate="cityPlaceholder"
-                    class="two-step-general-label two-step-city-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
+                    class="two-step-general-label two-step-required-label two-step-city-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
                     >Enter City</label
                   >
                 </div>
@@ -1975,7 +1871,7 @@
                   </div>
                   <label
                     data-translate="statePlaceholder"
-                    class="two-step-state-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
+                    class="two-step-state-label two-step-required-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
                     >Choose Province</label
                   >
                   <ul
@@ -2058,13 +1954,13 @@
                   />
                   <label
                     data-translate="zipCodePlaceholder"
-                    class="two-step-general-label two-step-zipcode-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
+                    class="two-step-general-label two-step-required-label two-step-zipcode-label pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 font-bold text-[#585858] transition-all"
                     >Enter ZIP Code</label
                   >
                 </div>
                 <button
                   type="submit"
-                  class="submit-btn mt-[15px] flex min-h-[68px] w-full justify-center gap-[6px] rounded-2xl bg-[#f4fd2b] px-[14px] py-5 text-lg font-bold tracking-[0.02em] text-[#0f0f0f] sm:text-base xs:mt-[10px] xs:py-4"
+                  class="submit-btn small:text-base mt-[15px] flex min-h-[68px] w-full justify-center gap-[6px] rounded-2xl bg-[#f4fd2b] px-[14px] py-5 text-lg font-bold tracking-[0.02em] text-[#0f0f0f] xs:mt-[10px] xs:py-4"
                 >
                   <span class="disable-overlap"></span>
                   <svg
@@ -2167,7 +2063,7 @@
         </div>
         <!-- Progress -->
         <div
-          class="flex w-full items-center justify-center text-[18px] font-bold leading-[117%] sm:-order-3"
+          class="small:-order-3 flex w-full items-center justify-center text-[18px] font-bold leading-[117%]"
         >
           <div
             class="two-step-progress-circle active flex h-8 w-8 items-center justify-center rounded-full border border-[#8726ff] text-white"
@@ -2196,7 +2092,7 @@
       </div>
     </div>
     <div
-      class="preloader pointer-events-none fixed left-0 top-0 z-[1000] grid h-screen w-full place-items-center bg-[#410c10]"
+      class="preloader pointer-events-none fixed left-0 top-0 z-[1000] grid h-screen w-full place-items-center bg-[#270541]"
     >
       <svg
         width="106"

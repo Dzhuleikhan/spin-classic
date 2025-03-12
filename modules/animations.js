@@ -26,48 +26,17 @@ gsap.to(".dot-even", {
   delay: 0.5,
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  mm.add("(min-width: 768px)", () => {
-    gsap.fromTo(
-      ".camel-img",
-      { x: -100, alpha: 0 },
-      { x: 0, alpha: 1, duration: 0.5, delay: 1.3 },
-    );
-    gsap.fromTo(
-      ".money-img",
-      { y: -40, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
-    );
-    gsap.fromTo(
-      ".money-img-2",
-      { y: -40, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
-    );
-    gsap.fromTo(
-      ".wheel-big-text",
-      { y: 40, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
-    );
-  });
-
-  mm.add("(max-width: 360px) and (max-height: 600px)", () => {
-    gsap.fromTo(
-      ".camel-img",
-      { y: 100, alpha: 0 },
-      { y: 0, alpha: 1, duration: 0.5, delay: 1.3 },
-    );
-  });
-});
-
 gsap.to(".money-img", {
   rotate: Math.random() * 20 - 10,
-  duration: 2,
+  duration: 3,
   yoyo: true,
   repeat: -1,
+  ease: "none",
 });
-gsap.to(".money-img-2", {
+gsap.to(".money-img", {
   rotate: Math.random() * 20 - 10,
-  duration: 2,
+  duration: 3,
   yoyo: true,
   repeat: -1,
+  ease: "none",
 });

@@ -50,23 +50,6 @@
   }
 }
 
-.money-portal::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 29px 98px 0 rgba(0, 0, 0, 0.4);
-  background: linear-gradient(270deg,
-      rgba(255, 255, 255, 0.15) 0%,
-      #fff 30%,
-      rgba(255, 255, 255, 0.49) 50%,
-      #fff 69.5%,
-      rgba(255, 255, 255, 0.15) 100%);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 5;
-}
-
 .spin-btn-text {
   text-shadow: 0 9px 9px #000;
 }
@@ -80,6 +63,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .number div {
@@ -864,28 +848,80 @@ input:-webkit-autofill:hover {
   z-index: 500;
 }
 
-.header-bg-wrapper {
-  filter: drop-shadow(0 0 15px #00000070);
-}
-
 .wheel-big-text p {
   text-shadow: 0 0 15px #000000;
 }
 
-.header-bg-wrapper-logo::before {
-  content: "";
-  background-color: #78030C;
-  width: 100%;
-  height: 50px;
-  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+.two-step-required-label::before {
+  content: '*';
+  color: #ff0000;
+  font-size: 12px;
   position: absolute;
-  left: 0;
-  bottom: -40px;
+  right: -10px;
+  top: -3px;
 }
 
+/* Promocode badge */
 
-@media (max-width: 992px) {
-  .header-bg-wrapper-logo::before {
-    bottom: -20px;
-  }
+.promocode-applied-badge {
+  display: none;
+}
+
+.promocode-applied-wrapper.is-applied .promocode-applied-badge {
+  display: block;
+}
+
+.promocode-applied-wrapper.is-applied .applied-bonus-wrapper {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #4ED937;
+}
+
+.promocode-applied-wrapper.is-applied .two-step-promocode-wrapper {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 2px solid #4ED937;
+}
+
+.promocode-applied-badge-text {
+  display: none;
+}
+
+.promocode-applied-badge-text.is-active {
+  display: block;
+}
+
+/* | URL PROMOCODE CHECK */
+
+.promocode-applied-wrapper.is-applied-from-url {
+  pointer-events: none;
+}
+
+.promocode-applied-wrapper.is-applied-from-url .two-step-promocode-btn {
+  display: none;
+}
+
+.promocode-applied-wrapper.is-applied-from-url .two-step-promocode-input {
+  color: #4ED937;
+}
+
+.promocode-applied-wrapper.is-applied-from-url .two-step-promocode-label {
+  font-size: 12px;
+  top: 12px;
+}
+
+.promocode-applied-wrapper.is-applied-from-url .two-step-promocode-apply-btn {
+  display: none;
+}
+
+.promocode-applied-wrapper.is-applied-from-url .two-step-promocode-valid-icon {
+  display: block;
+}
+
+.promocode-applied-wrapper.is-applied-from-url .two-step-promocode-wrapper {
+  display: flex;
+}
+
+.banknote {
+  opacity: 0;
 }

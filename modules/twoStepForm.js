@@ -1,10 +1,15 @@
-import { countryFlags } from "../public/data";
+import { countryCurrencyData, countryFlags } from "../public/data";
 import { geoData, getLocation } from "./geoLocation";
 import { twoStepiti } from "./itiTelInput";
 import { newDomain } from "./fetchingDomain";
 import { getUrlParameter } from "./params";
 import gsap from "gsap";
 import { canadaProvincesCities } from "../public/data";
+import flatpickr from "flatpickr";
+
+document.querySelectorAll("input").forEach((input) => {
+  input.setAttribute("autocomplete", "off");
+});
 
 // ? SOCIALS TWO STEP FORM
 
@@ -105,34 +110,32 @@ twoStepBonusCheckbox.forEach((checkbox) => {
 });
 
 export const settingInitialBonusValue = (currency) => {
-  if (exceptCurrencies.includes(currency)) {
-    document.querySelector(".two-step-bonus-percent").innerHTML = "100%";
-    document.querySelector(".two-step-bonus-spins").innerHTML = "200FS";
-    document
-      .querySelector(".welcome-bonus-input")
-      .setAttribute("data-text", "100% + 200FS on your first deposit");
-    document.querySelectorAll(".applied-bonus-percent").forEach((el) => {
-      el.innerHTML = "100%";
+  const currencyEntry = countryCurrencyData.find(
+    (entry) => entry.countryCurrency === currency,
+  );
+
+  if (currencyEntry) {
+    document.querySelectorAll(".two-step-welcome-amount").forEach((el) => {
+      el.innerHTML = currencyEntry.amount;
     });
-    document.querySelectorAll(".applied-bonus-spins").forEach((el) => {
-      el.innerHTML = "200FS";
+    document.querySelectorAll(".two-step-welcome-symbol").forEach((el) => {
+      el.innerHTML = currencyEntry.countryCurrencySymbol;
+    });
+    document.querySelectorAll(".two-step-bonus-spins").forEach((el) => {
+      el.innerHTML = currencyEntry.spins;
     });
   } else {
-    document.querySelector(".two-step-bonus-percent").innerHTML = "200%";
-    document.querySelector(".two-step-bonus-spins").innerHTML = "25FS";
-    document
-      .querySelector(".welcome-bonus-input")
-      .setAttribute("data-text", "200% + 25FS on your first deposit");
-    document.querySelectorAll(".applied-bonus-percent").forEach((el) => {
-      el.innerHTML = "200%";
+    document.querySelectorAll(".two-step-welcome-amount").forEach((el) => {
+      el.innerHTML = "4500";
     });
-    document.querySelectorAll(".applied-bonus-spins").forEach((el) => {
-      el.innerHTML = "25FS";
+    document.querySelectorAll(".two-step-welcome-symbol").forEach((el) => {
+      el.innerHTML = "€";
+    });
+    document.querySelectorAll(".two-step-bonus-spins").forEach((el) => {
+      el.innerHTML = "200FS";
     });
   }
 };
-
-settingInitialBonusValue(twoStepFormData.currency);
 
 // | INPUTS
 const twoStepGeneralInput = document.querySelectorAll(
@@ -321,10 +324,27 @@ if (twoStepFormThirdStep) {
   let isValidDate;
   let isValidAge;
 
-  twoStepBirthdayInput.addEventListener("input", function (e) {
-    let value = twoStepBirthdayInput.value.replace(/\D/g, ""); // Удаляем все нецифровые символы
+  const calendar = flatpickr(twoStepBirthdayInput, {
+    allowInput: true,
+    dateFormat: "d.m.Y",
+    maxDate: "today",
+    disableMobile: true,
+  });
 
-    if (value.length > 8) value = value.slice(0, 8); // Ограничиваем ввод до 8 цифр
+  document
+    .querySelector(".two-step-birthday-btn")
+    .addEventListener("click", () => {
+      calendar.open();
+    });
+
+  twoStepBirthdayInput.addEventListener("focus", () => {
+    calendar.close();
+  });
+
+  twoStepBirthdayInput.addEventListener("input", function (e) {
+    let value = twoStepBirthdayInput.value.replace(/\D/g, ""); // Remove non-numeric characters
+
+    if (value.length > 8) value = value.slice(0, 8); // Limit input to 8 digits
 
     let formattedValue = "";
 
@@ -334,34 +354,49 @@ if (twoStepFormThirdStep) {
 
     twoStepBirthdayInput.value = formattedValue;
 
-    // Проверяем на валидность, если длина ввода 10 символов
+    if (value.length >= 8) {
+      calendar.setDate(formattedValue);
+      calendar.close();
+    }
+
     if (formattedValue.length === 10) {
+      // Validate when input is fully entered
       const dateParts = formattedValue.split(".");
       const day = parseInt(dateParts[0], 10);
       const month = parseInt(dateParts[1], 10);
       const year = parseInt(dateParts[2], 10);
 
+      // Convert to ISO format (YYYY-MM-DD)
       const isoDate = convertToISODate(year, month, day);
-
       twoStepFormData.birthday = isoDate;
 
       function convertToISODate(year, month, day) {
-        // Create a Date object (Note: months are 0-indexed in JavaScript)
         const date = new Date(Date.UTC(year, month - 1, day));
-
-        // Convert to ISO 8601 format (YYYY-MM-DD)
         return date.toISOString().split("T")[0];
       }
 
+      const currentYear = new Date().getFullYear(); // ✅ Added to get the current year for validation
       isValidDate = validateDate(day, month, year);
-      isValidAge = validateAge(year, month, day);
 
-      isValidDate
-        ? twoStepBirthdayAlertInvalid.classList.add("hidden")
-        : twoStepBirthdayAlertInvalid.classList.remove("hidden"),
-        isValidAge
-          ? twoStepBirthdayAlert.classList.add("hidden")
-          : twoStepBirthdayAlert.classList.remove("hidden");
+      // ✅ If the year is in the future, mark as an invalid date but prevent age validation
+      if (year > currentYear) {
+        isValidDate = false;
+        isValidAge = true; // ✅ Prevents the "must be 18+" error when year > current year
+      } else {
+        isValidAge = validateAge(year, month, day); // ✅ Only validate age if date is valid and in the past
+      }
+
+      // ✅ Adjusted error display logic
+      if (!isValidDate) {
+        twoStepBirthdayAlertInvalid.classList.remove("hidden");
+        twoStepBirthdayAlert.classList.add("hidden");
+      } else if (!isValidAge) {
+        twoStepBirthdayAlertInvalid.classList.add("hidden");
+        twoStepBirthdayAlert.classList.remove("hidden");
+      } else {
+        twoStepBirthdayAlertInvalid.classList.add("hidden");
+        twoStepBirthdayAlert.classList.add("hidden");
+      }
     }
   });
 
@@ -795,6 +830,7 @@ const showStep = (step) => {
     headerbackBtn.classList.remove("is-visible");
   }
 };
+// showStep(2);
 
 nextStepBtn.forEach((btn) => {
   if (btn) {
