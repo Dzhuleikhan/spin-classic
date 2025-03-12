@@ -1,6 +1,7 @@
 export const translations = {
   // Англ
   en: {
+    pageTitle: "Casino Game on Goldbet - Play Roulette Games Online",
     pageTabTitle: "Sign Up for a Goldbet Casino Account",
     backBtn: "Back",
     // | Step 1
@@ -56,6 +57,8 @@ export const translations = {
   },
   // Фр
   fr: {
+    pageTitle:
+      "Jeu de casino sur Goldbet - Jouez à des jeux de roulette en ligne",
     pageTabTitle: "Inscrivez-vous pour un compte de casino Goldbet",
     backBtn: "Retour",
     // | Step 1
@@ -112,6 +115,7 @@ export const translations = {
   },
   // Польский;
   pl: {
+    pageTitle: "Gra kasynowa na Goldbet – Graj w ruletkę online",
     pageTabTitle: "Zarejestruj konto w Goldbet Casino",
     backBtn: "Wstecz",
     // | Krok 1
@@ -167,6 +171,7 @@ export const translations = {
   },
   // Венгерский;
   hu: {
+    pageTitle: "Kaszinójáték a Goldbeten – Játssz rulett játékokat online",
     pageTabTitle: "Regisztrálj Goldbet Casino fiókot",
     backBtn: "Vissza",
     // | 1. lépés
@@ -222,6 +227,7 @@ export const translations = {
   },
   // Румынский;
   ro: {
+    pageTitle: "Joc de cazino pe Goldbet – Joacă jocuri de ruletă online",
     pageTabTitle: "Înregistrează un cont Goldbet Casino",
     backBtn: "Înapoi",
     // | Step 1
@@ -277,6 +283,7 @@ export const translations = {
   },
   // Словенский;
   sl: {
+    pageTitle: "Igralniška igra na Goldbet – Igrajte ruleto na spletu",
     pageTabTitle: "Registrirajte račun Goldbet Casino",
     backBtn: "Nazaj",
     // | Korak 1
@@ -332,6 +339,7 @@ export const translations = {
   },
   // Чешский;
   cs: {
+    pageTitle: "Kasínová hra na Goldbet – Hrajte ruletové hry online",
     pageTabTitle: "Zaregistrujte si účet v Goldbet Casinu",
     backBtn: "Zpět",
     // | Step 1
@@ -387,6 +395,7 @@ export const translations = {
   },
   // Русский;
   ru: {
+    pageTitle: "Казино в Goldbet – Играйте в рулетку онлайн",
     pageTabTitle: "Зарегистрируйтесь в казино Goldbet",
     backBtn: "Назад",
     // | Шаг 1
@@ -442,6 +451,7 @@ export const translations = {
   },
   // Португальский;
   pt: {
+    pageTitle: "Jogo de cassino na Goldbet – Jogue jogos de roleta online",
     pageTabTitle: "Registar no Goldbet Casino",
     backBtn: "Voltar",
     // | Etapa 1
@@ -497,6 +507,7 @@ export const translations = {
   },
   // Немецкий
   de: {
+    pageTitle: "Casino-Spiel auf Goldbet – Spielen Sie Roulette-Spiele online",
     pageTabTitle: "Registrieren Sie sich bei Goldbet Casino",
     backBtn: "Zurück",
     // | Schritt 1
@@ -552,6 +563,7 @@ export const translations = {
   },
   // Испанский;
   es: {
+    pageTitle: "Juego de casino en Goldbet – Juega a juegos de ruleta en línea",
     pageTabTitle: "Regístrate en Goldbet Casino",
     backBtn: "Atrás",
     // | Step 1
@@ -607,6 +619,7 @@ export const translations = {
   },
   // Словацкий;
   sk: {
+    pageTitle: "Kasínová hra na Goldbet – Hrajte ruletu online",
     pageTabTitle: "Zaregistrujte sa do Goldbet Casino",
     backBtn: "Späť",
     // | Step 1
@@ -663,6 +676,7 @@ export const translations = {
   // Шведский;
   // Норвежский;
   nb: {
+    pageTitle: "Kasino spill på Goldbet – Spill rulett spill online",
     pageTabTitle: "Registrer deg for en Goldbet Casino-konto",
     backBtn: "Tilbake",
     // | Step 1
@@ -718,6 +732,7 @@ export const translations = {
   },
   // Греческий;
   el: {
+    pageTitle: "Παιχνίδι καζίνο στο Goldbet – Παίξτε παιχνίδια ρουλέτας online",
     pageTabTitle: "Εγγραφείτε για λογαριασμό στο Goldbet Casino",
     backBtn: "Πίσω",
     // | Step 1
