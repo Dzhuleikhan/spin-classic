@@ -22,7 +22,7 @@ export function getCountryCurrencyIcon(inputCountry) {
 async function settingWheelCurrency() {
   try {
     let locationData = await getLocation();
-    const countryInput = locationData.currency.code;
+    let countryInput = locationData.currency.code;
     if (countryInput === "CHE") {
       countryInput = "CHF";
     }

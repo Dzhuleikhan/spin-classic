@@ -160,7 +160,7 @@ function setAmountsByLanguage(detectedCurrency) {
 }
 
 function settingBonusMoneyAmounts() {
-  const detectedCurrency = geoData.currency.code.toLowerCase();
+  let detectedCurrency = geoData.currency.code.toLowerCase();
 
   if (detectedCurrency === "che") {
     detectedCurrency = "chf";
