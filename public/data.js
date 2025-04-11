@@ -304,7 +304,7 @@ export const countryCurrencyData = [
     countryCurrencySymbol: "kr",
     countryCurrencyFullName: "Norwegian krone",
     countryCurrencyIcon: "./img/currencies/nok.svg",
-    amount: "16.400",
+    amount: "56.000",
     spins: "200FS",
     highrollerAmount: "2.200",
   },
