@@ -24,6 +24,7 @@ async function settingWheelCurrency() {
   try {
     let locationData = await getLocation();
     const countryInput = locationData.country;
+
     const currencyIcon = getCountryCurrencyIcon(countryInput);
 
     setCurrency(currencyIcon, "wheel-currency");
