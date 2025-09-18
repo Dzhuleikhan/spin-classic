@@ -889,3 +889,10 @@ input:-webkit-autofill:hover {
     bottom: -20px;
   }
 }
+
+/* States dropdown */
+
+.two-step-state-list-item {
+  border-bottom: 1px solid #755EEB30;
+  padding: 16px 12px;
+}
