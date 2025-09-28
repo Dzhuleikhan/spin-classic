@@ -1,5 +1,9 @@
 import { hidePreloader } from "./phoneRotate";
-import { countryLanguagesMap, SupportedLanguages } from "../public/data";
+import {
+  countryLanguagesMap,
+  SupportedLanguages,
+  countryZipCodeTranslates,
+} from "../public/data";
 
 export async function getLocation() {
   let url =
@@ -29,3 +33,9 @@ localStorage.setItem(
   "preferredLanguage",
   getSupportedLanguage(geoData.countryCode),
 );
+
+export const settingZipCodePlaceholder = (countryCode) => {
+  const zipCodeLabel = document.querySelector(".two-step-zipcode-label");
+  const placeholder = countryZipCodeTranslates[countryCode] || "ZIP Code";
+  zipCodeLabel.textContent = placeholder;
+};
