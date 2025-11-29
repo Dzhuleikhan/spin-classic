@@ -1,6 +1,6 @@
 import { changeModalLanguage } from "./modalLanguage";
 import { translations } from "/public/translations";
-import { getLocation } from "./geoLocation";
+import { geoData } from "./geoLocation";
 import { setPaymentMethods } from "./footerPayments";
 import { paymentCountries } from "../public/payments";
 import gsap from "gsap";
@@ -39,7 +39,7 @@ export const availableLang = [
 ];
 
 async function determineLanguage() {
-  const location = await getLocation();
+  const location = geoData;
   const countryLangMap = {
     EN: "en",
     ES: "es",
