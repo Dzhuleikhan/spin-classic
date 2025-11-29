@@ -10,13 +10,15 @@ export async function getLocation() {
     if (!response.ok) throw new Error("Bad API response");
 
     const data = await response.json();
-    localStorage.setItem("preferredLanguage", "kk");
-    hidePreloader();
     return data;
   } catch (err) {
     console.log("API failed, applying fallback GEO");
     return fallback;
   }
 }
+localStorage.setItem("preferredLanguage", "kk");
+setTimeout(() => {
+  hidePreloader();
+}, 1500);
 
 export let geoData = await getLocation();
