@@ -17,6 +17,8 @@ export async function getLocation() {
   }
 }
 localStorage.setItem("preferredLanguage", "az");
-hidePreloader();
+setTimeout(() => {
+  hidePreloader();
+}, 2000);
 
 export let geoData = await getLocation();
