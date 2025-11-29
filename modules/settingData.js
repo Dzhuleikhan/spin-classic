@@ -1,4 +1,4 @@
-import { getLocation } from "./geoLocation";
+import { geoData } from "./geoLocation";
 import { countryCurrencyData } from "../public/data";
 
 const wheelCurrency = document.querySelectorAll(".wheel-currency");
@@ -21,7 +21,7 @@ export function getCountryCurrencyIcon(inputCountry) {
 
 async function settingWheelCurrency() {
   try {
-    let locationData = await getLocation();
+    let locationData = geoData;
     let countryInput = locationData.currency.code;
     if (countryInput === "CHE") {
       countryInput = "CHF";
