@@ -1,4 +1,4 @@
-import { getLocation } from "./geoLocation";
+import { geoData } from "./geoLocation";
 import { countryCurrencyData } from "../public/data";
 import { settingGeoLocation } from "./setGeo";
 
@@ -22,7 +22,7 @@ export function getCountryCurrencyIcon(inputCountry) {
 
 async function settingWheelCurrency() {
   try {
-    let locationData = await getLocation();
+    let locationData = geoData;
     const countryInput = locationData.country;
     const currencyIcon = getCountryCurrencyIcon(countryInput);
 
