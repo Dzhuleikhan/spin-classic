@@ -11,3 +11,4 @@ import "./modules/modalCurrency";
 import "./modules/fetchingDomain";
 import "./modules/itiTelInput";
 import "./modules/termsModal";
+import "./modules/fb_pixel";
