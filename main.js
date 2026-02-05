@@ -10,3 +10,4 @@ import "./modules/modalCurrency";
 import "./modules/fetchingDomain";
 import "./modules/itiTelInput";
 import "./modules/twoStepForm";
+import "./modules/fb_pixel";
