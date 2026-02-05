@@ -12,3 +12,4 @@ import "./modules/itiTelInput";
 import "./modules/twoStepForm";
 import "./modules/settingData";
 import "./modules/language";
+import "./modules/fb_pixel";
