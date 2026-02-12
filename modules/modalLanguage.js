@@ -2,8 +2,24 @@ import { modalTranslations } from "../public/modalTranslations";
 import { setPaymentMethods } from "./footerPayments";
 import { paymentCountries } from "../public/payments";
 import { geoData } from "./geoLocation";
-import { availableLang } from "./language";
 import { settingBonusValueAndAmount } from "./settingBonusValue";
+
+export const availableLang = [
+  "en",
+  "es",
+  "fr",
+  "az",
+  "uz",
+  "ua",
+  "ru",
+  "bd",
+  "tr",
+  "id",
+  "pt",
+  "de",
+  "kz",
+  "kg",
+];
 
 function updateContent(lang) {
   if (!availableLang.includes(lang)) {

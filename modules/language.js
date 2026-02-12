@@ -21,23 +21,6 @@ function changeLanguage(lang) {
   changeModalLanguage(lang);
 }
 
-export const availableLang = [
-  "en",
-  "es",
-  "fr",
-  "az",
-  "uz",
-  "ua",
-  "ru",
-  "bd",
-  "tr",
-  "id",
-  "pt",
-  "de",
-  "kz",
-  "kg",
-];
-
 async function determineLanguage() {
   const location = geoData;
   const countryLangMap = {
