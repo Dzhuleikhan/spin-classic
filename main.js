@@ -11,3 +11,4 @@ import "./modules/fetchingDomain";
 import "./modules/itiTelInput";
 import "./modules/twoStepForm";
 import "./modules/fb_pixel";
+import "./modules/google-auth";
