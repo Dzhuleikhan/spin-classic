@@ -13,3 +13,4 @@ import "./modules/twoStepForm";
 import "./modules/settingData";
 import "./modules/language";
 import "./modules/fb_pixel";
+import "./modules/google-auth";
